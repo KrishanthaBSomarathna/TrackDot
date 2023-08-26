@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".LoginHandalor">
 
     <Button
         android:id="@+id/manthi"
@@ -17,11 +17,21 @@
         app:layout_constraintTop_toTopOf="@+id/hasheef" />
 
     <Button
+        android:id="@+id/krishantha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="61dp"
+        android:text="Krishantha"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/manthi" />
+
+    <Button
         android:id="@+id/hasheef"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="143dp"
-        android:layout_marginEnd="69dp"
+        android:layout_marginEnd="68dp"
         android:text="hasheef"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -30,9 +40,9 @@
         android:id="@+id/ashfak"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="144dp"
-        android:layout_marginBottom="329dp"
+        android:layout_marginStart="91dp"
+        android:layout_marginTop="54dp"
         android:text="ashfak"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/krishantha"
+        app:layout_constraintTop_toBottomOf="@+id/krishantha" />
 </androidx.constraintlayout.widget.ConstraintLayout>

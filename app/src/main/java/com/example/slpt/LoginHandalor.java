@@ -7,34 +7,41 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginHandalor extends AppCompatActivity {
 
-    Button manthi,hasheef,ashfak;
+    Button manthi,hasheef,ashfak,krishantha;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_loginhandalor);
         manthi = findViewById(R.id.manthi);
         hasheef = findViewById(R.id.hasheef);
         ashfak = findViewById(R.id.ashfak);
+        krishantha = findViewById(R.id.krishantha);
 
         manthi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, TicketBook.class));
+                startActivity(new Intent(LoginHandalor.this, TicketBook.class));
             }
         });
 
         hasheef.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, CargoDriver.class));
+                startActivity(new Intent(LoginHandalor.this, CargoDriver.class));
             }
         });
         ashfak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, TaxiBook.class));
+                startActivity(new Intent(LoginHandalor.this, TaxiBook.class));
+            }
+        });
+        krishantha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginHandalor.this, Passenger.class));
             }
         });
     }
