@@ -22,7 +22,7 @@ public class LoginHandalor extends AppCompatActivity {
         manthi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(LoginHandalor.this, TicketBook.class));
+                startActivity(new Intent(LoginHandalor.this, PassengerTicketBook.class));
             }
         });
 
@@ -35,13 +35,13 @@ public class LoginHandalor extends AppCompatActivity {
         ashfak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(LoginHandalor.this, TaxiBook.class));
+                startActivity(new Intent(LoginHandalor.this, PassengerTaxiBook.class));
             }
         });
         krishantha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(LoginHandalor.this, Passenger.class));
+                startActivity(new Intent(LoginHandalor.this, PassengerMainView.class));
             }
         });
     }
