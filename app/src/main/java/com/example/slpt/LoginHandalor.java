@@ -3,7 +3,9 @@ package com.example.slpt;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.location.LocationManager;
 import android.os.Bundle;
+
 import android.view.View;
 import android.widget.Button;
 
@@ -18,6 +20,8 @@ public class LoginHandalor extends AppCompatActivity {
         hasheef = findViewById(R.id.hasheef);
         ashfak = findViewById(R.id.ashfak);
         krishantha = findViewById(R.id.krishantha);
+
+
 
         manthi.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,4 +49,9 @@ public class LoginHandalor extends AppCompatActivity {
             }
         });
     }
+
+
+
+
+
 }
