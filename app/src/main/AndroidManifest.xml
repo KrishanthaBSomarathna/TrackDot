@@ -6,6 +6,9 @@
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission
+        android:name="android.permission.RECEIVE_SMS"
+        tools:ignore="PermissionImpliesUnsupportedChromeOsHardware" />
 
     <application
         android:allowBackup="true"
@@ -17,6 +20,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SLPT"
         tools:targetApi="31">
+        <activity
+            android:name=".UserType"
+            android:exported="false" />
+        <activity
+            android:name=".TaxiDriver"
+            android:exported="false" />
+        <activity
+            android:name=".VehicleProfile"
+            android:exported="false" />
         <activity
             android:name=".PassengerGuide"
             android:exported="false" />

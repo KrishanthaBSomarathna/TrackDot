@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="country_codes">
+        <item>+94 (LK)</item>
+        <item>+1 (US)</item>
+        <item>+44 (UK)</item>
+        <!-- Add more country codes here -->
+    </string-array>
+
+    <string-array name="user_type">
+        <item>UserTypes</item>
+        <item>Passenger</item>
+        <item>Bus Driver</item>
+        <item>Taxi Driver</item>
+        <item>Cargo Driver</item>
+        <!-- Add more country codes here -->
+    </string-array>
+
+</resources>

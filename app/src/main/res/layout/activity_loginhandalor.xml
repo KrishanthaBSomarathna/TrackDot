@@ -27,6 +27,16 @@
         app:layout_constraintTop_toBottomOf="@+id/manthi" />
 
     <Button
+        android:id="@+id/reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="236dp"
+        android:text="Reg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/manthi" />
+
+    <Button
         android:id="@+id/hasheef"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

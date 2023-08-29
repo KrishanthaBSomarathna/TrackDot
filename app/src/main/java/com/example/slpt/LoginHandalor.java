@@ -9,9 +9,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class LoginHandalor extends AppCompatActivity {
 
-    Button manthi,hasheef,ashfak,krishantha;
+    Button manthi,hasheef,ashfak,krishantha,reg;
+    FirebaseAuth firebaseAuth;
+    FirebaseUser firebaseUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,8 +26,22 @@ public class LoginHandalor extends AppCompatActivity {
         hasheef = findViewById(R.id.hasheef);
         ashfak = findViewById(R.id.ashfak);
         krishantha = findViewById(R.id.krishantha);
+        reg = findViewById(R.id.reg);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseUser = firebaseAuth.getCurrentUser();
+
+        if (firebaseUser!=null){
+            firebaseUser.getEmail();
+        }
 
 
+        reg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginHandalor.this, Register.class));
+            }
+        });
 
         manthi.setOnClickListener(new View.OnClickListener() {
             @Override
