@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -90,22 +89,39 @@ public class BusDriverDetails extends AppCompatActivity {
         savedata.setOnClickListener(new View.OnClickListener() {
 
 
-            String vnum = vehicleNumber.getText().toString();
-            String seatcount = seatCount.getText().toString();
-            String rnum = roadNumber.getText().toString();
 
-            String usertype = vehicleTypeSpinner.getSelectedItem().toString();
 
 
             @Override
             public void onClick(View view) {
-                if(usertype.equals("Select Bus Type")){
-                    Toast.makeText(getApplicationContext(),"Select Bus Type Please!",Toast.LENGTH_LONG).show();
-                }
-                vehicleNumber.setBackgroundResource(R.drawable.editbg_red_border);
+                String vnum = vehicleNumber.getText().toString();
+                String vname = vehicleName.getText().toString();
+                String seatcount = seatCount.getText().toString();
+                String rnum = roadNumber.getText().toString();
+                String bustype = vehicleTypeSpinner.getSelectedItem().toString().trim();
+                String startdes = startDestination.getText().toString();
+                String stopdes = stopDestination.getText().toString();
+                String r1start = r1StartTime.getText().toString();
+                String r1stop = r1StopTime.getText().toString();
+                String r2start = r2StartTime.getText().toString();
+                String r2stop = r2StopTime.getText().toString();
 
-                if(!vnum.equals("")&&!seatcount.equals("")&&!rnum.equals(""))
+                if(!bustype.equals("Select Bus Type")&&!vnum.equals("")&&!seatcount.equals("")&&!rnum.equals("")&&!startdes.equals("")&&!stopdes.equals("")&&!r1start.equals("")&&!r1stop.equals("")&&!r2start.equals("")&&!r2stop.equals(""))
                 {
+
+
+                        databaseReference.child("Bus Drivers").child(bustype).child(firebaseUser.getPhoneNumber()).child("vehicleNum").setValue(vnum);
+                        databaseReference.child("Bus Drivers").child(bustype).child(firebaseUser.getPhoneNumber()).child("vehicleName").setValue(vname);
+                        databaseReference.child("Bus Drivers").child(bustype).child(firebaseUser.getPhoneNumber()).child("seatcount").setValue(seatcount);
+                        databaseReference.child("Bus Drivers").child(bustype).child(firebaseUser.getPhoneNumber()).child("roadnumber").setValue(rnum);
+                        databaseReference.child("Bus Drivers").child(bustype).child(firebaseUser.getPhoneNumber()).child("startdestination").setValue(startdes);
+                        databaseReference.child("Bus Drivers").child(bustype).child(firebaseUser.getPhoneNumber()).child("stopdestination").setValue(stopdes);
+                        databaseReference.child("Bus Drivers").child(bustype).child(firebaseUser.getPhoneNumber()).child("r1start").setValue(r1start);
+                        databaseReference.child("Bus Drivers").child(bustype).child(firebaseUser.getPhoneNumber()).child("r1stop").setValue(r1stop);
+                        databaseReference.child("Bus Drivers").child(bustype).child(firebaseUser.getPhoneNumber()).child("r2start").setValue(r2start);
+                        databaseReference.child("Bus Drivers").child(bustype).child(firebaseUser.getPhoneNumber()).child("r2stop").setValue(r2stop);
+
+                        startActivity(new Intent(BusDriverDetails.this, BusDriverView.class));
 
                 }
                 else
@@ -120,6 +136,8 @@ public class BusDriverDetails extends AppCompatActivity {
                     r1StopTime.setBackgroundResource(R.drawable.editbg_red_border);
                     r2StartTime.setBackgroundResource(R.drawable.editbg_red_border);
                     r2StopTime.setBackgroundResource(R.drawable.editbg_red_border);
+                    vehicleTypeSpinner.setBackgroundResource(R.drawable.editbg_red_border);
+
 
 
 

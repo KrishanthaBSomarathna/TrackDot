@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".BusDriverView">
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="busview"
+        tools:layout_editor_absoluteX="130dp"
+        tools:layout_editor_absoluteY="271dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

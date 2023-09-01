@@ -59,7 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:background="@drawable/editbg"
+            android:background="@drawable/editbg_black_border"
             android:ems="10"
             android:padding="10dp"
             android:hint="VehicleNumber"
@@ -73,7 +73,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:background="@drawable/editbg"
+            android:background="@drawable/editbg_black_border"
             android:ems="10"
             android:padding="10dp"
             android:hint="VehicleName *optional*"
@@ -92,11 +92,11 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_margin="8dp"
-                android:background="@drawable/editbg"
+                android:background="@drawable/editbg_black_border"
                 android:ems="10"
                 android:padding="10dp"
                 android:hint="Start Destination"
-                android:inputType="time"
+                android:inputType="text"
                 android:textColor="@color/black"
                 />
 
@@ -106,11 +106,11 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_margin="8dp"
-                android:background="@drawable/editbg"
+                android:background="@drawable/editbg_black_border"
                 android:ems="10"
                 android:padding="10dp"
                 android:hint="Stop Destination"
-                android:inputType="time"
+                android:inputType="text"
                 android:textColor="@color/black"/>
         </LinearLayout>
 
@@ -134,7 +134,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_margin="8dp"
-                android:background="@drawable/editbg"
+                android:background="@drawable/editbg_black_border"
                 android:ems="10"
                 android:padding="10dp"
                 android:hint="Route Start Time"
@@ -149,7 +149,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_margin="8dp"
-                android:background="@drawable/editbg"
+                android:background="@drawable/editbg_black_border"
                 android:ems="10"
                 android:padding="10dp"
                 android:hint="Route Stop Time"
@@ -176,7 +176,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_margin="8dp"
-                android:background="@drawable/editbg"
+                android:background="@drawable/editbg_black_border"
                 android:ems="10"
                 android:padding="10dp"
                 android:hint="Route 01Start Time"
@@ -191,7 +191,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_margin="8dp"
-                android:background="@drawable/editbg"
+                android:background="@drawable/editbg_black_border"
                 android:ems="10"
                 android:padding="10dp"
                 android:hint="Route Stop Time"
@@ -209,7 +209,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:background="@drawable/editbg"
+            android:background="@drawable/editbg_black_border"
             android:ems="10"
             android:hint="Road Number Ex:'101'"
             android:inputType="text"
@@ -223,7 +223,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:background="@drawable/editbg"
+            android:background="@drawable/editbg_black_border"
             android:ems="10"
             android:hint="Seat Count Ex: '54'"
             android:textColor="@color/black"
@@ -234,13 +234,13 @@
 
         <Spinner
             android:id="@+id/vehicleTypeSpinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
             android:entries="@array/vehicle_types_array"
             android:spinnerMode="dialog"
             android:textColor="@color/black"
             android:layout_margin="8dp"
-            android:background="@drawable/editbg"/>
+            android:background="@drawable/editbg_black_border"/>
 
 
         <Button
