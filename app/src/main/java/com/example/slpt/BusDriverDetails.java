@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -95,8 +96,12 @@ public class BusDriverDetails extends AppCompatActivity {
 
             String usertype = vehicleTypeSpinner.getSelectedItem().toString();
 
+
             @Override
             public void onClick(View view) {
+                if(usertype.equals("Select Bus Type")){
+                    Toast.makeText(getApplicationContext(),"Select Bus Type Please!",Toast.LENGTH_LONG).show();
+                }
                 vehicleNumber.setBackgroundResource(R.drawable.editbg_red_border);
 
                 if(!vnum.equals("")&&!seatcount.equals("")&&!rnum.equals(""))
