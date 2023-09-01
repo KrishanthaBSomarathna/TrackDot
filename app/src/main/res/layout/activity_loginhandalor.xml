@@ -17,6 +17,16 @@
         app:layout_constraintTop_toTopOf="@+id/hasheef" />
 
     <Button
+        android:id="@+id/busd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="68dp"
+        android:layout_marginBottom="46dp"
+        android:text="busd"
+        app:layout_constraintBottom_toTopOf="@+id/ashfak"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
         android:id="@+id/krishantha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,8 +40,8 @@
         android:id="@+id/reg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="236dp"
+        android:layout_marginStart="204dp"
+        android:layout_marginTop="300dp"
         android:text="Reg"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/manthi" />
@@ -50,8 +60,8 @@
         android:id="@+id/ashfak"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="91dp"
-        android:layout_marginTop="54dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="80dp"
         android:text="ashfak"
         app:layout_constraintStart_toStartOf="@+id/krishantha"
         app:layout_constraintTop_toBottomOf="@+id/krishantha" />

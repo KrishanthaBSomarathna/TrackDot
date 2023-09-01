@@ -1,21 +1,18 @@
 package com.example.slpt;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.location.LocationManager;
 import android.os.Bundle;
-
 import android.view.View;
 import android.widget.Button;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class LoginHandalor extends AppCompatActivity {
 
-    Button manthi,hasheef,ashfak,krishantha,reg;
+    Button manthi,hasheef,ashfak,krishantha,reg,bus;
     FirebaseAuth firebaseAuth;
     FirebaseUser firebaseUser;
     @Override
@@ -27,6 +24,7 @@ public class LoginHandalor extends AppCompatActivity {
         ashfak = findViewById(R.id.ashfak);
         krishantha = findViewById(R.id.krishantha);
         reg = findViewById(R.id.reg);
+        bus = findViewById(R.id.busd);
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
@@ -40,6 +38,12 @@ public class LoginHandalor extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LoginHandalor.this, Register.class));
+            }
+        });
+        bus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginHandalor.this, BusDriverDetails.class));
             }
         });
 

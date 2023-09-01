@@ -17,11 +17,28 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"/>
+        <TextView
+            android:id="@+id/authfail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Try Another Phone Number or Try Later!"
+            android:textSize="20dp"
+            android:textColor="#FF0000"
+            android:layout_gravity="center"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
+
+
 
             <Spinner
                 android:id="@+id/spinnerCountryCode"
@@ -47,7 +64,7 @@
             android:layout_marginTop="16dp"
             android:entries="@array/user_type"
             android:layout_gravity="center"
-            android:spinnerMode="dropdown" />
+            android:spinnerMode="dialog" />
 
         <Button
             android:id="@+id/buttonSendOTP"
@@ -72,6 +89,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OTP Code Successfully Sent!!!"
+            android:textSize="20dp"
+            android:textColor="#00A624"
+            android:layout_gravity="center"/>
 
         <EditText
             android:id="@+id/editTextVerificationCode"

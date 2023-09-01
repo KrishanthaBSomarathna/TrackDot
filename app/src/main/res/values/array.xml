@@ -8,12 +8,18 @@
     </string-array>
 
     <string-array name="user_type">
-        <item>UserTypes</item>
+        <item>User Types</item>
         <item>Passenger</item>
         <item>Bus Driver</item>
         <item>Taxi Driver</item>
         <item>Cargo Driver</item>
         <!-- Add more country codes here -->
+    </string-array>
+    <string-array name="vehicle_types_array">
+        <item>Select Bus Type</item>
+        <item>CTB Bus</item>
+        <item>AC Bus</item>
+        <item>Private Bus</item>
     </string-array>
 
 </resources>

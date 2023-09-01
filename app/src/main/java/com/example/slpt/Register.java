@@ -6,7 +6,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -26,6 +28,9 @@ public class Register extends AppCompatActivity {
     private Button buttonSendOTP, buttonVerifyOTP;
 
     LinearLayout otp,sendotp;
+    private ProgressBar progressBar;
+
+    private TextView authfail;
 
 
     @Override
@@ -36,30 +41,32 @@ public class Register extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
+        authfail = findViewById(R.id.authfail);
+        authfail.setVisibility(View.GONE);
+
         editTextPhoneNumber = findViewById(R.id.editTextPhoneNumber);
         editTextVerificationCode = findViewById(R.id.editTextVerificationCode);
         buttonSendOTP = findViewById(R.id.buttonSendOTP);
         buttonVerifyOTP = findViewById(R.id.buttonVerifyOTP);
+        progressBar = findViewById(R.id.progressBar);
 
-//
+
         buttonSendOTP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String UserType = ((Spinner) findViewById(R.id.spinnerUserType)).getSelectedItem().toString();
+                String phoneNumber = editTextPhoneNumber.getText().toString().trim();
+                authfail.setVisibility(View.GONE);
 
-//
-
-                if(editTextPhoneNumber.getText().toString() == " "){
-                    Toast.makeText(getApplicationContext(),"Enter Phone Number",Toast.LENGTH_LONG).show();
-                }
-                else {
-
-                    if (UserType=="UserTypes"){
-                        Toast.makeText(getApplicationContext(),"Please Select User Type", Toast.LENGTH_LONG).show();
+                if (phoneNumber.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Enter Phone Number", Toast.LENGTH_LONG).show();
+                } else {
+                    if (UserType.equals("User Types")) {
+                        Toast.makeText(getApplicationContext(), "Please Select User Type", Toast.LENGTH_LONG).show();
+                    } else {
+                        sendVerificationCode(); // Call the function to send the OTP
                     }
-
                 }
-//                sendVerificationCode();
             }
         });
 
@@ -70,18 +77,27 @@ public class Register extends AppCompatActivity {
 
 
         buttonVerifyOTP.setOnClickListener(v -> {
+            String otp = editTextVerificationCode.getText().toString().trim();
 
-            String UserType = ((Spinner) findViewById(R.id.spinnerUserType)).getSelectedItem().toString();
-            Toast.makeText(getApplicationContext(),"Please Select User Type", Toast.LENGTH_LONG);
-            if (UserType!="User Types")
+            if (!otp.isEmpty())
             {
+                progressBar.setVisibility(View.VISIBLE);
                 String code = editTextVerificationCode.getText().toString().trim();
                 verifyVerificationCode(code);
             }
             else {
-
+                Toast.makeText(getApplicationContext(), "Enter OTP CODE", Toast.LENGTH_LONG).show();
             }
+
+
         });
+    }
+    public void onBackPressed() {
+        // Handle back button press, navigate to home screen
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
     private void sendVerificationCode() {
@@ -97,21 +113,26 @@ public class Register extends AppCompatActivity {
         // Concatenate the country code and phone number
         String fullPhoneNumber = "+" + countryCode + phoneNumber;
 
+        progressBar.setVisibility(View.VISIBLE);
+
         // Initiate phone number verification
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
                 fullPhoneNumber,   // The combined phone number with country code
-                60,                // Timeout duration
+                5,                // Timeout duration
                 TimeUnit.SECONDS,  // Timeout unit
                 this,              // Activity
                 new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
                     @Override
                     public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
                         signInWithPhoneAuthCredential(phoneAuthCredential);
+                        progressBar.setVisibility(View.GONE);
                     }
 
                     @Override
                     public void onVerificationFailed(@NonNull FirebaseException e) {
                         Toast.makeText(getApplicationContext(), "Verification Failed!", Toast.LENGTH_SHORT).show();
+                        authfail.setVisibility(View.VISIBLE);
+                        progressBar.setVisibility(View.GONE);
                     }
 
                     @Override
@@ -128,6 +149,7 @@ public class Register extends AppCompatActivity {
     private void verifyVerificationCode(String code) {
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, code);
         signInWithPhoneAuthCredential(credential);
+        progressBar.setVisibility(View.VISIBLE);
     }
 
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
@@ -135,10 +157,21 @@ public class Register extends AppCompatActivity {
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
                         // Phone authentication successful
-                        startActivity(new Intent(Register.this, LoginHandalor.class));
+                        String userType = ((Spinner) findViewById(R.id.spinnerUserType)).getSelectedItem().toString();
+                        if (userType.equals("Passenger")){
+                            startActivity(new Intent(Register.this, PassengerMainView.class));
+                        } else if (userType.equals("Bus Driver")) {
+                            startActivity(new Intent(Register.this, BusDriverDetails.class));
+                        } else if (userType.equals("Taxi Driver")) {
+                            startActivity(new Intent(Register.this, TaxiDriver.class));
+                        } else if (userType.equals("Cargo Driver")) {
+                            startActivity(new Intent(Register.this, CargoDriver.class));
+                        }
+
+
                     } else {
                         if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
-                            // The verification code entered was invalid
+                            Toast.makeText(getApplicationContext(), "OTP Code Not Matched", Toast.LENGTH_SHORT).show();// The verification code entered was invalid
                         }
                     }
                 });

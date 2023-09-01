@@ -2,6 +2,7 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/aclonica</item>
+        <item>@font/acme</item>
         <item>@font/aladin</item>
         <item>@font/cherry_cream_soda</item>
     </array>
