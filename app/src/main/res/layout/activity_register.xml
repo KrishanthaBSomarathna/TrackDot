@@ -132,6 +132,7 @@
             android:text="OTP Code Successfully Sent!!!"
             android:textSize="20dp"
             android:textColor="#00A624"
+            android:layout_marginBottom="10dp"
             android:layout_gravity="center"/>
 
         <EditText
@@ -141,7 +142,7 @@
             android:ems="10"
             android:background="@drawable/editbg_black_border"
             android:hint="OTP"
-            android:padding="5dp"
+            android:padding="10dp"
             android:inputType="text" />
 
         <Button

@@ -105,6 +105,7 @@ public class BusDriverDetails extends AppCompatActivity {
                 String r1stop = r1StopTime.getText().toString();
                 String r2start = r2StartTime.getText().toString();
                 String r2stop = r2StopTime.getText().toString();
+                String phone = firebaseUser.getPhoneNumber();
 
                 if(!bustype.equals("Select Bus Type")&&!vnum.equals("")&&!seatcount.equals("")&&!rnum.equals("")&&!startdes.equals("")&&!stopdes.equals("")&&!r1start.equals("")&&!r1stop.equals("")&&!r2start.equals("")&&!r2stop.equals(""))
                 {
@@ -120,8 +121,9 @@ public class BusDriverDetails extends AppCompatActivity {
                         databaseReference.child("Bus Drivers").child(bustype).child(firebaseUser.getPhoneNumber()).child("r1stop").setValue(r1stop);
                         databaseReference.child("Bus Drivers").child(bustype).child(firebaseUser.getPhoneNumber()).child("r2start").setValue(r2start);
                         databaseReference.child("Bus Drivers").child(bustype).child(firebaseUser.getPhoneNumber()).child("r2stop").setValue(r2stop);
-
-                        startActivity(new Intent(BusDriverDetails.this, BusDriverView.class));
+                    databaseReference.child("Bus Drivers").child(bustype).child(firebaseUser.getPhoneNumber()).child("phonenumber").setValue(phone);
+                    databaseReference.child("Bus Drivers").child(bustype).child(firebaseUser.getPhoneNumber()).child("bustype").setValue(bustype);
+                    startActivity(new Intent(BusDriverDetails.this, BusDriverView.class));
 
                 }
                 else
@@ -188,4 +190,6 @@ public class BusDriverDetails extends AppCompatActivity {
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
         return sdf.format(calendar.getTime());
     }
+
+
 }

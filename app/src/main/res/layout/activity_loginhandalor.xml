@@ -7,24 +7,34 @@
     tools:context=".LoginHandalor">
 
     <Button
-        android:id="@+id/manthi"
+        android:id="@+id/busview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="53dp"
-        android:text="manthi"
-        app:layout_constraintBottom_toBottomOf="@+id/hasheef"
+        android:layout_marginTop="143dp"
+        android:text="busview"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/hasheef" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/manthi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="24dp"
+        android:text="manthi"
+        app:layout_constraintBottom_toTopOf="@+id/busview"
+        app:layout_constraintEnd_toStartOf="@+id/hasheef" />
 
     <Button
         android:id="@+id/busd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
         android:layout_marginEnd="68dp"
-        android:layout_marginBottom="46dp"
         android:text="busd"
-        app:layout_constraintBottom_toTopOf="@+id/ashfak"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/krishantha" />
 
     <Button
         android:id="@+id/krishantha"
@@ -34,35 +44,37 @@
         android:layout_marginTop="61dp"
         android:text="Krishantha"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/manthi" />
+        app:layout_constraintTop_toBottomOf="@+id/busview" />
 
     <Button
         android:id="@+id/reg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="204dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="63dp"
+        android:layout_marginEnd="51dp"
         android:text="Reg"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/manthi" />
+        app:layout_constraintEnd_toEndOf="@+id/busd"
+        app:layout_constraintStart_toEndOf="@+id/busview"
+        app:layout_constraintTop_toBottomOf="@+id/ashfak" />
 
     <Button
         android:id="@+id/hasheef"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="143dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="68dp"
         android:text="hasheef"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/manthi" />
 
     <Button
         android:id="@+id/ashfak"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="65dp"
         android:layout_marginTop="80dp"
         android:text="ashfak"
-        app:layout_constraintStart_toStartOf="@+id/krishantha"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/krishantha" />
 </androidx.constraintlayout.widget.ConstraintLayout>

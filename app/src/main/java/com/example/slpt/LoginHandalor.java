@@ -12,7 +12,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginHandalor extends AppCompatActivity {
 
-    Button manthi,hasheef,ashfak,krishantha,reg,bus;
+    Button manthi,hasheef,ashfak,krishantha,reg,bus,busview;
     FirebaseAuth firebaseAuth;
     FirebaseUser firebaseUser;
     @Override
@@ -25,6 +25,7 @@ public class LoginHandalor extends AppCompatActivity {
         krishantha = findViewById(R.id.krishantha);
         reg = findViewById(R.id.reg);
         bus = findViewById(R.id.busd);
+        busview = findViewById(R.id.busview);
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
@@ -33,7 +34,12 @@ public class LoginHandalor extends AppCompatActivity {
             firebaseUser.getEmail();
         }
 
-
+        busview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginHandalor.this, BusDriverView.class));
+            }
+        });
         reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
