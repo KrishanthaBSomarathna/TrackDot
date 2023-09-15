@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -89,11 +90,16 @@ public class BusDriverDetails extends AppCompatActivity {
         savedata.setOnClickListener(new View.OnClickListener() {
 
 
+            String vnum = vehicleNumber.getText().toString();
+            String seatcount = seatCount.getText().toString();
+            String rnum = roadNumber.getText().toString();
 
+            String usertype = vehicleTypeSpinner.getSelectedItem().toString();
 
 
             @Override
             public void onClick(View view) {
+
                 String vnum = vehicleNumber.getText().toString();
                 String vname = vehicleName.getText().toString();
                 String seatcount = seatCount.getText().toString();
@@ -105,8 +111,15 @@ public class BusDriverDetails extends AppCompatActivity {
                 String r1stop = r1StopTime.getText().toString();
                 String r2start = r2StartTime.getText().toString();
                 String r2stop = r2StopTime.getText().toString();
+                String phone = firebaseUser.getPhoneNumber();
 
-                if(!bustype.equals("Select Bus Type")&&!vnum.equals("")&&!seatcount.equals("")&&!rnum.equals("")&&!startdes.equals("")&&!stopdes.equals("")&&!r1start.equals("")&&!r1stop.equals("")&&!r2start.equals("")&&!r2stop.equals(""))
+                if(usertype.equals("Select Bus Type")){
+                    Toast.makeText(getApplicationContext(),"Select Bus Type Please!",Toast.LENGTH_LONG).show();
+                }
+                vehicleNumber.setBackgroundResource(R.drawable.editbg_red_border);
+
+
+                if(!vnum.equals("")&&!seatcount.equals("")&&!rnum.equals(""))
                 {
 
 
@@ -120,8 +133,10 @@ public class BusDriverDetails extends AppCompatActivity {
                         databaseReference.child("Bus Drivers").child(bustype).child(firebaseUser.getPhoneNumber()).child("r1stop").setValue(r1stop);
                         databaseReference.child("Bus Drivers").child(bustype).child(firebaseUser.getPhoneNumber()).child("r2start").setValue(r2start);
                         databaseReference.child("Bus Drivers").child(bustype).child(firebaseUser.getPhoneNumber()).child("r2stop").setValue(r2stop);
+                    databaseReference.child("Bus Drivers").child(bustype).child(firebaseUser.getPhoneNumber()).child("phonenumber").setValue(phone);
+                    databaseReference.child("Bus Drivers").child(bustype).child(firebaseUser.getPhoneNumber()).child("bustype").setValue(bustype);
+                    startActivity(new Intent(BusDriverDetails.this, BusDriverView.class));
 
-                        startActivity(new Intent(BusDriverDetails.this, BusDriverView.class));
 
                 }
                 else
@@ -136,8 +151,6 @@ public class BusDriverDetails extends AppCompatActivity {
                     r1StopTime.setBackgroundResource(R.drawable.editbg_red_border);
                     r2StartTime.setBackgroundResource(R.drawable.editbg_red_border);
                     r2StopTime.setBackgroundResource(R.drawable.editbg_red_border);
-                    vehicleTypeSpinner.setBackgroundResource(R.drawable.editbg_red_border);
-
 
 
 
@@ -188,4 +201,6 @@ public class BusDriverDetails extends AppCompatActivity {
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
         return sdf.format(calendar.getTime());
     }
+
+
 }
