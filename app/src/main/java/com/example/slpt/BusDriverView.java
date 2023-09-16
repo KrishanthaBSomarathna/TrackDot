@@ -1,6 +1,7 @@
 package com.example.slpt;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
@@ -56,7 +57,11 @@ public class BusDriverView extends AppCompatActivity {
         stop = findViewById(R.id.stopbtn);
 
         stop.setVisibility(View.GONE);
+        
 
+        if(firebaseUser==null){
+            startActivity(new Intent(this,Register.class));
+        }
 
 
 

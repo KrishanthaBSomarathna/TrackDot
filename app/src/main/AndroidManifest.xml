@@ -21,11 +21,16 @@
         android:theme="@style/Theme.SLPT"
         tools:targetApi="31">
         <activity
+            android:name=".CargoUser"
+            android:exported="false" />
+        <activity
             android:name=".TaxiDriverDetails"
             android:exported="false" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyD_-WWgpw7jG6H9yfj3zR7mvJV9baKPVMQ" />
+
         <activity
             android:name=".PassengerDetails"
             android:exported="false" />
