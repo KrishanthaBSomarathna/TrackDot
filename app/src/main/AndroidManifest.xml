@@ -21,6 +21,12 @@
         android:theme="@style/Theme.SLPT"
         tools:targetApi="31">
         <activity
+            android:name=".UserDetails"
+            android:exported="false" />
+        <activity
+            android:name=".Schedules"
+            android:exported="false" />
+        <activity
             android:name=".CargoUser"
             android:exported="false" />
         <activity

@@ -53,6 +53,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.584" />
 
+    <Button
+        android:id="@+id/logoutbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="76dp"
+        android:text="Logout"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -91,6 +101,7 @@
             android:layout_marginLeft="25dp"
 
             android:background="@drawable/baseline_person_outline_24" />
+
 
 
     </LinearLayout>

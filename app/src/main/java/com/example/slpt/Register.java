@@ -2,6 +2,7 @@ package com.example.slpt;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,24 +14,33 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.concurrent.TimeUnit;
 
 public class Register extends AppCompatActivity {
 
-    private FirebaseAuth mAuth;
+    FirebaseAuth mAuth;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
     private String verificationId;
-     EditText editTextPhoneNumber, editTextVerificationCode;
+     EditText editTextPhoneNumber, editTextVerificationCode,username;
     private Button buttonSendOTP, buttonVerifyOTP;
 
     LinearLayout otp,sendotp;
     private ProgressBar progressBar;
 
     private TextView authfail;
+    String fullPhoneNumber;
+
+
 
 
     @Override
@@ -40,12 +50,15 @@ public class Register extends AppCompatActivity {
 
 
         mAuth = FirebaseAuth.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference();
 
         authfail = findViewById(R.id.authfail);
         authfail.setVisibility(View.GONE);
 
         editTextPhoneNumber = findViewById(R.id.editTextPhoneNumber);
         editTextVerificationCode = findViewById(R.id.editTextVerificationCode);
+        username = findViewById(R.id.username);
         buttonSendOTP = findViewById(R.id.buttonSendOTP);
         buttonVerifyOTP = findViewById(R.id.buttonVerifyOTP);
         progressBar = findViewById(R.id.progressBar);
@@ -111,7 +124,7 @@ public class Register extends AppCompatActivity {
         String countryCode = selectedCountryCode.replaceAll("[^0-9]", "");
 
         // Concatenate the country code and phone number
-        String fullPhoneNumber = "+" + countryCode + phoneNumber;
+        fullPhoneNumber = "+" + countryCode + phoneNumber;
 
         progressBar.setVisibility(View.VISIBLE);
 
@@ -128,12 +141,19 @@ public class Register extends AppCompatActivity {
                         progressBar.setVisibility(View.GONE);
                     }
 
+
                     @Override
                     public void onVerificationFailed(@NonNull FirebaseException e) {
-                        Toast.makeText(getApplicationContext(), "Verification Failed!", Toast.LENGTH_SHORT).show();
-                        authfail.setVisibility(View.VISIBLE);
-                        progressBar.setVisibility(View.GONE);
+                        try {
+                            Log.e("VerificationFailed", "Verification Failed: " + e.getMessage());
+                            Toast.makeText(getApplicationContext(), "Verification Failed!" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                            authfail.setVisibility(View.VISIBLE);
+                            progressBar.setVisibility(View.GONE);
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
+                        }
                     }
+
 
                     @Override
                     public void onCodeSent(@NonNull String verificationId, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
@@ -158,8 +178,11 @@ public class Register extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         // Phone authentication successful
                         String userType = ((Spinner) findViewById(R.id.spinnerUserType)).getSelectedItem().toString();
+                        String userName = username.getText().toString();
                         if (userType.equals("Passenger")){
                             startActivity(new Intent(Register.this, PassengerMainView.class));
+                            databaseReference.child("Passenger").child(fullPhoneNumber).child("UserName").setValue(userName);
+
                         } else if (userType.equals("Bus Driver")) {
                             startActivity(new Intent(Register.this, BusDriverDetails.class));
                         } else if (userType.equals("Taxi Driver")) {

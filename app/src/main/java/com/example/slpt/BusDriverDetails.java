@@ -110,16 +110,17 @@ public class BusDriverDetails extends AppCompatActivity {
                 {
 
 
-                        databaseReference.child("Bus Drivers").child(bustype).child(firebaseUser.getPhoneNumber()).child("vehicleNum").setValue(vnum);
-                        databaseReference.child("Bus Drivers").child(bustype).child(firebaseUser.getPhoneNumber()).child("vehicleName").setValue(vname);
-                        databaseReference.child("Bus Drivers").child(bustype).child(firebaseUser.getPhoneNumber()).child("seatcount").setValue(seatcount);
-                        databaseReference.child("Bus Drivers").child(bustype).child(firebaseUser.getPhoneNumber()).child("roadnumber").setValue(rnum);
-                        databaseReference.child("Bus Drivers").child(bustype).child(firebaseUser.getPhoneNumber()).child("startdestination").setValue(startdes);
-                        databaseReference.child("Bus Drivers").child(bustype).child(firebaseUser.getPhoneNumber()).child("stopdestination").setValue(stopdes);
-                        databaseReference.child("Bus Drivers").child(bustype).child(firebaseUser.getPhoneNumber()).child("r1start").setValue(r1start);
-                        databaseReference.child("Bus Drivers").child(bustype).child(firebaseUser.getPhoneNumber()).child("r1stop").setValue(r1stop);
-                        databaseReference.child("Bus Drivers").child(bustype).child(firebaseUser.getPhoneNumber()).child("r2start").setValue(r2start);
-                        databaseReference.child("Bus Drivers").child(bustype).child(firebaseUser.getPhoneNumber()).child("r2stop").setValue(r2stop);
+                        databaseReference.child("Bus Drivers").child(firebaseUser.getPhoneNumber()).child("vehicleNum").setValue(vnum);
+                        databaseReference.child("Bus Drivers").child(firebaseUser.getPhoneNumber()).child("vehicleName").setValue(vname);
+                        databaseReference.child("Bus Drivers").child(firebaseUser.getPhoneNumber()).child("seatcount").setValue(seatcount);
+                        databaseReference.child("Bus Drivers").child(firebaseUser.getPhoneNumber()).child("roadnumber").setValue(rnum);
+                        databaseReference.child("Bus Drivers").child(firebaseUser.getPhoneNumber()).child("startdestination").setValue(startdes);
+                        databaseReference.child("Bus Drivers").child(firebaseUser.getPhoneNumber()).child("stopdestination").setValue(stopdes);
+                        databaseReference.child("Bus Drivers").child(firebaseUser.getPhoneNumber()).child("r1start").setValue(r1start);
+                        databaseReference.child("Bus Drivers").child(firebaseUser.getPhoneNumber()).child("r1stop").setValue(r1stop);
+                        databaseReference.child("Bus Drivers").child(firebaseUser.getPhoneNumber()).child("r2start").setValue(r2start);
+                        databaseReference.child("Bus Drivers").child(firebaseUser.getPhoneNumber()).child("r2stop").setValue(r2stop);
+                    databaseReference.child("Bus Drivers").child(firebaseUser.getPhoneNumber()).child("bustype").setValue(bustype);
 
                         startActivity(new Intent(BusDriverDetails.this, BusDriverView.class));
 

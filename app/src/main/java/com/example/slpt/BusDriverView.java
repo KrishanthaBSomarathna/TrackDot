@@ -3,9 +3,12 @@ package com.example.slpt;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -21,12 +24,12 @@ import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
 
 public class BusDriverView extends AppCompatActivity {
 
@@ -42,10 +45,14 @@ public class BusDriverView extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     FirebaseUser firebaseUser;
 
+    Button logoutbtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bus_driver_view);
+
+        logoutbtn =findViewById(R.id.logoutbtn);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
@@ -77,10 +84,9 @@ public class BusDriverView extends AppCompatActivity {
 
 
 
-        String phoneNumberToSearch = "+94740547106";
 
-        // Initialize Firebase Database
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+
 
 
         // Define a location callback
@@ -94,39 +100,41 @@ public class BusDriverView extends AppCompatActivity {
                 if (location != null) {
                     double latitude = location.getLatitude();
                     double longitude = location.getLongitude();
+
                     // Now you can use the latitude and longitude
                     Toast.makeText(BusDriverView.this, "Latitude: " + latitude + ", Longitude: " + longitude, Toast.LENGTH_SHORT).show();
 
-                    DatabaseReference busDriversRef = database.getReference("Bus Drivers");
+                    // Use Geocoder to get the location name
+                    Geocoder geocoder = new Geocoder(BusDriverView.this, Locale.getDefault());
+                    String locationName = null;
+                    try {
+                        List<Address> addresses = geocoder.getFromLocation(latitude, longitude, 1);
+                        if (!addresses.isEmpty()) {
+                            locationName = addresses.get(0).getLocality() + " " + addresses.get(0).getThoroughfare();
+                            Toast.makeText(BusDriverView.this, locationName, Toast.LENGTH_SHORT).show();
 
-                    // Query to find the "bustype" using the phone number
-                    Query query = busDriversRef.orderByChild("phonenumber").equalTo(firebaseUser.getPhoneNumber());
-
-                    query.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            if (dataSnapshot.exists()) {
-                                // Iterate through the results (there should be only one match)
-                                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                                    String bustype = snapshot.child("bustype").getValue(String.class);
-
-                                    databaseReference.child("Bus Drivers").child(bustype).child(firebaseUser.getPhoneNumber()).child("latitude").setValue(latitude);
-
-
-                                }
-                            }
+                            // You can store or use the locationName as needed
                         }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
 
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
+                    // Store latitude and longitude in Firebase
+                    databaseReference.child("Bus Drivers").child(firebaseUser.getPhoneNumber()).child("Latitude").setValue(latitude);
+                    databaseReference.child("Bus Drivers").child(firebaseUser.getPhoneNumber()).child("Longitude").setValue(longitude);
+                    databaseReference.child("Bus Drivers").child(firebaseUser.getPhoneNumber()).child("LocationName").setValue(locationName);
 
-                        }
-
-
-                    });
                 }
             }
         };
+
+
+        logoutbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                firebaseAuth.signOut();
+            }
+        });
 
         start.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -96,7 +96,7 @@
                 android:ems="10"
                 android:padding="10dp"
                 android:hint="Start Destination"
-                android:inputType="time"
+                android:inputType="text"
                 android:textColor="@color/black"
                 />
 
@@ -110,7 +110,7 @@
                 android:ems="10"
                 android:padding="10dp"
                 android:hint="Stop Destination"
-                android:inputType="time"
+                android:inputType="text"
                 android:textColor="@color/black"/>
         </LinearLayout>
 
