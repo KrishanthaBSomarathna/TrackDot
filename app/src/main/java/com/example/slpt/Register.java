@@ -180,14 +180,21 @@ public class Register extends AppCompatActivity {
                         String userType = ((Spinner) findViewById(R.id.spinnerUserType)).getSelectedItem().toString();
                         String userName = username.getText().toString();
                         if (userType.equals("Passenger")){
-                            startActivity(new Intent(Register.this, PassengerMainView.class));
                             databaseReference.child("Passenger").child(fullPhoneNumber).child("UserName").setValue(userName);
 
+                            startActivity(new Intent(Register.this, PassengerMainView.class));
+
                         } else if (userType.equals("Bus Driver")) {
+                            databaseReference.child("Bus Driver").child(fullPhoneNumber).child("UserName").setValue(userName);
+
                             startActivity(new Intent(Register.this, BusDriverDetails.class));
                         } else if (userType.equals("Taxi Driver")) {
+                            databaseReference.child("Taxi Driver").child(fullPhoneNumber).child("UserName").setValue(userName);
+
                             startActivity(new Intent(Register.this, TaxiDriver.class));
                         } else if (userType.equals("Cargo Driver")) {
+                            databaseReference.child("Cargo Driver").child(fullPhoneNumber).child("UserName").setValue(userName);
+
                             startActivity(new Intent(Register.this, CargoDriver.class));
                         }
 
