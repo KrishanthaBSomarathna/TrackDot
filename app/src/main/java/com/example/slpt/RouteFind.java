@@ -1,9 +1,7 @@
 package com.example.slpt;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,8 +19,7 @@ import java.util.List;
 
 public class RouteFind extends AppCompatActivity {
 
-    private EditText editText1, editText2;
-    private Button searchButton;
+
     private RecyclerView recyclerView;
 
     private List<Route> matchingRoutes;
@@ -35,9 +32,6 @@ public class RouteFind extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_route_find);
 
-        editText1 = findViewById(R.id.editText1);
-        editText2 = findViewById(R.id.editText2);
-        searchButton = findViewById(R.id.searchButton);
         recyclerView = findViewById(R.id.recyclerView);
 
         matchingRoutes = new ArrayList<>();
@@ -50,12 +44,10 @@ public class RouteFind extends AppCompatActivity {
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Route");
 
-        // When the search button is clicked, perform the search
-        searchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final String value1 = editText1.getText().toString().trim();
-                final String value2 = editText2.getText().toString().trim();
+
+        Intent intent = getIntent();
+        String value1 = intent.getStringExtra("origin").toLowerCase().trim();
+        String value2 = intent.getStringExtra("destination").toLowerCase().trim();
 
                 // Read data from Firebase
                 databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -90,7 +82,7 @@ public class RouteFind extends AppCompatActivity {
                         // Handle errors here
                     }
                 });
-            }
-        });
+
+
     }
 }

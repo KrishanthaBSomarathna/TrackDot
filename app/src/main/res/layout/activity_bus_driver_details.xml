@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@drawable/bge"
     tools:context=".BusDriverDetails">
 
 
@@ -63,7 +63,6 @@
             android:ems="10"
             android:padding="10dp"
             android:hint="VehicleNumber"
-
             android:inputType="text"
             android:textColor="@color/black"
             tools:layout_editor_absoluteX="8dp"
@@ -248,9 +247,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:backgroundTint="#EC9100"
+            android:backgroundTint="#001FEC"
             android:text="Save Details"
-            android:textColor="#050000"
+            android:textColor="#FFFFFF"
             android:textSize="25dp" />
 
     </LinearLayout>

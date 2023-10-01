@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="autocomplete_suggestions">
+        <item>Kurunegala</item>
+        <item>Wariyapola</item>
+        <item>Padeniya</item>
+        <!-- Add more location suggestions as needed -->
+    </string-array>
     <string-array name="country_codes">
         <item>+94 (LK)</item>
         <item>+1 (US)</item>

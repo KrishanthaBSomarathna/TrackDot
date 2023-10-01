@@ -49,7 +49,7 @@ public class PassengerMainView extends AppCompatActivity {
         busshedules.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(PassengerMainView.this, RouteFind.class));
+                startActivity(new Intent(PassengerMainView.this, Schedules.class));
             }
         });
 

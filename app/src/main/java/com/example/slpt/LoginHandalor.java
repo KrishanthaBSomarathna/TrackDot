@@ -18,7 +18,7 @@ public class LoginHandalor extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_loginhandalor);
+        setContentView(R.layout.activity_login_handalor);
         manthi = findViewById(R.id.manthi);
         hasheef = findViewById(R.id.hasheef);
         ashfak = findViewById(R.id.ashfak);
