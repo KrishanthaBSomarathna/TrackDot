@@ -1,28 +1,18 @@
 package com.example.slpt;
 
 public class BusDriver {
-    private String startdestination;
-    private String stopdestination;
 
-    public BusDriver(String startdestination, String stopdestination) {
-        this.startdestination = startdestination;
-        this.stopdestination = stopdestination;
+    private String LocationName, bustype, roadnumber;
+
+    public String getLocationName() {
+        return LocationName;
     }
 
-    public String getStartdestination() {
-        return startdestination;
+    public String getBustype() {
+        return bustype;
     }
 
-    public void setStartdestination(String startdestination) {
-        this.startdestination = startdestination;
-    }
-
-    public String getStopdestination() {
-        return stopdestination;
-    }
-
-    public void setStopdestination(String stopdestination) {
-        this.stopdestination = stopdestination;
+    public String getRoadnumber() {
+        return roadnumber;
     }
 }
-

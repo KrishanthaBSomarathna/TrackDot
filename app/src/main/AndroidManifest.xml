@@ -21,6 +21,12 @@
         android:theme="@style/Theme.SLPT"
         tools:targetApi="31">
         <activity
+            android:name=".AvailableBus"
+            android:exported="false" />
+        <activity
+            android:name=".RouteFind"
+            android:exported="false"/>
+        <activity
             android:name=".UserDetails"
             android:exported="false" />
         <activity

@@ -4,9 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -17,12 +19,15 @@ public class PassengerMainView extends AppCompatActivity {
     private TextView dateTextView;
     private static final String PREFS_NAME = "MyPrefsFile";
     private static final String FIRST_TIME_KEY = "isFirstTime";
+
+    private CardView busshedules;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_passengermainview);
         clockTextView = findViewById(R.id.clockTextView);
         dateTextView = findViewById(R.id.dateTextView);
+        busshedules = findViewById(R.id.busshedules);
         updateClockAndDate();
 
 
@@ -40,6 +45,13 @@ public class PassengerMainView extends AppCompatActivity {
             // Open the guide or welcome activity
             startActivity(new Intent(PassengerMainView.this, PassengerGuide.class));
         }
+
+        busshedules.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(PassengerMainView.this, RouteFind.class));
+            }
+        });
 
 
 
