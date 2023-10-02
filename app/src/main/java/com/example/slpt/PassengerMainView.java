@@ -20,14 +20,15 @@ public class PassengerMainView extends AppCompatActivity {
     private static final String PREFS_NAME = "MyPrefsFile";
     private static final String FIRST_TIME_KEY = "isFirstTime";
 
-    private CardView busshedules;
+    private CardView busSchedules,liveRadar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_passengermainview);
         clockTextView = findViewById(R.id.clockTextView);
         dateTextView = findViewById(R.id.dateTextView);
-        busshedules = findViewById(R.id.busshedules);
+        busSchedules = findViewById(R.id.busshedules);
+        liveRadar = findViewById(R.id.liveradar);
         updateClockAndDate();
 
 
@@ -46,10 +47,16 @@ public class PassengerMainView extends AppCompatActivity {
             startActivity(new Intent(PassengerMainView.this, PassengerGuide.class));
         }
 
-        busshedules.setOnClickListener(new View.OnClickListener() {
+        busSchedules.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(PassengerMainView.this, Schedules.class));
+            }
+        });
+        liveRadar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(PassengerMainView.this, LiveRadars.class));
             }
         });
 

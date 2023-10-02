@@ -2,7 +2,7 @@ package com.example.slpt;
 
 public class BusDriver {
 
-    private String LocationName, bustype, roadnumber,vehicleNum,r1start,r1stop,r2start,r2stop,startdestination,stopdestination;
+    private String LocationName, bustype, roadnumber,vehicleNum,r1start,r1stop,r2start,r2stop,startdestination,stopdestination,status;
 
     public BusDriver() {
     }
@@ -45,5 +45,9 @@ public class BusDriver {
 
     public String getStopdestination() {
         return stopdestination;
+    }
+
+    public String getStatus() {
+        return status;
     }
 }

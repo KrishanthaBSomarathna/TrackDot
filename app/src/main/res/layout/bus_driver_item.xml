@@ -226,6 +226,7 @@
                 android:text=" Schedule "
                 android:background="@drawable/blackbg"/>
             <TextView
+                android:id="@+id/savebus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
@@ -238,4 +239,22 @@
         </LinearLayout>
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/online"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Online"
+        android:textStyle="bold"
+        android:layout_gravity="end"
+        android:layout_margin="5dp"
+        android:textColor="#00FF0A"/>
+    <TextView
+        android:id="@+id/offline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Offline"
+        android:textStyle="bold"
+        android:layout_gravity="end"
+        android:layout_margin="5dp"
+        android:textColor="#FF0000"/>
 </androidx.cardview.widget.CardView>
