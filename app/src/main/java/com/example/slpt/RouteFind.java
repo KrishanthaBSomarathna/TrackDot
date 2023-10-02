@@ -2,6 +2,7 @@ package com.example.slpt;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,6 +27,7 @@ public class RouteFind extends AppCompatActivity {
     private RouteAdapter adapter;
 
     private DatabaseReference databaseReference;
+    TextView Route;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,8 @@ public class RouteFind extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
+        Route = findViewById(R.id.route);
+
         // Initialize Firebase
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Route");
@@ -48,6 +52,9 @@ public class RouteFind extends AppCompatActivity {
         Intent intent = getIntent();
         String value1 = intent.getStringExtra("origin").toLowerCase().trim();
         String value2 = intent.getStringExtra("destination").toLowerCase().trim();
+        String route = intent.getStringExtra("route");
+
+        Route.setText(route);
 
                 // Read data from Firebase
                 databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -68,7 +75,7 @@ public class RouteFind extends AppCompatActivity {
                             // Check if both values exist in the route
                             if (routeValues.contains(value1) && routeValues.contains(value2)) {
                                 String routeNumber = routeSnapshot.getKey();
-                                String routeDetails = "Details for Route " + routeValues.get(0).toString(); // You should retrieve actual details
+                                String routeDetails = routeValues.get(0).toString(); // You should retrieve actual details
                                 matchingRoutes.add(new Route(routeNumber, routeDetails));
                             }
                         }

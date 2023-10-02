@@ -49,6 +49,7 @@ public class Schedules extends AppCompatActivity {
                     Intent intent = new Intent(Schedules.this,RouteFind.class);
                     intent.putExtra("origin",origin);
                     intent.putExtra("destination",destination);
+                    intent.putExtra("route",origin+" ➤ "+destination).toString();
                     startActivity(intent);
                 }
             });

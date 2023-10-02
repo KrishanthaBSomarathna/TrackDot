@@ -4,92 +4,238 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="8dp"
-    app:cardCornerRadius="8dp"
+    app:cardCornerRadius="4dp"
     android:layout_margin="16dp">
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/baseline_directions_bus_24" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+     <LinearLayout
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:orientation="vertical">
+         <TextView
+             android:id="@+id/bustype"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="CTB Bus"
+             android:textSize="15sp"
+             android:textStyle="bold"/>
+         <TextView
+             android:id="@+id/busnumber"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="WB-2455"/>
+         <TextView
+             android:id="@+id/roadNumber"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="57"/>
+
+
+     </LinearLayout>
+    </LinearLayout>
+    </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@drawable/backline"
+            android:text="All About Bus"
+            android:gravity="center"
+            android:layout_margin="5dp"
+            android:textColor="@color/white"
+            android:textSize="17dp"
+            />
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Route 01"
+            android:textStyle="bold"/>
+
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:orientation="horizontal">
+            android:layout_marginTop="4dp"
+            android:gravity="center">
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/r1starttime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10.50 AM"/>
+                <TextView
+                    android:id="@+id/r1startpoint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kurunegala"/>
+            </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bus Name:"
-                android:textColor="@color/black"
-                android:textSize="26sp"
-                android:textStyle="bold"/>
+                android:text=" - - - - - - - - - - - - - - - - - - - - - - -> "/>
 
-            <TextView
-                android:id="@+id/tvfirstName"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:text="Arya"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/r1stopttime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10.50 AM"/>
+                <TextView
+                    android:id="@+id/r1stoppoint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kurunegala"/>
+            </LinearLayout>
+
 
         </LinearLayout>
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Route 02"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"/>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/r2starttime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10.50 AM"/>
+                    <TextView
+                        android:id="@+id/r2startpoint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kurunegala"/>
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" - - - - - - - - - - - - - - - - - - - - - - -> "/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/r2stopttime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10.50 AM"/>
+                    <TextView
+                        android:id="@+id/r2stoppoint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kurunegala"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:orientation="horizontal">
-
+            android:background="@drawable/greenbg"
+            android:layout_margin="10dp"
+            >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Last Name :"
-                android:textColor="@color/black"
-                android:textSize="26sp"
-                android:textStyle="bold"/>
-
+                android:text="Current Location: "
+                android:gravity="center|start"
+                android:textColor="@color/white"
+                />
             <TextView
-                android:id="@+id/tvlastName"
+                android:id="@+id/location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:text="Stark"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
-
+                android:text="Puttalama"
+                android:gravity="center|start"
+                android:textColor="@color/white"
+                />
         </LinearLayout>
+
+
+
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:orientation="horizontal">
-
+            android:layout_gravity="end"
+            android:layout_marginTop="10dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Age :"
-                android:textColor="@color/black"
-                android:textSize="26sp"
-                android:textStyle="bold"/>
+                android:textColor="@color/white"
+                android:text=" Book Now "
+                android:padding="1dp"
 
+                android:background="@drawable/blackbg"
+                android:layout_margin="8dp"/>
             <TextView
-                android:id="@+id/tvage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:text="18"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textColor="@color/white"
+                android:layout_margin="8dp"
+                android:padding="1dp"
+                android:text=" Schedule "
+                android:background="@drawable/blackbg"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:padding="1dp"
+
+                android:text=" Sava to Live Radar "
+                android:background="@drawable/blackbg"
+                android:layout_margin="8dp"/>
 
         </LinearLayout>
-
-
-
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
