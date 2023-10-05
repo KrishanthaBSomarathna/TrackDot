@@ -13,6 +13,14 @@
         <!-- Add more country codes here -->
     </string-array>
 
+    <string-array name="taxi_types_array">
+        <item>Bike</item>
+        <item>Van</item>
+        <item>Car</item>
+        <item>Three Wheeler</item>
+        <!-- Add more country codes here -->
+    </string-array>
+
     <string-array name="user_type">
         <item>User Types</item>
         <item>Passenger</item>

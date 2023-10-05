@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.example.slpt.R;
+
 public class PassengerTicketBook extends AppCompatActivity {
     TextView a,b;
 

@@ -1,4 +1,4 @@
-package com.example.slpt;
+package com.example.slpt.schedule;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.slpt.R;
 
 
 public class Schedules extends AppCompatActivity {
@@ -46,7 +48,7 @@ public class Schedules extends AppCompatActivity {
                 public void onClick(View view) {
                     origin = autoCompleteOrigin.getText().toString();
                     destination = autoCompleteDestination.getText().toString();
-                    Intent intent = new Intent(Schedules.this,RouteFind.class);
+                    Intent intent = new Intent(Schedules.this, RouteFind.class);
                     intent.putExtra("origin",origin);
                     intent.putExtra("destination",destination);
                     intent.putExtra("route",origin+" ➤ "+destination).toString();

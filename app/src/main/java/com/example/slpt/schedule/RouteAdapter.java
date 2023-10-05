@@ -1,4 +1,4 @@
-package com.example.slpt;
+package com.example.slpt.schedule;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.slpt.R;
 
 import java.util.List;
 

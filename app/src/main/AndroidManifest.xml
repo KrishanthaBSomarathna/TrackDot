@@ -21,28 +21,28 @@
         android:theme="@style/Theme.SLPT"
         tools:targetApi="31">
         <activity
-            android:name=".LiveRadars"
+            android:name=".passenger.LiveRadars"
             android:exported="false" />
         <activity
             android:name=".LiveRadar"
             android:exported="false" />
         <activity
-            android:name=".AvailableBus"
+            android:name=".schedule.AvailableBus"
             android:exported="false" />
         <activity
-            android:name=".RouteFind"
+            android:name=".schedule.RouteFind"
             android:exported="false" />
         <activity
             android:name=".UserDetails"
             android:exported="false" />
         <activity
-            android:name=".Schedules"
+            android:name=".schedule.Schedules"
             android:exported="false" />
         <activity
             android:name=".CargoUser"
             android:exported="false" />
         <activity
-            android:name=".TaxiDriverDetails"
+            android:name=".getdetails.TaxiDriverDetails"
             android:exported="false" />
 
         <meta-data
@@ -50,37 +50,37 @@
             android:value="AIzaSyD_-WWgpw7jG6H9yfj3zR7mvJV9baKPVMQ" />
 
         <activity
-            android:name=".PassengerDetails"
+            android:name=".getdetails.PassengerDetails"
             android:exported="false" />
         <activity
-            android:name=".BusDriverDetails"
+            android:name=".getdetails.BusDriverDetails"
             android:exported="false" />
         <activity
             android:name=".TaxiDriver"
             android:exported="false" />
         <activity
-            android:name=".VehicleProfile"
+            android:name=".profiles.VehicleProfile"
             android:exported="false" />
         <activity
-            android:name=".PassengerGuide"
+            android:name=".passenger.PassengerGuide"
             android:exported="false" />
         <activity
-            android:name=".BusDriverView"
+            android:name=".drivers.BusDriverView"
             android:exported="false" />
         <activity
-            android:name=".PassengerMainView"
+            android:name=".passenger.PassengerMainView"
             android:exported="false" />
         <activity
-            android:name=".PassengerProfile"
+            android:name=".profiles.PassengerProfile"
             android:exported="false" />
         <activity
             android:name=".Login"
             android:exported="false" />
         <activity
-            android:name=".Register"
+            android:name=".register.Register"
             android:exported="false" />
         <activity
-            android:name=".PassengerTaxiBook"
+            android:name=".passenger.PassengerTaxiBook"
             android:exported="false" />
         <activity
             android:name=".CargoDriver"

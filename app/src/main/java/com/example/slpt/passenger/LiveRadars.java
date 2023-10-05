@@ -1,4 +1,4 @@
-package com.example.slpt;
+package com.example.slpt.passenger;
 
 import android.os.Bundle;
 import android.widget.Toast;
@@ -8,6 +8,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.slpt.R;
+import com.example.slpt.schedule.BusAdapter;
+import com.example.slpt.schedule.BusDriver;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;

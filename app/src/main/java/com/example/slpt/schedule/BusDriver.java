@@ -1,4 +1,4 @@
-package com.example.slpt;
+package com.example.slpt.schedule;
 
 public class BusDriver {
 

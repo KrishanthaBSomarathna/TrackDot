@@ -1,8 +1,10 @@
-package com.example.slpt;
+package com.example.slpt.profiles;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.slpt.R;
 
 public class PassengerProfile extends AppCompatActivity {
 

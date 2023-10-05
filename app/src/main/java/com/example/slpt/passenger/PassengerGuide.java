@@ -1,14 +1,16 @@
-package com.example.slpt;
+package com.example.slpt.passenger;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class VehicleProfile extends AppCompatActivity {
+import com.example.slpt.R;
+
+public class PassengerGuide extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vehicle_profile);
+        setContentView(R.layout.activity_passengerguide);
     }
 }

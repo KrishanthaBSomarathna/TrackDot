@@ -1,4 +1,4 @@
-package com.example.slpt;
+package com.example.slpt.passenger;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +9,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+
+import com.example.slpt.R;
+import com.example.slpt.schedule.Schedules;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

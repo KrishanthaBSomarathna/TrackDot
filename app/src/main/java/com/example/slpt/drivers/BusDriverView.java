@@ -1,4 +1,4 @@
-package com.example.slpt;
+package com.example.slpt.drivers;
 
 import android.Manifest;
 import android.content.Intent;
@@ -17,6 +17,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.example.slpt.R;
+import com.example.slpt.register.Register;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -67,7 +69,7 @@ public class BusDriverView extends AppCompatActivity {
         
 
         if(firebaseUser==null){
-            startActivity(new Intent(this,Register.class));
+            startActivity(new Intent(this, Register.class));
         }
 
 

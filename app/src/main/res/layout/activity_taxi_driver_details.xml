@@ -4,6 +4,128 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TaxiDriverDetails">
+    tools:context=".getdetails.TaxiDriverDetails"
+    android:background="@drawable/bge">
+
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="88dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="202dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/aclonica"
+            android:text="Track Dot"
+            android:textSize="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <TextView
+                android:id="@+id/emptyfields"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FF0000"
+                android:textSize="20dp"
+                android:layout_marginBottom="5dp"
+                android:layout_gravity="center"
+                android:text="Should be filled Red Colored Fields!!!"/>
+
+
+            <EditText
+                android:id="@+id/vehicleNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/editbg_black_border"
+                android:ems="10"
+                android:padding="10dp"
+                android:hint="VehicleNumber"
+                android:inputType="text"
+                android:textColor="@color/black"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="49dp" />
+            <EditText
+                android:id="@+id/nic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/editbg_black_border"
+                android:ems="10"
+                android:padding="10dp"
+                android:hint="Driver NIC"
+                android:inputType="text"
+                android:textColor="@color/black"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="49dp" />
+
+
+
+
+
+
+
+
+
+
+            <EditText
+                android:id="@+id/seatCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/editbg_black_border"
+                android:ems="10"
+                android:hint="Seat Count Ex: '54'"
+                android:textColor="@color/black"
+                android:inputType="number"
+                android:padding="10dp"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="49dp" />
+
+            <Spinner
+                android:id="@+id/vehicleTypeSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:entries="@array/taxi_types_array"
+                android:spinnerMode="dialog"
+                android:textColor="@color/black"
+                android:layout_margin="8dp"
+                android:background="@drawable/editbg_black_border"/>
+
+
+            <Button
+                android:id="@+id/save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="#001FEC"
+                android:text="Save Details"
+                android:textColor="#FFFFFF"
+                android:textSize="25dp" />
+
+        </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

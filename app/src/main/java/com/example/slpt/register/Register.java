@@ -1,8 +1,7 @@
-package com.example.slpt;
+package com.example.slpt.register;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +14,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.slpt.getdetails.BusDriverDetails;
+import com.example.slpt.CargoDriver;
+import com.example.slpt.passenger.PassengerMainView;
+import com.example.slpt.R;
+import com.example.slpt.getdetails.TaxiDriverDetails;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
@@ -48,6 +52,10 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        otp = findViewById(R.id.otplayout);
+        sendotp = findViewById(R.id.phonelayout);
+
+        otp.setVisibility(View.GONE);
 
         mAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
@@ -83,10 +91,7 @@ public class Register extends AppCompatActivity {
             }
         });
 
-        otp = findViewById(R.id.otplayout);
-        sendotp = findViewById(R.id.phonelayout);
 
-        otp.setVisibility(View.GONE);
 
 
         buttonVerifyOTP.setOnClickListener(v -> {
@@ -131,7 +136,7 @@ public class Register extends AppCompatActivity {
         // Initiate phone number verification
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
                 fullPhoneNumber,   // The combined phone number with country code
-                5,                // Timeout duration
+                60,                // Timeout duration
                 TimeUnit.SECONDS,  // Timeout unit
                 this,              // Activity
                 new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
@@ -145,7 +150,6 @@ public class Register extends AppCompatActivity {
                     @Override
                     public void onVerificationFailed(@NonNull FirebaseException e) {
                         try {
-                            Log.e("VerificationFailed", "Verification Failed: " + e.getMessage());
                             Toast.makeText(getApplicationContext(), "Verification Failed!" + e.getMessage(), Toast.LENGTH_SHORT).show();
                             authfail.setVisibility(View.VISIBLE);
                             progressBar.setVisibility(View.GONE);
@@ -191,7 +195,7 @@ public class Register extends AppCompatActivity {
                         } else if (userType.equals("Taxi Driver")) {
                             databaseReference.child("Taxi Driver").child(fullPhoneNumber).child("UserName").setValue(userName);
 
-                            startActivity(new Intent(Register.this, TaxiDriver.class));
+                            startActivity(new Intent(Register.this, TaxiDriverDetails.class));
                         } else if (userType.equals("Cargo Driver")) {
                             databaseReference.child("Cargo Driver").child(fullPhoneNumber).child("UserName").setValue(userName);
 

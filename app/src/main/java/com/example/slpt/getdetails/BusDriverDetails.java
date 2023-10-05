@@ -1,4 +1,4 @@
-package com.example.slpt;
+package com.example.slpt.getdetails;
 
 import android.app.TimePickerDialog;
 import android.content.Intent;
@@ -13,6 +13,9 @@ import android.widget.TimePicker;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.slpt.drivers.BusDriverView;
+import com.example.slpt.R;
+import com.example.slpt.register.Register;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -46,7 +49,7 @@ public class BusDriverDetails extends AppCompatActivity {
         firebaseUser = firebaseAuth.getCurrentUser();
 
         if(firebaseUser==null){
-            startActivity(new Intent(this,Register.class));
+            startActivity(new Intent(this, Register.class));
         }
 
         vehicleNumber = findViewById(R.id.vehicleNumber);
