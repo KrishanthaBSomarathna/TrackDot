@@ -74,7 +74,7 @@ public class LoginHandalor extends AppCompatActivity {
         ashfak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(LoginHandalor.this, PassengerTaxiBook.class));
+                startActivity(new Intent(LoginHandalor.this, Taxi.class));
             }
         });
         krishantha.setOnClickListener(new View.OnClickListener() {

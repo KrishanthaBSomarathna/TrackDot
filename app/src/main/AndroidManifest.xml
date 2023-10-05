@@ -27,6 +27,9 @@
             android:name=".LiveRadar"
             android:exported="false" />
         <activity
+            android:name=".Taxi"
+            android:exported="false" />
+        <activity
             android:name=".schedule.AvailableBus"
             android:exported="false" />
         <activity
