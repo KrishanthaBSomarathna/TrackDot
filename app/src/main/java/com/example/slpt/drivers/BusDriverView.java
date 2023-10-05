@@ -149,6 +149,8 @@ public class BusDriverView extends AppCompatActivity {
                     // Start location updates
                     startLocationUpdates();
                     locationUpdatesActive = true;
+                    databaseReference.child("Bus Drivers").child(firebaseUser.getPhoneNumber()).child("status").setValue("online");
+
                 }
             }
         });
@@ -159,6 +161,8 @@ public class BusDriverView extends AppCompatActivity {
                 start.setVisibility(View.VISIBLE);
                 stop.setVisibility(View.GONE);
                 stopLocationUpdates();
+                databaseReference.child("Bus Drivers").child(firebaseUser.getPhoneNumber()).child("status").setValue("offline");
+
             }
         });
 
@@ -173,6 +177,21 @@ public class BusDriverView extends AppCompatActivity {
             Toast.makeText(this, "Location updates stopped", Toast.LENGTH_SHORT).show();
         }
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        databaseReference.child("Bus Drivers").child(firebaseUser.getPhoneNumber()).child("status").setValue("offline");
+        
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        databaseReference.child("Bus Drivers").child(firebaseUser.getPhoneNumber()).child("status").setValue("offline");
+
+    }
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {

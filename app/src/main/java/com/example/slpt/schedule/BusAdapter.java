@@ -6,11 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.slpt.PassengerTicketBook;
+import com.example.slpt.passenger.PassengerTicketBook;
 import com.example.slpt.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -61,6 +62,7 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.MyViewHolder> {
             @Override
             public void onClick(View view) {
                 databaseReference.child(String.valueOf(firebaseUser.getPhoneNumber())).child("savedbus").setValue(busDriver.getVehicleNum().toString());
+                Toast.makeText(context,"Bus Saved",Toast.LENGTH_LONG).show();
             }
         });
 

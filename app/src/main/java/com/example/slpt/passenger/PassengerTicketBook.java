@@ -1,4 +1,4 @@
-package com.example.slpt;
+package com.example.slpt.passenger;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +14,7 @@ import android.widget.Space;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.slpt.R;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;

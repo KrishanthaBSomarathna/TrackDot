@@ -89,7 +89,7 @@
             android:name=".CargoDriver"
             android:exported="false" />
         <activity
-            android:name=".PassengerTicketBook"
+            android:name=".passenger.PassengerTicketBook"
             android:exported="false" />
         <activity
             android:name=".LoginHandalor"
