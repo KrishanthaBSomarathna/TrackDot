@@ -208,15 +208,17 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginTop="10dp">
+
             <TextView
+                android:id="@+id/booknow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:text=" Book Now "
+                android:layout_margin="8dp"
+                android:background="@drawable/blackbg"
                 android:padding="1dp"
 
-                android:background="@drawable/blackbg"
-                android:layout_margin="8dp"/>
+                android:text=" Book Now "
+                android:textColor="@color/white" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

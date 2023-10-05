@@ -1,6 +1,7 @@
 package com.example.slpt;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,10 +53,26 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.MyViewHolder> {
         holder.r1startpoint.setText(busDriver.getStartdestination());
         holder.r1stoppoint.setText(busDriver.getStopdestination());
         String status = busDriver.getStatus().toString();
+        String vehiclenumber = busDriver.getVehicleNum().toString();
+        String route = busDriver.getRoadnumber();
         holder.savebus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 databaseReference.child(String.valueOf(firebaseUser.getPhoneNumber())).child("savedbus").setValue(busDriver.getVehicleNum().toString());
+            }
+        });
+
+        holder.booknow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                Intent intent = new Intent(context, PassengerTicketBook.class);
+                intent.putExtra("vehicalenumber",vehiclenumber);
+                intent.putExtra("route",route);
+                context.startActivity(intent);
+
+
             }
         });
 
@@ -89,7 +106,7 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.MyViewHolder> {
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView LocationName, bustype, roadnumber,busnumber,r1starttime,r1stoptime,r2starttime,r2stoptime,r1startpoint,r1stoppoint,r2startpoint,r2stoppoint,online,offline
+        TextView booknow,LocationName, bustype, roadnumber,busnumber,r1starttime,r1stoptime,r2starttime,r2stoptime,r1startpoint,r1stoppoint,r2startpoint,r2stoppoint,online,offline
                 ,savebus;
 
 
@@ -112,6 +129,7 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.MyViewHolder> {
             online = itemView.findViewById(R.id.online);
             offline = itemView.findViewById(R.id.offline);
             savebus = itemView.findViewById(R.id.savebus);
+            booknow = itemView.findViewById(R.id.booknow);
         }
     }
 }
