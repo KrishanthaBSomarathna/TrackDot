@@ -51,7 +51,7 @@ public class Taxi extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bus_driver_view);
+        setContentView(R.layout.taxi);
 
         logoutbtn =findViewById(R.id.logoutbtn);
 
