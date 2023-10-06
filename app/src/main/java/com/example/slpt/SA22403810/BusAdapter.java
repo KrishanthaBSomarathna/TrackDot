@@ -1,4 +1,4 @@
-package com.example.slpt.schedule;
+package com.example.slpt.SA22403810;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,7 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.slpt.passenger.PassengerTicketBook;
+import com.example.slpt.SA22403292.PassengerTicketBook;
 import com.example.slpt.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -91,15 +91,6 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.MyViewHolder> {
             holder.offline.setVisibility(View.VISIBLE);
             holder.online.setVisibility(View.GONE);
         }
-
-
-
-
-
-
-
-
-
 
     }
 

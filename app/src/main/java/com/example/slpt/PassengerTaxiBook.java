@@ -1,4 +1,4 @@
-package com.example.slpt.passenger;
+package com.example.slpt;
 
 import androidx.appcompat.app.AppCompatActivity;
 

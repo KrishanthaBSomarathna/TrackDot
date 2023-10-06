@@ -1,4 +1,4 @@
-package com.example.slpt.schedule;
+package com.example.slpt.SA22403810;
 
 import android.os.Bundle;
 import android.widget.CheckBox;

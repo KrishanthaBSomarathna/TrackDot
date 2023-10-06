@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     android:background="@drawable/bge"
-    tools:context=".schedule.RouteFind">
+    tools:context=".SA22403810.RouteFind">
 
     <LinearLayout
         android:layout_width="match_parent"

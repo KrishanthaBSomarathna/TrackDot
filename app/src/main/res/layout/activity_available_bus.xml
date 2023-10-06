@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bge"
-    tools:context=".schedule.AvailableBus">
+    tools:context=".SA22403810.AvailableBus">
 
     <LinearLayout
         android:layout_width="match_parent"

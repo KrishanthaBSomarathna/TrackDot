@@ -1,4 +1,4 @@
-package com.example.slpt.drivers;
+package com.example.slpt.SA22403810;
 
 import android.Manifest;
 import android.content.Intent;
@@ -18,7 +18,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.example.slpt.R;
-import com.example.slpt.register.Register;
+import com.example.slpt.SA22404350.Register;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;

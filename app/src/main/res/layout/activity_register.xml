@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".register.Register"
+    tools:context=".SA22404350.Register"
     android:background="@drawable/bge">
 
     <LinearLayout
@@ -122,7 +122,8 @@
             android:ems="10"
             android:hint="OTP"
             android:padding="10dp"
-            android:inputType="text" />
+            android:inputType="text"
+            android:background="@drawable/editbg_black_border"/>
 
 
         <Button

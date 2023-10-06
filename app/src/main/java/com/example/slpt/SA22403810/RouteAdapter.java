@@ -1,4 +1,4 @@
-package com.example.slpt.schedule;
+package com.example.slpt.SA22403810;
 
 import android.content.Context;
 import android.content.Intent;

@@ -1,4 +1,4 @@
-package com.example.slpt.register;
+package com.example.slpt.SA22404350;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,11 +14,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.slpt.getdetails.BusDriverDetails;
 import com.example.slpt.CargoDriver;
-import com.example.slpt.passenger.PassengerMainView;
 import com.example.slpt.R;
-import com.example.slpt.getdetails.TaxiDriverDetails;
+import com.example.slpt.SA22403810.BusDriverDetails;
+import com.example.slpt.SA22403810.PassengerMainView;
+import com.example.slpt.TaxiDriverDetails;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;

@@ -1,4 +1,4 @@
-package com.example.slpt.getdetails;
+package com.example.slpt.SA22403810;
 
 import android.app.TimePickerDialog;
 import android.content.Intent;
@@ -13,9 +13,8 @@ import android.widget.TimePicker;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.slpt.drivers.BusDriverView;
 import com.example.slpt.R;
-import com.example.slpt.register.Register;
+import com.example.slpt.SA22404350.Register;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;

@@ -1,16 +1,16 @@
-package com.example.slpt.getdetails;
-
-import android.os.Bundle;
+package com.example.slpt.SA22403810;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Bundle;
+
 import com.example.slpt.R;
 
-public class PassengerDetails extends AppCompatActivity {
+public class PassengerGuide extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_passenger_details);
+        setContentView(R.layout.activity_passengerguide);
     }
 }
