@@ -1,13 +1,17 @@
 package com.example.slpt.SA22403810;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Passenger {
 
-    String savedbus;
+    ArrayList <List> savedbus;
 
-    public Passenger() {
+    public Passenger(ArrayList<List> savedbus) {
+        this.savedbus = savedbus;
     }
 
-    public String getSavedbus() {
+    public ArrayList<List> getSavedbus() {
         return savedbus;
     }
 }

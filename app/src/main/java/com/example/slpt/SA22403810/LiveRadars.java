@@ -26,7 +26,7 @@ public class LiveRadars extends AppCompatActivity {
     private BusAdapter busAdapter;
     private ArrayList<BusDriver> list;
 
-    String savedbus;
+    ArrayList<String> savedBuses; // List to store saved bus numbers
 
     FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -44,25 +44,29 @@ public class LiveRadars extends AppCompatActivity {
         busAdapter = new BusAdapter(this, list);
         recyclerView.setAdapter(busAdapter);
 
-
-        database.child("Passenger").child(firebaseUser.getPhoneNumber()).child("savedbus").addListenerForSingleValueEvent(new ValueEventListener() {
+        database.child("Passenger").child("787175969").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
-                    savedbus = snapshot.getValue(String.class);
-                    Toast.makeText(getApplicationContext(),savedbus,Toast.LENGTH_LONG).show();
+                String savedValue = snapshot.child("saved").getValue(String.class);
+                if (savedValue != null && savedValue.equals("true")) {
+                    savedBuses = new ArrayList<>(); // Initialize the list for saved bus numbers
+                    DataSnapshot savedBusSnapshot = snapshot.child("savedbus");
+                    for (DataSnapshot busNumberSnapshot : savedBusSnapshot.getChildren()) {
+                        String busNumber = busNumberSnapshot.getValue(String.class);
+                        if (busNumber != null) {
+                            savedBuses.add(busNumber);
+                        }
+                    }
+                    // Query the bus drivers that match the saved bus numbers
                     database.child("Bus Drivers").addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             // Clear the existing list to update with the new data
                             list.clear();
-
-
                             for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                                 BusDriver busDriver = dataSnapshot.getValue(BusDriver.class);
+                                if (busDriver != null && busDriver.getVehicleNum() != null && savedBuses.contains(busDriver.getVehicleNum())) {
 
-                                // Check if the busDriver's road number matches the searched road number
-                                if (busDriver != null && busDriver.getVehicleNum() != null && busDriver.getVehicleNum().equals(savedbus)) {
                                     list.add(busDriver);
                                 }
                             }
@@ -74,28 +78,16 @@ public class LiveRadars extends AppCompatActivity {
                             // Handle database query errors here
                         }
                     });
-
-                }
-                else {
-                    Toast.makeText(getApplicationContext(),"savedbus",Toast.LENGTH_LONG).show();
-
+                } else {
+                    // Toast a message indicating that there's no saved bus
+                    Toast.makeText(getApplicationContext(), "No saved bus", Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                // Handle error
             }
         });
-
-
-
-
-
-
-
-
-
-
     }
 }

@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="8dp"
     app:cardCornerRadius="4dp"
-    android:layout_margin="16dp">
+    android:layout_marginBottom="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -49,17 +49,19 @@
      </LinearLayout>
     </LinearLayout>
     </LinearLayout>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:background="@drawable/backline"
-            android:text="All About Bus"
-            android:gravity="center"
             android:layout_margin="5dp"
-            android:textColor="@color/white"
-            android:textSize="17dp"
-            />
-    <LinearLayout
+            android:background="#03A9F4"
+            android:gravity="center"
+            android:text="All About Bus"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="17dp" />
+
+        <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -182,11 +184,13 @@
             android:layout_height="wrap_content"
             android:background="@drawable/greenbg"
             android:layout_margin="10dp"
+            android:padding="5dp"
             >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Current Location: "
+                android:text=" Current Location: "
+
                 android:gravity="center|start"
                 android:textColor="@color/white"
                 />
@@ -194,7 +198,7 @@
                 android:id="@+id/location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Puttalama"
+                android:text=" Puttalama "
                 android:gravity="center|start"
                 android:textColor="@color/white"
                 />
@@ -217,26 +221,11 @@
                 android:background="@drawable/blackbg"
                 android:padding="1dp"
 
+                android:textSize="15dp"
                 android:text=" Book Now "
                 android:textColor="@color/white" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:layout_margin="8dp"
-                android:padding="1dp"
-                android:text=" Schedule "
-                android:background="@drawable/blackbg"/>
-            <TextView
-                android:id="@+id/savebus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:padding="1dp"
 
-                android:text=" Sava to Live Radar "
-                android:background="@drawable/blackbg"
-                android:layout_margin="8dp"/>
+
 
         </LinearLayout>
     </LinearLayout>
@@ -248,7 +237,7 @@
         android:text="Online"
         android:textStyle="bold"
         android:layout_gravity="end"
-        android:layout_margin="5dp"
+        android:layout_margin="7dp"
         android:textColor="#00FF0A"/>
     <TextView
         android:id="@+id/offline"
@@ -257,6 +246,46 @@
         android:text="Offline"
         android:textStyle="bold"
         android:layout_gravity="end"
-        android:layout_margin="5dp"
+        android:layout_margin="7dp"
         android:textColor="#FF0000"/>
+    <TextView
+        android:id="@+id/delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:padding="1dp"
+        android:textSize="15dp"
+        android:text=" Delete "
+        android:textStyle="bold"
+        android:layout_gravity="end"
+        android:layout_marginTop="30dp"
+        android:background="#F44336"
+        android:layout_marginRight="8dp"/>
+    <LinearLayout
+        android:id="@+id/savebtn"
+        android:layout_marginTop="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_gravity="end"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/editbg_red_border"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save Bus"
+            android:textStyle="bold"
+            android:layout_marginLeft="5dp"
+            android:layout_gravity="center"
+            />
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+
+    </LinearLayout>
 </androidx.cardview.widget.CardView>

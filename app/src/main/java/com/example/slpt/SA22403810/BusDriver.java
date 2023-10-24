@@ -2,9 +2,22 @@ package com.example.slpt.SA22403810;
 
 public class BusDriver {
 
+    private boolean isSaved;
     private String LocationName, bustype, roadnumber,vehicleNum,r1start,r1stop,r2start,r2stop,startdestination,stopdestination,status;
 
     public BusDriver() {
+    }
+
+    public BusDriver(boolean isSaved) {
+        this.isSaved = isSaved;
+    }
+
+    public boolean isSaved() {
+        return isSaved;
+    }
+
+    public void setSaved(boolean saved) {
+        isSaved = saved;
     }
 
     public String getLocationName() {

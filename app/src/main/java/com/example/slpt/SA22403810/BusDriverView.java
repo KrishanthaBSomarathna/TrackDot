@@ -54,7 +54,7 @@ public class BusDriverView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bus_driver_view);
 
-        logoutbtn =findViewById(R.id.logoutbtn);
+
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
@@ -130,13 +130,16 @@ public class BusDriverView extends AppCompatActivity {
             }
         };
 
+        logoutbtn = findViewById(R.id.logoutButton);
 
         logoutbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 firebaseAuth.signOut();
+                // You can add code here to navigate to the login or registration activity if needed.
             }
         });
+
 
         start.setOnClickListener(new View.OnClickListener() {
             @Override

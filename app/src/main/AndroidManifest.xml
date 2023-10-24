@@ -21,6 +21,9 @@
         android:theme="@style/Theme.SLPT"
         tools:targetApi="31">
         <activity
+            android:name=".SA22403810.Saved"
+            android:exported="false" />
+        <activity
             android:name=".SA22403810.LiveRadars"
             android:exported="false" />
         <activity
