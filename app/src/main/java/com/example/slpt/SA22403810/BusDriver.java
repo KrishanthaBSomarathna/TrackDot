@@ -5,11 +5,20 @@ public class BusDriver {
     private boolean isSaved;
     private String LocationName, bustype, roadnumber,vehicleNum,r1start,r1stop,r2start,r2stop,startdestination,stopdestination,status;
 
+    private Double  Latitude,Longitude;
     public BusDriver() {
     }
 
     public BusDriver(boolean isSaved) {
         this.isSaved = isSaved;
+    }
+
+    public Double getLatitude() {
+        return Latitude;
+    }
+
+    public Double getLongitude() {
+        return Longitude;
     }
 
     public boolean isSaved() {

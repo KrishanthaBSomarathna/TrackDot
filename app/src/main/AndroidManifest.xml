@@ -21,6 +21,12 @@
         android:theme="@style/Theme.SLPT"
         tools:targetApi="31">
         <activity
+            android:name=".BusLocation"
+            android:exported="false" />
+        <activity
+            android:name=".SA22403810.SplashScreen"
+            android:exported="false" />
+        <activity
             android:name=".SA22403810.Saved"
             android:exported="false" />
         <activity
@@ -77,7 +83,7 @@
             android:name=".SA22403810.PassengerMainView"
             android:exported="false" />
         <activity
-            android:name=".PassengerProfile"
+            android:name=".SA22404350.PassengerProfile"
             android:exported="false" />
         <activity
             android:name=".Login"

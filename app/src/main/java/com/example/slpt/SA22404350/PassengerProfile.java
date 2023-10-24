@@ -1,4 +1,4 @@
-package com.example.slpt;
+package com.example.slpt.SA22404350;
 
 import androidx.appcompat.app.AppCompatActivity;
 

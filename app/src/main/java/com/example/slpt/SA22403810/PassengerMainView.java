@@ -5,21 +5,26 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.slpt.R;
 import com.example.slpt.SA22403292.PassengerTicketBook;
+import com.example.slpt.SA22404350.PassengerProfile;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+
 public class PassengerMainView extends AppCompatActivity {
     private TextView clockTextView;
     private TextView dateTextView;
+    ImageView profile;
     private static final String PREFS_NAME = "MyPrefsFile";
     private static final String FIRST_TIME_KEY = "isFirstTime";
 
@@ -33,6 +38,7 @@ public class PassengerMainView extends AppCompatActivity {
         busSchedules = findViewById(R.id.busshedules);
         liveRadar = findViewById(R.id.liveradar);
         ticketbook = findViewById(R.id.ticketbook);
+        profile = findViewById(R.id.profile);
         updateClockAndDate();
 
 
@@ -51,10 +57,17 @@ public class PassengerMainView extends AppCompatActivity {
             startActivity(new Intent(PassengerMainView.this, PassengerGuide.class));
         }
 
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), PassengerProfile.class));
+            }
+        });
         busSchedules.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(PassengerMainView.this, Schedules.class));
+                Animatoo.INSTANCE.animateShrink(PassengerMainView.this);
             }
         });
         ticketbook.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +80,7 @@ public class PassengerMainView extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(PassengerMainView.this, LiveRadars.class));
+
             }
         });
 

@@ -224,6 +224,17 @@
                 android:textSize="15dp"
                 android:text=" Book Now "
                 android:textColor="@color/white" />
+            <TextView
+                android:id="@+id/buslocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/blackbg"
+                android:padding="1dp"
+
+                android:textSize="15dp"
+                android:text=" Show in Map "
+                android:textColor="@color/white" />
 
 
 
@@ -270,7 +281,7 @@
         android:layout_gravity="end"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/editbg_red_border"
+        android:background="@drawable/editbg_black_border"
         >
 
         <TextView

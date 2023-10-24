@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.slpt.BusLocation;
 import com.example.slpt.SA22403292.PassengerTicketBook;
 import com.example.slpt.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -65,6 +66,9 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.MyViewHolder> {
         String status = busDriver.getStatus().toString();
         String vehiclenumber = busDriver.getVehicleNum().toString();
         String route = busDriver.getRoadnumber();
+        Double latitude = busDriver.getLatitude();
+        Double longitude = busDriver.getLongitude();
+
         holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -187,6 +191,15 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.MyViewHolder> {
                 context.startActivity(intent);
             }
         });
+        holder.showinmap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, BusLocation.class);
+                intent.putExtra("lat", latitude);
+                intent.putExtra("lon", longitude);
+                context.startActivity(intent);
+            }
+        });
 
         if (status.equals("online")) {
             holder.online.setVisibility(View.VISIBLE);
@@ -204,13 +217,14 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.MyViewHolder> {
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView booknow, LocationName, bustype, roadnumber, busnumber, r1starttime, r1stoptime, r2starttime, r2stoptime, r1startpoint, r1stoppoint, r2startpoint, r2stoppoint, online, offline, delete;
+        TextView showinmap,booknow, LocationName, bustype, roadnumber, busnumber, r1starttime, r1stoptime, r2starttime, r2stoptime, r1startpoint, r1stoppoint, r2startpoint, r2stoppoint, online, offline, delete;
         LinearLayout savebtn;
         CheckBox checkBox;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            showinmap = itemView.findViewById(R.id.buslocation);
             LocationName = itemView.findViewById(R.id.location);
             bustype = itemView.findViewById(R.id.bustype);
             roadnumber = itemView.findViewById(R.id.roadNumber);
