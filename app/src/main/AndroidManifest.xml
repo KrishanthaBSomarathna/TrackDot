@@ -21,6 +21,21 @@
         android:theme="@style/Theme.SLPT"
         tools:targetApi="31">
         <activity
+            android:name=".SA22403810.MenuBar"
+            android:exported="false" />
+        <activity
+            android:name=".SA22404350.Confirmation_Dialog_Logout"
+            android:exported="false" />
+        <activity
+            android:name=".SA22404350.Confirmation_Dialog_Delete"
+            android:exported="false" />
+        <activity
+            android:name=".SA22404350.PassengerName"
+            android:exported="false" />
+        <activity
+            android:name=".SA22404350.AdditionalSetting"
+            android:exported="false" />
+        <activity
             android:name=".BusLocation"
             android:exported="false" />
         <activity
@@ -48,7 +63,7 @@
             android:name=".UserDetails"
             android:exported="false" />
         <activity
-            android:name=".SA22403810.Schedules"
+            android:name=".SA22403810.RouteFinder"
             android:exported="false" />
         <activity
             android:name=".CargoUser"

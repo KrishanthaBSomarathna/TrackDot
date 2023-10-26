@@ -1,6 +1,9 @@
 package com.example.slpt.SA22403810;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -8,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.slpt.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -26,6 +30,8 @@ public class LiveRadars extends AppCompatActivity {
     private BusAdapter busAdapter;
     private ArrayList<BusDriver> list;
 
+    TextView goToRoute;
+
     ArrayList<String> savedBuses; // List to store saved bus numbers
 
     FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -35,6 +41,7 @@ public class LiveRadars extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_live_radars);
 
+        goToRoute = findViewById(R.id.goToRoute);
         recyclerView = findViewById(R.id.recyclerView);
         database = FirebaseDatabase.getInstance().getReference();
         recyclerView.setHasFixedSize(true);
@@ -43,6 +50,16 @@ public class LiveRadars extends AppCompatActivity {
         list = new ArrayList<>();
         busAdapter = new BusAdapter(this, list);
         recyclerView.setAdapter(busAdapter);
+
+
+        goToRoute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),RouteFinder.class);
+                startActivity(intent);
+                Animatoo.INSTANCE.animateShrink(LiveRadars.this);
+            }
+        });
 
         database.child("Passenger").child("787175969").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

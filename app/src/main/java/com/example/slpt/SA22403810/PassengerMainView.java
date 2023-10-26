@@ -66,7 +66,7 @@ public class PassengerMainView extends AppCompatActivity {
         busSchedules.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(PassengerMainView.this, Schedules.class));
+                startActivity(new Intent(PassengerMainView.this, RouteFinder.class));
                 Animatoo.INSTANCE.animateShrink(PassengerMainView.this);
             }
         });

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardElevation="8dp"
+    app:cardElevation="4dp"
     app:cardCornerRadius="4dp"
     android:layout_marginBottom="10dp">
 
@@ -27,23 +27,61 @@
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:orientation="vertical">
-         <TextView
-             android:id="@+id/bustype"
+         <LinearLayout
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
-             android:text="CTB Bus"
-             android:textSize="15sp"
-             android:textStyle="bold"/>
-         <TextView
-             android:id="@+id/busnumber"
+             android:orientation="horizontal">
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="Bus Type : "
+                 android:textSize="15sp"
+                 android:textStyle="bold"/>
+             <TextView
+                 android:id="@+id/bustype"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="CTB Bus"
+                 android:textSize="15sp"/>
+         </LinearLayout>
+         <LinearLayout
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
-             android:text="WB-2455"/>
-         <TextView
-             android:id="@+id/roadNumber"
+             android:orientation="horizontal">
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="Bus Number : "
+                 android:textSize="15sp"
+                 android:textStyle="bold"/>
+             <TextView
+                 android:id="@+id/busnumber"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="AAB 2020"
+                 android:textSize="15sp"/>
+         </LinearLayout>
+         <LinearLayout
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
-             android:text="57"/>
+             android:orientation="horizontal">
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="Route Number : "
+                 android:textSize="15sp"
+                 android:textStyle="bold"/>
+             <TextView
+                 android:id="@+id/roadNumber"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="57"
+                 android:textSize="15sp"/>
+         </LinearLayout>
+
+
+
+
 
 
      </LinearLayout>

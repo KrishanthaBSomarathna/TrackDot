@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bge"
-    tools:context=".TaxiDriver"
+    tools:context=".SA22403810.RouteFinder"
     >
 
     <LinearLayout
@@ -60,7 +60,7 @@
             android:background="@drawable/editbg_black_border"
             android:hint="Origin"
             android:inputType="text"
-            android:text="Kurunegala"
+            android:text="Moratuwa"
             android:padding="10dp"
             android:textColor="@color/black"
             android:completionThreshold="1"
@@ -82,7 +82,7 @@
             android:layout_margin="8dp"
             android:background="@drawable/editbg_black_border"
             android:hint="Destination"
-            android:text="Wariyapola"
+            android:text="Colombo"
 
             android:inputType="text"
             android:padding="10dp"
@@ -93,7 +93,8 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="Search Route"
-            android:backgroundTint="#001FEC"
+
+            android:backgroundTint="#0F2004"
             android:layout_marginTop="30dp"
             android:layout_gravity="center"
             android:textColor="@color/white"
