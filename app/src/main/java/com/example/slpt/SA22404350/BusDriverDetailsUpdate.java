@@ -1,4 +1,4 @@
-package com.example.slpt.SA22403810;
+package com.example.slpt.SA22404350;
 
 import android.app.TimePickerDialog;
 import android.content.Intent;
@@ -14,7 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.slpt.R;
-import com.example.slpt.SA22404350.Register;
+import com.example.slpt.SA22403810.BusDriverView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -23,7 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class BusDriverDetails extends AppCompatActivity {
+public class BusDriverDetailsUpdate extends AppCompatActivity {
 
     private EditText vehicleNumber,vehicleName,roadNumber,seatCount,startDestination,stopDestination,r1StartTime, r1StopTime, r2StartTime, r2StopTime;
     private Spinner vehicleTypeSpinner;
@@ -39,7 +39,7 @@ public class BusDriverDetails extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bus_driver_details);
+        setContentView(R.layout.activity_bus_driver_details_update);
 
 
         firebaseDatabase = FirebaseDatabase.getInstance();
@@ -125,7 +125,7 @@ public class BusDriverDetails extends AppCompatActivity {
                         databaseReference.child("Bus Drivers").child(firebaseUser.getPhoneNumber()).child("r2stop").setValue(r2stop);
                         databaseReference.child("Bus Drivers").child(firebaseUser.getPhoneNumber()).child("bustype").setValue(bustype);
 
-                        startActivity(new Intent(BusDriverDetails.this, BusDriverView.class));
+                        startActivity(new Intent(BusDriverDetailsUpdate.this, BusDriverView.class));
 
                 }
                 else

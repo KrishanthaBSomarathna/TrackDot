@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bge"
+    tools:context=".SA22404350.BusDriverDetailsUpdate">
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="202dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/aclonica"
+        android:text="Track Dot"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:id="@+id/emptyfields"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FF0000"
+            android:textSize="20dp"
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="center"
+            android:text="Should be filled Red Colored Fields!!!"/>
+
+
+        <EditText
+            android:id="@+id/vehicleNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/editbg_black_border"
+            android:ems="10"
+            android:padding="10dp"
+            android:hint="VehicleNumber"
+            android:inputType="text"
+            android:textColor="@color/black"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="49dp" />
+        <EditText
+            android:id="@+id/vehiclename"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/editbg_black_border"
+            android:ems="10"
+            android:padding="10dp"
+            android:hint="VehicleName *optional*"
+            android:inputType="text"
+            android:textColor="@color/black"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="49dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/startdestination"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="8dp"
+                android:background="@drawable/editbg_black_border"
+                android:ems="10"
+                android:padding="10dp"
+                android:hint="Start Destination"
+                android:inputType="text"
+                android:textColor="@color/black"
+                />
+
+            <EditText
+                android:id="@+id/stopDestination"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="8dp"
+                android:background="@drawable/editbg_black_border"
+                android:ems="10"
+                android:padding="10dp"
+                android:hint="Stop Destination"
+                android:inputType="text"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/acme"
+            android:text="Route 01 Start Time And Expected End Time"
+            android:textSize="18dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <EditText
+                android:id="@+id/r1starttime"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="8dp"
+                android:background="@drawable/editbg_black_border"
+                android:ems="10"
+                android:padding="10dp"
+                android:hint="Route Start Time"
+                android:inputType="time"
+                android:textColor="@color/black"
+                 />
+
+
+            <EditText
+                android:id="@+id/r1stopttime"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="8dp"
+                android:background="@drawable/editbg_black_border"
+                android:ems="10"
+                android:padding="10dp"
+                android:hint="Route Stop Time"
+                android:inputType="time"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Route 02 Start Time And Expected End Time"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/acme"
+            android:textSize="18dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <EditText
+                android:id="@+id/r2starttime"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="8dp"
+                android:background="@drawable/editbg_black_border"
+                android:ems="10"
+                android:padding="10dp"
+                android:hint="Route 01Start Time"
+                android:inputType="time"
+                android:textColor="@color/black"
+                />
+
+
+            <EditText
+                android:id="@+id/r2stopttime"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="8dp"
+                android:background="@drawable/editbg_black_border"
+                android:ems="10"
+                android:padding="10dp"
+                android:hint="Route Stop Time"
+                android:inputType="time"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+
+
+
+
+
+
+        <EditText
+            android:id="@+id/roadNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/editbg_black_border"
+            android:ems="10"
+            android:hint="Road Number Ex:'101'"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:padding="10dp"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="49dp" />
+
+        <EditText
+            android:id="@+id/seatCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/editbg_black_border"
+            android:ems="10"
+            android:hint="Seat Count Ex: '54'"
+            android:textColor="@color/black"
+            android:inputType="number"
+            android:padding="10dp"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="49dp" />
+
+        <Spinner
+            android:id="@+id/vehicleTypeSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:entries="@array/vehicle_types_array"
+            android:spinnerMode="dialog"
+            android:textColor="@color/black"
+            android:layout_margin="8dp"
+            android:background="@drawable/editbg_black_border"/>
+
+
+        <Button
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="#001FEC"
+            android:text="Save Details"
+            android:textColor="#FFFFFF"
+            android:textSize="25dp" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

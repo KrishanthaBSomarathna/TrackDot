@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,7 +24,7 @@ import java.util.Locale;
 public class PassengerMainView extends AppCompatActivity {
     private TextView clockTextView;
     private TextView dateTextView;
-    ImageView profile;
+    LinearLayout profile;
     private static final String PREFS_NAME = "MyPrefsFile";
     private static final String FIRST_TIME_KEY = "isFirstTime";
 

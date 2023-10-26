@@ -8,6 +8,7 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -49,10 +50,12 @@ public class BusDriverView extends AppCompatActivity {
 
     Button logoutbtn;
 
+    BusDriver busDriver = new BusDriver();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bus_driver_view);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
 
 
@@ -126,6 +129,7 @@ public class BusDriverView extends AppCompatActivity {
                     databaseReference.child("Bus Drivers").child(firebaseUser.getPhoneNumber()).child("Longitude").setValue(longitude);
                     databaseReference.child("Bus Drivers").child(firebaseUser.getPhoneNumber()).child("LocationName").setValue(locationName);
 
+
                 }
             }
         };
@@ -181,16 +185,16 @@ public class BusDriverView extends AppCompatActivity {
         }
     }
 
+//    @Override
+//    protected void onPause() {
+//        super.onPause();
+//        databaseReference.child("Bus Drivers").child(firebaseUser.getPhoneNumber()).child("status").setValue("offline");
+//
+//    }
+
     @Override
     protected void onPause() {
         super.onPause();
-        databaseReference.child("Bus Drivers").child(firebaseUser.getPhoneNumber()).child("status").setValue("offline");
-        
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
         databaseReference.child("Bus Drivers").child(firebaseUser.getPhoneNumber()).child("status").setValue("offline");
 
     }

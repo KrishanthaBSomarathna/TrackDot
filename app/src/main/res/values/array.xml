@@ -4,6 +4,17 @@
         <item>Kurunegala</item>
         <item>Wariyapola</item>
         <item>Padeniya</item>
+        <item>Galle Face</item>
+        <item>kollupitiya</item>
+        <item>keselwatta</item>
+        <item>bambalapitiya</item>
+        <item>wellawatta</item>
+        <item>Mt. Lavinia (Galkissa)</item>
+        <item>Galkissa</item>
+        <item>Ratmalana</item>
+        <item>Moratuwa</item>
+
+
         <!-- Add more location suggestions as needed -->
     </string-array>
     <string-array name="country_codes">
