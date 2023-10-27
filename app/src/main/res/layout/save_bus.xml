@@ -1,263 +1,346 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+app:cardElevation="4dp"
+app:cardCornerRadius="4dp"
+android:layout_marginBottom="10dp">
+
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardElevation="8dp"
-    app:cardCornerRadius="4dp"
-    android:layout_margin="16dp">
-
+    android:orientation="vertical">
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/baseline_directions_bus_24" />
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
-                android:background="@drawable/baseline_directions_bus_24" />
-
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bus Type : "
+                        android:textSize="15sp"
+                        android:textStyle="bold"/>
                     <TextView
                         android:id="@+id/bustype"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="CTB Bus"
+                        android:textSize="15sp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bus Number : "
                         android:textSize="15sp"
-                        android:textStyle="bold" />
-
+                        android:textStyle="bold"/>
                     <TextView
                         android:id="@+id/busnumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="WB-2455" />
-
+                        android:text="AAB 2020"
+                        android:textSize="15sp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Route Number : "
+                        android:textSize="15sp"
+                        android:textStyle="bold"/>
                     <TextView
                         android:id="@+id/roadNumber"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="57" />
-
-
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_margin="5dp"
-            android:background="@drawable/backline"
-            android:gravity="center"
-            android:text="All About Bus"
-            android:textColor="@color/white"
-            android:textSize="17dp" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Route 01"
-                android:textStyle="bold" />
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:gravity="center">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/r1starttime"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="10.50 AM" />
-
-                    <TextView
-                        android:id="@+id/r1startpoint"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Kurunegala" />
+                        android:text="57"
+                        android:textSize="15sp"/>
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=" - - - - - - - - - - - - - - - - - - - - - - -> " />
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/r1stopttime"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="10.50 AM" />
 
-                    <TextView
-                        android:id="@+id/r1stoppoint"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Kurunegala" />
-                </LinearLayout>
 
 
             </LinearLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Route 02"
-                android:textStyle="bold" />
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:gravity="center">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/r2starttime"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="10.50 AM" />
-
-                    <TextView
-                        android:id="@+id/r2startpoint"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Kurunegala" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=" - - - - - - - - - - - - - - - - - - - - - - -> " />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/r2stopttime"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="10.50 AM" />
-
-                    <TextView
-                        android:id="@+id/r2stoppoint"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Kurunegala" />
-                </LinearLayout>
-
-
-            </LinearLayout>
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/greenbg">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center|start"
-                android:text="Current Location: "
-                android:textColor="@color/white" />
-
-            <TextView
-                android:id="@+id/location"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center|start"
-                android:text="Puttalama"
-                android:textColor="@color/white" />
-
-
-        </LinearLayout>
-
-        <fragment
-            android:id="@+id/map"
-            android:name="com.google.android.gms.maps.SupportMapFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-
     </LinearLayout>
 
     <TextView
-        android:id="@+id/online"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
+        android:background="#03A9F4"
+        android:gravity="center"
+        android:text="All About Bus"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="17dp" />
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Online"
-        android:textStyle="bold"
-        android:layout_gravity="end"
-        android:layout_marginRight="80dp"
-        android:layout_marginTop="10dp"
-        android:textColor="#00FF0A"/>
-    <TextView
-        android:id="@+id/offline"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Route 01"
+            android:textStyle="bold"/>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/r1starttime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10.50 AM"/>
+                <TextView
+                    android:id="@+id/r1startpoint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kurunegala"/>
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" - - - - - - - - - - - - - - - - - - - - - - -> "/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/r1stopttime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10.50 AM"/>
+                <TextView
+                    android:id="@+id/r1stoppoint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kurunegala"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Offline"
-        android:textStyle="bold"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Route 02"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"/>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/r2starttime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10.50 AM"/>
+                <TextView
+                    android:id="@+id/r2startpoint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kurunegala"/>
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" - - - - - - - - - - - - - - - - - - - - - - -> "/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/r2stopttime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10.50 AM"/>
+                <TextView
+                    android:id="@+id/r2stoppoint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kurunegala"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/greenbg"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Current Location: "
+
+            android:gravity="center|start"
+            android:textColor="@color/white"
+            />
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Puttalama "
+            android:gravity="center|start"
+            android:textColor="@color/white"
+            />
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:layout_marginRight="80dp"
-        android:layout_marginTop="10dp"
-        android:textColor="#FF0000"/>
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/booknow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/blackbg"
+            android:padding="1dp"
+
+            android:textSize="15dp"
+            android:text=" Book Now "
+            android:textColor="@color/white" />
+        <TextView
+            android:id="@+id/buslocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/blackbg"
+            android:padding="1dp"
+
+            android:textSize="15dp"
+            android:text=" Show in Map "
+            android:textColor="@color/white" />
+
+
+
+    </LinearLayout>
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:name="com.google.android.gms.maps.SupportMapFragment" />
+
+</LinearLayout>
+
+<TextView
+    android:id="@+id/online"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Online"
+    android:textStyle="bold"
+    android:layout_gravity="end"
+    android:layout_margin="7dp"
+    android:textColor="#00FF0A"/>
+<TextView
+    android:id="@+id/offline"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Offline"
+    android:textStyle="bold"
+    android:layout_gravity="end"
+    android:layout_margin="7dp"
+    android:textColor="#FF0000"/>
+<TextView
+    android:id="@+id/delete"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textColor="@color/white"
+    android:padding="1dp"
+    android:textSize="15dp"
+    android:text=" Delete "
+    android:textStyle="bold"
+    android:layout_gravity="end"
+    android:layout_marginTop="30dp"
+    android:background="#F44336"
+    android:layout_marginRight="8dp"/>
+<LinearLayout
+    android:id="@+id/savebtn"
+    android:layout_marginTop="25dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="5dp"
+    android:layout_gravity="end"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:background="@drawable/editbg_black_border"
+    >
 
     <TextView
-        android:id="@+id/savebus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_margin="8dp"
-        android:background="@drawable/blackbg"
-        android:padding="1dp"
-        android:text=" Delete "
-        android:textColor="@color/white" />
+        android:text="Save Bus"
+        android:textStyle="bold"
+        android:layout_marginLeft="5dp"
+        android:layout_gravity="center"
+        />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="30dp"
+        android:layout_height="30dp"/>
+
+</LinearLayout>
 </androidx.cardview.widget.CardView>

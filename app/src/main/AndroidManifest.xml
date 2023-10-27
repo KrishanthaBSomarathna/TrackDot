@@ -9,6 +9,7 @@
     <uses-permission
         android:name="android.permission.RECEIVE_SMS"
         tools:ignore="PermissionImpliesUnsupportedChromeOsHardware" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -139,7 +140,7 @@
             android:exported="false" />
 
         <activity
-            android:name=".LoginHandalor"
+            android:name=".SA22403810.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -148,7 +149,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SA22403810.SplashScreen"
+            android:name=".LoginHandalor"
             android:exported="false" />
 
         <meta-data

@@ -6,16 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".SA22403810.BusDriverView">
 
-
     <ImageView
         android:id="@+id/menu"
-        android:layout_width="25dp"
-        android:layout_height="23dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="64dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/img_9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:elevation="8dp"
+        android:gravity="center"
+        android:text="Track Dot"
+        android:textColor="@color/black"
+
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 
 
 

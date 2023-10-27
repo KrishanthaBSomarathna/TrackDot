@@ -201,15 +201,26 @@ public void onBackPressed() {
     intent.addCategory(Intent.CATEGORY_HOME);
     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
     startActivity(intent);
+    stopLocationUpdates();
 }
 
     @Override
     protected void onPause() {
         super.onPause();
+        stopLocationUpdates();
         databaseReference.child("Bus Drivers").child(firebaseUser.getPhoneNumber()).child("status").setValue("offline");
 
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        startLocationUpdates();
+        stop.setVisibility(View.VISIBLE);
+        start.setVisibility(View.GONE);
+        locationUpdatesActive = true;
+        databaseReference.child("Bus Drivers").child(firebaseUser.getPhoneNumber()).child("status").setValue("online");
+    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {

@@ -7,30 +7,21 @@
     tools:context=".TaxiDriverDetails"
     android:background="@drawable/bge">
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:elevation="8dp"
+        android:gravity="center"
+        android:text="Taxi Driver Details"
+        android:textColor="@color/black"
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="88dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/logo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="202dp"
-            android:layout_height="36dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="40dp"
-            android:fontFamily="@font/aclonica"
-            android:text="Track Dot"
-            android:textSize="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/imageView2"
-            app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 
@@ -120,10 +111,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:backgroundTint="#001FEC"
+                android:backgroundTint="#0F2004"
                 android:text="Save Details"
                 android:textColor="#FFFFFF"
-                android:textSize="25dp" />
+                android:textSize="15dp" />
 
         </LinearLayout>
 

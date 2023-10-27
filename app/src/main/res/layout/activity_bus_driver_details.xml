@@ -4,33 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bge"
     tools:context=".SA22403810.BusDriverDetails">
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:elevation="8dp"
+        android:gravity="center"
+        android:text="Bus Driver Details"
+        android:textColor="@color/black"
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/logo"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="202dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="40dp"
-        android:fontFamily="@font/aclonica"
-        android:text="Track Dot"
-        android:textSize="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
 
 
@@ -114,6 +106,7 @@
         </LinearLayout>
 
         <TextView
+            android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -156,6 +149,7 @@
                 android:textColor="@color/black"/>
         </LinearLayout>
         <TextView
+            android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Route 02 Start Time And Expected End Time"

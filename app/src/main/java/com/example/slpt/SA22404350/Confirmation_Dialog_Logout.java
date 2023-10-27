@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.FragmentActivity;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.slpt.R;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -34,6 +35,7 @@ public class Confirmation_Dialog_Logout extends FragmentActivity {
             public void onClick(DialogInterface dialog, int which) {
                 firebaseAuth.getCurrentUser().delete();
                 startActivity(new Intent(getApplicationContext(), Register.class));
+                Animatoo.INSTANCE.animateFade(Confirmation_Dialog_Logout.this);
             }
         });
 
@@ -43,6 +45,8 @@ public class Confirmation_Dialog_Logout extends FragmentActivity {
             public void onClick(DialogInterface dialog, int which) {
                 // Define the action when the user cancels (optional)
             finish();
+                Animatoo.INSTANCE.animateFade(Confirmation_Dialog_Logout.this);
+
             }
         });
 

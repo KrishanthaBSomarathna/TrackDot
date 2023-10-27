@@ -15,6 +15,7 @@ import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.slpt.R;
 import com.example.slpt.SA22403292.PassengerTicketBook;
 import com.example.slpt.SA22404350.PassengerProfile;
+import com.example.slpt.SA22410122.Entry2;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -24,7 +25,7 @@ import java.util.Locale;
 public class PassengerMainView extends AppCompatActivity {
     private TextView clockTextView;
     private TextView dateTextView;
-    LinearLayout profile;
+    LinearLayout profile,home,taxi;
     private static final String PREFS_NAME = "MyPrefsFile";
     private static final String FIRST_TIME_KEY = "isFirstTime";
 
@@ -39,6 +40,8 @@ public class PassengerMainView extends AppCompatActivity {
         liveRadar = findViewById(R.id.liveradar);
         ticketbook = findViewById(R.id.ticketbook);
         profile = findViewById(R.id.profile);
+        taxi = findViewById(R.id.taxi);
+        home = findViewById(R.id.home);
         updateClockAndDate();
 
 
@@ -55,6 +58,7 @@ public class PassengerMainView extends AppCompatActivity {
 
             // Open the guide or welcome activity
             startActivity(new Intent(PassengerMainView.this, PassengerGuide.class));
+            Animatoo.INSTANCE.animateShrink(PassengerMainView.this);
         }
 
         profile.setOnClickListener(new View.OnClickListener() {
@@ -83,6 +87,14 @@ public class PassengerMainView extends AppCompatActivity {
 
             }
         });
+        taxi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), Entry2.class));
+                Animatoo.INSTANCE.animateZoom(PassengerMainView.this);
+            }
+        });
+
 
 
 
