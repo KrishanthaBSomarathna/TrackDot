@@ -18,7 +18,7 @@ public class Confirmation_Dialog_Logout extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_passengerprofile); // Replace with your layout XML
+        setContentView(R.layout.activity_passenger_profile); // Replace with your layout XML
 
         firebaseAuth = FirebaseAuth.getInstance();
         // Create an AlertDialog.Builder

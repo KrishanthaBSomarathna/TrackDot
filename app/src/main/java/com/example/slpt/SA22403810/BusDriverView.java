@@ -19,6 +19,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.example.slpt.R;
+import com.example.slpt.SA22404350.BusDriverProfile;
 import com.example.slpt.SA22404350.Register;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
@@ -36,6 +37,8 @@ import java.util.Locale;
 
 public class BusDriverView extends AppCompatActivity {
 
+    ImageView menu;
+
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
 
     private FusedLocationProviderClient fusedLocationClient;
@@ -48,7 +51,7 @@ public class BusDriverView extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     FirebaseUser firebaseUser;
 
-    Button logoutbtn;
+
 
     BusDriver busDriver = new BusDriver();
     @Override
@@ -58,6 +61,15 @@ public class BusDriverView extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
 
+
+        menu = findViewById(R.id.menu);
+
+        menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), BusDriverProfile.class));
+            }
+        });
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
@@ -134,15 +146,7 @@ public class BusDriverView extends AppCompatActivity {
             }
         };
 
-        logoutbtn = findViewById(R.id.logoutButton);
 
-        logoutbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                firebaseAuth.signOut();
-                // You can add code here to navigate to the login or registration activity if needed.
-            }
-        });
 
 
         start.setOnClickListener(new View.OnClickListener() {
@@ -191,6 +195,13 @@ public class BusDriverView extends AppCompatActivity {
 //        databaseReference.child("Bus Drivers").child(firebaseUser.getPhoneNumber()).child("status").setValue("offline");
 //
 //    }
+public void onBackPressed() {
+    // Handle back button press, navigate to home screen
+    Intent intent = new Intent(Intent.ACTION_MAIN);
+    intent.addCategory(Intent.CATEGORY_HOME);
+    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    startActivity(intent);
+}
 
     @Override
     protected void onPause() {

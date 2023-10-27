@@ -124,6 +124,7 @@ public class BusDriverDetails extends AppCompatActivity {
                         databaseReference.child("Bus Drivers").child(firebaseUser.getPhoneNumber()).child("r2start").setValue(r2start);
                         databaseReference.child("Bus Drivers").child(firebaseUser.getPhoneNumber()).child("r2stop").setValue(r2stop);
                         databaseReference.child("Bus Drivers").child(firebaseUser.getPhoneNumber()).child("bustype").setValue(bustype);
+                        databaseReference.child("Bus Drivers").child(firebaseUser.getPhoneNumber()).child("usertype").setValue("Bus Driver");
 
                         startActivity(new Intent(BusDriverDetails.this, BusDriverView.class));
 

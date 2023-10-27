@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SA22404350.PassengerName">
+    tools:context=".SA22404350.NameChange">
 
     <TextView
         android:id="@+id/textView3"
@@ -27,14 +27,13 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginStart="16dp"
         android:text="Enter User New Name"
-        app:layout_constraintBottom_toTopOf="@+id/vehicleNumber"
+        app:layout_constraintBottom_toTopOf="@+id/usernameupdate"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/vehicleNumber"
+        android:id="@+id/usernameupdate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
@@ -62,6 +61,6 @@
         android:textSize="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vehicleNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/usernameupdate" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

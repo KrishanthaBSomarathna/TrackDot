@@ -30,17 +30,15 @@
             android:name=".SA22404350.Confirmation_Dialog_Delete"
             android:exported="false" />
         <activity
-            android:name=".SA22404350.PassengerName"
+            android:name=".SA22404350.NameChange"
             android:exported="false" />
         <activity
             android:name=".SA22404350.AdditionalSetting"
             android:exported="false" />
         <activity
-            android:name=".BusLocation"
+            android:name=".SA22403810.BusLocation"
             android:exported="false" />
-        <activity
-            android:name=".SA22403810.SplashScreen"
-            android:exported="false" />
+
         <activity
             android:name=".SA22403810.Saved"
             android:exported="false" />
@@ -116,6 +114,10 @@
             android:name=".SA22403292.PassengerTicketBook"
             android:exported="false" />
         <activity
+            android:name=".SA22404350.BusDriverProfile"
+            android:exported="false" />
+
+        <activity
             android:name=".LoginHandalor"
             android:exported="true">
             <intent-filter>
@@ -124,6 +126,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".SA22403810.SplashScreen"
+            android:exported="false" />
 
         <meta-data
             android:name="preloaded_fonts"

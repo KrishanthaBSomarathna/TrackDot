@@ -189,7 +189,7 @@ public class Register extends AppCompatActivity {
                             startActivity(new Intent(Register.this, PassengerMainView.class));
 
                         } else if (userType.equals("Bus Driver")) {
-                            databaseReference.child("Bus Driver").child(fullPhoneNumber).child("UserName").setValue(userName);
+                            databaseReference.child("Bus Drivers").child(fullPhoneNumber).child("UserName").setValue(userName);
 
                             startActivity(new Intent(Register.this, BusDriverDetails.class));
                         } else if (userType.equals("Taxi Driver")) {

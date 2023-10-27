@@ -18,7 +18,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class PassengerProfile extends AppCompatActivity {
+public class BusDriverProfile extends AppCompatActivity {
 
     CardView additionalSetting,fullname,phone;
     TextView logout,name,phoneNumber;
@@ -28,7 +28,7 @@ public class PassengerProfile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_passenger_profile);
+        setContentView(R.layout.activity_busdriver_profile);
 
         mobile = FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber();
         databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -52,9 +52,8 @@ public class PassengerProfile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),AdditionalSetting.class);
-                intent.putExtra("type","Passenger");
+                intent.putExtra("type","BusDriver");
                 startActivity(intent);
-
             }
         });
 
@@ -62,8 +61,9 @@ public class PassengerProfile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),NameChange.class);
-                intent.putExtra("Type","Passenger");
+                intent.putExtra("Type","Bus Drivers");
                 startActivity(intent);
+
 
 
             }
@@ -75,7 +75,7 @@ public class PassengerProfile extends AppCompatActivity {
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-               String namestr = (String) snapshot.child("Passenger").child(mobile).child("UserName").getValue();
+               String namestr = (String) snapshot.child("Bus Drivers").child(mobile).child("UserName").getValue();
                name.setText(namestr);
 
             }

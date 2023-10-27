@@ -6,26 +6,39 @@
     <Transition
         motion:constraintSetEnd="@+id/end"
         motion:constraintSetStart="@id/start"
-        motion:duration="1000">
+        motion:duration="718"
+        motion:autoTransition="animateToEnd">
        <KeyFrameSet>
        </KeyFrameSet>
     </Transition>
 
     <ConstraintSet android:id="@+id/start">
         <Constraint
-            motion:layout_editor_absoluteY="334dp"
-            android:layout_height="63dp"
-            motion:layout_editor_absoluteX="171dp"
-            android:layout_width="69dp"
-            android:id="@+id/imageView6" />
+            android:id="@+id/redlogo"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:scaleX="0"
+            android:scaleY="0"
+            android:alpha="9"
+            motion:transitionEasing="cubic(0.48,0.16,0.71,0.36)" />
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end">
         <Constraint
-            motion:layout_editor_absoluteY="254dp"
-            android:layout_height="222dp"
-            motion:layout_editor_absoluteX="132dp"
-            android:layout_width="147dp"
-            android:id="@+id/imageView6" />
+            android:id="@+id/redlogo"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:scaleX="1"
+            android:scaleY="1"
+            motion:transitionEasing="cubic(0.62,0.19,0.77,0.47)"
+            android:alpha="8" />
     </ConstraintSet>
 </MotionScene>
