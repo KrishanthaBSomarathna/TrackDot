@@ -1,0 +1,50 @@
+<!-- activity_driver_confirmation.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DriverConfirmationActivity">
+
+    <!-- Display driver details -->
+    <TextView
+        android:id="@+id/nameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Driver Name: John Doe" />
+
+    <TextView
+        android:id="@+id/mobileTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nameTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Mobile Number: 1234567890" />
+
+    <TextView
+        android:id="@+id/vehicleNumberTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mobileTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Vehicle Number: ABC123" />
+
+    <!-- Confirm Pickup button -->
+    <Button
+        android:id="@+id/confirmPickupButton"
+        android:layout_width="167dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/vehicleNumberTextView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="123dp"
+        android:layout_marginTop="353dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="232dp"
+        android:text="Confirm Pickup" />
+</RelativeLayout>

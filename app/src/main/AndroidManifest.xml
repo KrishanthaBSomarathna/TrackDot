@@ -43,6 +43,27 @@
             android:name=".SA22403810.Saved"
             android:exported="false" />
         <activity
+            android:name=".SA22410122.ConfirmCancelation"
+            android:exported="false" />
+        <activity
+            android:name=".SA22410122.CarSelection"
+            android:exported="false" />
+        <activity
+            android:name=".SA22410122.DriverCancelation"
+            android:exported="false" />
+        <activity
+            android:name=".SA22410122.DriverClientLiveTrackingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SA22410122.DriverconfirmationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SA22410122.Entry2"
+            android:exported="false" />
+        <activity
+            android:name=".SA22410122.SetLocation"
+            android:exported="false" />
+        <activity
             android:name=".SA22403810.LiveRadars"
             android:exported="false" />
         <activity

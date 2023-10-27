@@ -12,6 +12,8 @@ import com.example.slpt.SA22403810.BusDriverDetails;
 import com.example.slpt.SA22403810.BusDriverView;
 import com.example.slpt.SA22403810.PassengerMainView;
 import com.example.slpt.SA22404350.Register;
+import com.example.slpt.SA22410122.Entry2;
+import com.example.slpt.SA22410122.SetLocation;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -74,7 +76,7 @@ public class LoginHandalor extends AppCompatActivity {
         ashfak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(LoginHandalor.this, Taxi.class));
+                startActivity(new Intent(LoginHandalor.this, Entry2.class));
             }
         });
         krishantha.setOnClickListener(new View.OnClickListener() {

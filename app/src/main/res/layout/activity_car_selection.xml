@@ -1,0 +1,49 @@
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/carImageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerInParent="true"
+        android:clickable="true"
+        android:contentDescription="Car"
+        android:src="@drawable/taxicar" />
+
+    <ImageView
+        android:id="@+id/vanImageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/threewheel03"
+        android:layout_toRightOf="@id/carImageView"
+        android:layout_centerVertical="true"
+        android:clickable="true"
+        android:contentDescription="Van" />
+
+    <ImageView
+        android:id="@+id/bikeImageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_below="@id/carImageView"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:contentDescription="Bike"
+        android:src="@drawable/highroofvan" />
+
+    <ImageView
+        android:id="@+id/threeWheelImageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/minivan"
+        android:layout_toRightOf="@id/bikeImageView"
+        android:layout_below="@id/vanImageView"
+        android:clickable="true"
+        android:contentDescription="Three Wheel" />
+
+</RelativeLayout>
