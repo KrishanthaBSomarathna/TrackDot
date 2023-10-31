@@ -1,147 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+        xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission
-        android:name="android.permission.RECEIVE_SMS"
-        tools:ignore="PermissionImpliesUnsupportedChromeOsHardware" />
+            android:name="android.permission.RECEIVE_SMS"
+            tools:ignore="PermissionImpliesUnsupportedChromeOsHardware" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:allowBackup="true"
-        android:dataExtractionRules="@xml/data_extraction_rules"
-        android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.SLPT"
-        tools:targetApi="31">
+            android:allowBackup="true"
+            android:dataExtractionRules="@xml/data_extraction_rules"
+            android:fullBackupContent="@xml/backup_rules"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/Theme.SLPT"
+            tools:targetApi="31">
         <activity
-            android:name=".SA22403810.MenuBar"
-            android:exported="false" />
+                android:name=".SA22403292.TicketBookInitializer"
+                android:exported="false" />
         <activity
-            android:name=".SA22404350.Confirmation_Dialog_Logout"
-            android:exported="false" />
+                android:name=".SA22403810.MenuBar"
+                android:exported="false" />
         <activity
-            android:name=".SA22404350.Confirmation_Dialog_Delete"
-            android:exported="false" />
+                android:name=".SA22404350.Confirmation_Dialog_Logout"
+                android:exported="false" />
         <activity
-            android:name=".SA22404350.NameChange"
-            android:exported="false" />
+                android:name=".SA22404350.Confirmation_Dialog_Delete"
+                android:exported="false" />
         <activity
-            android:name=".SA22404350.AdditionalSetting"
-            android:exported="false" />
+                android:name=".SA22404350.NameChange"
+                android:exported="false" />
         <activity
-            android:name=".SA22403810.BusLocation"
-            android:exported="false" />
-
+                android:name=".SA22404350.AdditionalSetting"
+                android:exported="false" />
         <activity
-            android:name=".SA22403810.Saved"
-            android:exported="false" />
+                android:name=".SA22403810.BusLocation"
+                android:exported="false" />
         <activity
-            android:name=".SA22410122.ConfirmCancelation"
-            android:exported="false" />
+                android:name=".SA22403810.Saved"
+                android:exported="false" />
         <activity
-            android:name=".SA22410122.CarSelection"
-            android:exported="false" />
+                android:name=".SA22410122.ConfirmCancelation"
+                android:exported="false" />
         <activity
-            android:name=".SA22410122.DriverCancelation"
-            android:exported="false" />
+                android:name=".SA22410122.CarSelection"
+                android:exported="false" />
         <activity
-            android:name=".SA22410122.DriverClientLiveTrackingActivity"
-            android:exported="false" />
+                android:name=".SA22410122.DriverCancelation"
+                android:exported="false" />
         <activity
-            android:name=".SA22410122.DriverconfirmationActivity"
-            android:exported="false" />
+                android:name=".SA22410122.DriverClientLiveTrackingActivity"
+                android:exported="false" />
         <activity
-            android:name=".SA22410122.Entry2"
-            android:exported="false" />
+                android:name=".SA22410122.DriverconfirmationActivity"
+                android:exported="false" />
         <activity
-            android:name=".SA22410122.SetLocation"
-            android:exported="false" />
+                android:name=".SA22410122.Entry2"
+                android:exported="false" />
         <activity
-            android:name=".SA22403810.LiveRadars"
-            android:exported="false" />
+                android:name=".SA22410122.SetLocation"
+                android:exported="false" />
         <activity
-            android:name=".LiveRadar"
-            android:exported="false" />
+                android:name=".SA22403810.LiveRadars"
+                android:exported="false" />
         <activity
-            android:name=".Taxi"
-            android:exported="false" />
+                android:name=".LiveRadar"
+                android:exported="false" />
         <activity
-            android:name=".SA22403810.AvailableBus"
-            android:exported="false" />
+                android:name=".Taxi"
+                android:exported="false" />
         <activity
-            android:name=".SA22403810.RouteFind"
-            android:exported="false" />
+                android:name=".SA22403810.AvailableBus"
+                android:exported="false" />
         <activity
-            android:name=".UserDetails"
-            android:exported="false" />
+                android:name=".SA22403810.RouteFind"
+                android:exported="false" />
         <activity
-            android:name=".SA22403810.RouteFinder"
-            android:exported="false" />
+                android:name=".UserDetails"
+                android:exported="false" />
         <activity
-            android:name=".CargoUser"
-            android:exported="false" />
+                android:name=".SA22403810.RouteFinder"
+                android:exported="false" />
         <activity
-            android:name=".TaxiDriverDetails"
-            android:exported="false" />
+                android:name=".CargoUser"
+                android:exported="false" />
+        <activity
+                android:name=".TaxiDriverDetails"
+                android:exported="false" />
 
         <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyD_-WWgpw7jG6H9yfj3zR7mvJV9baKPVMQ" />
+                android:name="com.google.android.geo.API_KEY"
+                android:value="AIzaSyD_-WWgpw7jG6H9yfj3zR7mvJV9baKPVMQ" />
 
         <activity
-            android:name=".SA22403810.PassengerDetails"
-            android:exported="false" />
+                android:name=".SA22403810.PassengerDetails"
+                android:exported="false" />
         <activity
-            android:name=".SA22403810.BusDriverDetails"
-            android:exported="false" />
+                android:name=".SA22403810.BusDriverDetails"
+                android:exported="false" />
         <activity
-            android:name=".TaxiDriver"
-            android:exported="false" />
+                android:name=".TaxiDriver"
+                android:exported="false" />
         <activity
-            android:name=".VehicleProfile"
-            android:exported="false" />
+                android:name=".VehicleProfile"
+                android:exported="false" />
         <activity
-            android:name=".SA22403810.PassengerGuide"
-            android:exported="false" />
+                android:name=".SA22403810.PassengerGuide"
+                android:exported="false" />
         <activity
-            android:name=".SA22403810.BusDriverView"
-            android:exported="false" />
+                android:name=".SA22403810.BusDriverView"
+                android:exported="false" />
         <activity
-            android:name=".SA22403810.PassengerMainView"
-            android:exported="false" />
+                android:name=".SA22403810.PassengerMainView"
+                android:exported="false" />
         <activity
-            android:name=".SA22404350.PassengerProfile"
-            android:exported="false" />
+                android:name=".SA22404350.PassengerProfile"
+                android:exported="false" />
         <activity
-            android:name=".Login"
-            android:exported="false" />
+                android:name=".Login"
+                android:exported="false" />
         <activity
-            android:name=".SA22404350.Register"
-            android:exported="false" />
+                android:name=".SA22404350.Register"
+                android:exported="false" />
         <activity
-            android:name=".PassengerTaxiBook"
-            android:exported="false" />
+                android:name=".PassengerTaxiBook"
+                android:exported="false" />
         <activity
-            android:name=".CargoDriver"
-            android:exported="false" />
+                android:name=".CargoDriver"
+                android:exported="false" />
         <activity
-            android:name=".SA22403292.PassengerTicketBook"
-            android:exported="false" />
+                android:name=".SA22403292.PassengerTicketBook"
+                android:exported="false" />
         <activity
-            android:name=".SA22404350.BusDriverProfile"
-            android:exported="false" />
-
+                android:name=".SA22404350.BusDriverProfile"
+                android:exported="false" />
         <activity
-            android:name=".LoginHandalor"
-            android:exported="true">
+                android:name=".LoginHandalor"
+                android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -149,12 +150,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SA22403810.SplashScreen"
-            android:exported="false" />
+                android:name=".SA22403810.SplashScreen"
+                android:exported="false" />
 
         <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
+                android:name="preloaded_fonts"
+                android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
