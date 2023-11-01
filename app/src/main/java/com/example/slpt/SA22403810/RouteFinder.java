@@ -10,6 +10,7 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.slpt.R;
 
 
@@ -57,6 +58,14 @@ public class RouteFinder extends AppCompatActivity {
             });
 
 
+    }
+
+    public void onBackPressed() {
+        // Handle back button press, navigate to home screen
+        Intent intent = new Intent(getApplicationContext(),PassengerMainView.class);
+
+        startActivity(intent);
+        Animatoo.INSTANCE.animateSwipeRight(RouteFinder.this);
     }
 
 

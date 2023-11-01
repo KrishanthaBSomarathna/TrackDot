@@ -27,44 +27,43 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
-        android:layout_marginBottom="343dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <ProgressBar
             android:id="@+id/progressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:visibility="gone"/>
+            android:visibility="gone" />
+
         <TextView
             android:id="@+id/authfail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="Try Another Phone Number or Try Later!"
-            android:textSize="20dp"
             android:textColor="#FF0000"
-            android:layout_gravity="center"/>
+            android:textSize="20dp" />
 
         <EditText
             android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="User name"
-            android:padding="10dp"
             android:layout_margin="10dp"
-            android:background="@drawable/editbg_black_border"/>
+            android:background="@drawable/editbg_black_border"
+            android:hint="User name"
+            android:padding="10dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_margin="10dp"
             android:background="@drawable/editbg_black_border"
-            android:layout_margin="10dp">
-
-
+            android:orientation="horizontal">
 
 
             <Spinner
@@ -89,11 +88,11 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
 
-            android:layout_margin="10dp"
-            android:entries="@array/user_type"
             android:layout_gravity="center"
-            android:spinnerMode="dialog"
-            android:background="@drawable/editbg_black_border"/>
+            android:layout_margin="10dp"
+            android:background="@drawable/editbg_black_border"
+            android:entries="@array/user_type"
+            android:spinnerMode="dialog" />
 
         <Button
             android:id="@+id/buttonSendOTP"
@@ -101,8 +100,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="24dp"
-            android:text="SEND OTP"
-            android:foreground="@drawable/sendotp"/>
+            android:foreground="@drawable/sendotp"
+            android:text="SEND OTP" />
 
     </LinearLayout>
 
@@ -110,12 +109,10 @@
         android:id="@+id/otplayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="180dp"
-        android:layout_marginBottom="343dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="180dp"
         android:layout_marginRight="20dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -124,21 +121,21 @@
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="OTP Code Successfully Sent!!!"
-            android:textSize="20dp"
-            android:textColor="#00A624"
+            android:layout_gravity="center"
             android:layout_marginBottom="10dp"
-            android:layout_gravity="center"/>
+            android:text="OTP Code Successfully Sent!!!"
+            android:textColor="#00A624"
+            android:textSize="20dp" />
 
         <EditText
             android:id="@+id/editTextVerificationCode"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:background="@drawable/editbg_black_border"
             android:ems="10"
             android:hint="OTP"
-            android:padding="10dp"
             android:inputType="text"
-            android:background="@drawable/editbg_black_border"/>
+            android:padding="10dp" />
 
 
         <Button
@@ -146,8 +143,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:foreground="@drawable/verifyotp"
             android:layout_marginTop="24dp"
+            android:foreground="@drawable/verifyotp"
             android:text="Verify OTP" />
 
     </LinearLayout>

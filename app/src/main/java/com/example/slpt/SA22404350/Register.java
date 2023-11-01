@@ -35,7 +35,7 @@ public class Register extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     private String verificationId;
-     EditText editTextPhoneNumber, editTextVerificationCode,username;
+    EditText editTextPhoneNumber, editTextVerificationCode,username;
     private Button buttonSendOTP, buttonVerifyOTP;
 
     LinearLayout otp,sendotp;

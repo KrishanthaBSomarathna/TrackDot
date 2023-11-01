@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".SA22403810.BusDriverView">
 
     <ImageView
@@ -23,7 +24,7 @@
         android:background="@color/white"
         android:elevation="8dp"
         android:gravity="center"
-        android:text="Track Dot"
+        android:text="Bus Locator"
         android:textColor="@color/black"
 
         android:textSize="25dp"

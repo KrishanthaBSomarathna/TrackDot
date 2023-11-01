@@ -49,6 +49,7 @@ public class PassengerProfile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), PassengerMainView.class));
+
                 Animatoo.INSTANCE.animateSlideRight(PassengerProfile.this);
             }
         });

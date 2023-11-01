@@ -71,7 +71,7 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.MyViewHolder> {
         holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                DatabaseReference savedBusRef = databaseReference.child("787175969").child("savedbus");
+                DatabaseReference savedBusRef = databaseReference.child(firebaseUser.getPhoneNumber().toString()).child("savedbus");
 
                 savedBusRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -104,7 +104,7 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.MyViewHolder> {
 
                         // Set "saved" based on whether the array is empty or not
                         boolean isSaved = !savedBuses.isEmpty();
-                        databaseReference.child("787175969").child("saved").setValue(isSaved ? "true" : "false");
+                        databaseReference.child(firebaseUser.getPhoneNumber().toString()).child("saved").setValue(isSaved ? "true" : "false");
 
                         // Show the appropriate toast message
                         if (isChecked) {
@@ -140,7 +140,7 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.MyViewHolder> {
                 String busToRemove = busDriver.getVehicleNum().toString();
 
                 // Reference to the "savedbus" node
-                DatabaseReference savedBusRef = databaseReference.child("787175969").child("savedbus");
+                DatabaseReference savedBusRef = databaseReference.child(firebaseUser.getPhoneNumber().toString()).child("savedbus");
 
                 savedBusRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -193,10 +193,16 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.MyViewHolder> {
         holder.showinmap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, BusLocation.class);
-                intent.putExtra("lat", latitude);
-                intent.putExtra("lon", longitude);
-                context.startActivity(intent);
+                if(status.equals("offline")){
+                    Toast.makeText(context.getApplicationContext(), "Bus Driver Not Available",Toast.LENGTH_LONG).show();
+                }
+                else {
+                    Intent intent = new Intent(context, BusLocation.class);
+                    intent.putExtra("lat", latitude);
+                    intent.putExtra("lon", longitude);
+                    context.startActivity(intent);
+                }
+
             }
         });
 
