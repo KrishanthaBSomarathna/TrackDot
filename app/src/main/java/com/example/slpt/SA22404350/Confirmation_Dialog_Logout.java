@@ -4,13 +4,13 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.fragment.app.FragmentActivity;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.slpt.R;
 import com.google.firebase.auth.FirebaseAuth;
-
 
 public class Confirmation_Dialog_Logout extends FragmentActivity {
 
@@ -27,13 +27,13 @@ public class Confirmation_Dialog_Logout extends FragmentActivity {
 
         // Set the dialog title and message
         builder.setTitle("Confirmation");
-        builder.setMessage("Are you sure you want to logout?");
+        builder.setMessage("Are you sure you want to Logout Account");
 
         // Set the positive button (confirm button) and its click listener
         builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                firebaseAuth.getCurrentUser().delete();
+                firebaseAuth.signOut();
                 startActivity(new Intent(getApplicationContext(), Register.class));
                 Animatoo.INSTANCE.animateFade(Confirmation_Dialog_Logout.this);
             }
@@ -44,16 +44,28 @@ public class Confirmation_Dialog_Logout extends FragmentActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 // Define the action when the user cancels (optional)
-            finish();
+                finish();
                 Animatoo.INSTANCE.animateFade(Confirmation_Dialog_Logout.this);
-
             }
         });
+
+        // Set the AlertDialog as cancelable
+        builder.setCancelable(true);
 
         // Create and show the AlertDialog
         AlertDialog dialog = builder.create();
         dialog.show();
+
+        // Add a cancel listener to execute finish() when the dialog is canceled
+        dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialog) {
+                finish();
+                Animatoo.INSTANCE.animateFade(Confirmation_Dialog_Logout.this);
+            }
+        });
+
+        // Allow clicking anywhere else on the screen to dismiss the dialog
+        dialog.setCanceledOnTouchOutside(true);
     }
 }
-
-

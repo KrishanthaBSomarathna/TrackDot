@@ -61,7 +61,7 @@ public class LiveRadars extends AppCompatActivity {
             }
         });
 
-        database.child("Passenger").child("787175969").addListenerForSingleValueEvent(new ValueEventListener() {
+        database.child("Passenger").child(firebaseUser.getPhoneNumber().toString()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String savedValue = snapshot.child("saved").getValue(String.class);
@@ -106,5 +106,14 @@ public class LiveRadars extends AppCompatActivity {
                 // Handle error
             }
         });
+
+
+    }
+    public void onBackPressed() {
+        // Handle back button press, navigate to home screen
+        Intent intent = new Intent(getApplicationContext(),PassengerMainView.class);
+
+        startActivity(intent);
+        Animatoo.INSTANCE.animateSwipeRight(LiveRadars.this);
     }
 }

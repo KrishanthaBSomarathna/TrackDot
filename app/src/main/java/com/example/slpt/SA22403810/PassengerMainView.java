@@ -29,17 +29,19 @@ public class PassengerMainView extends AppCompatActivity {
     private static final String PREFS_NAME = "MyPrefsFile";
     private static final String FIRST_TIME_KEY = "isFirstTime";
 
-    private CardView busSchedules,liveRadar,ticketbook;
+    private CardView routeFinder,liveRadar,ticketbook,taxibook,aboutus;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_passengermainview);
         clockTextView = findViewById(R.id.clockTextView);
         dateTextView = findViewById(R.id.dateTextView);
-        busSchedules = findViewById(R.id.busshedules);
+        routeFinder = findViewById(R.id.busshedules);
         liveRadar = findViewById(R.id.liveradar);
         ticketbook = findViewById(R.id.ticketbook);
+        taxibook = findViewById(R.id.taxibook);
         profile = findViewById(R.id.profile);
+        aboutus = findViewById(R.id.aboutus);
         taxi = findViewById(R.id.taxi);
         home = findViewById(R.id.home);
         updateClockAndDate();
@@ -65,13 +67,29 @@ public class PassengerMainView extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), PassengerProfile.class));
+                Animatoo.INSTANCE.animateSwipeLeft(PassengerMainView.this);
             }
         });
-        busSchedules.setOnClickListener(new View.OnClickListener() {
+        aboutus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), AboutUs.class));
+                Animatoo.INSTANCE.animateSwipeLeft(PassengerMainView.this);
+            }
+        });
+        routeFinder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(PassengerMainView.this, RouteFinder.class));
-                Animatoo.INSTANCE.animateShrink(PassengerMainView.this);
+                Animatoo.INSTANCE.animateSwipeLeft(PassengerMainView.this);
+            }
+        });
+        taxibook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), Entry2.class));
+
+                Animatoo.INSTANCE.animateSwipeLeft(PassengerMainView.this);
             }
         });
         ticketbook.setOnClickListener(new View.OnClickListener() {
@@ -84,6 +102,7 @@ public class PassengerMainView extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(PassengerMainView.this, LiveRadars.class));
+                Animatoo.INSTANCE.animateSwipeLeft(PassengerMainView.this);
 
             }
         });
@@ -91,7 +110,6 @@ public class PassengerMainView extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), Entry2.class));
-                Animatoo.INSTANCE.animateZoom(PassengerMainView.this);
             }
         });
 

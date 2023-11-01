@@ -3,8 +3,10 @@ package com.example.slpt.SA22403810;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedDispatcherOwner;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.slpt.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -40,7 +42,7 @@ public class BusLocation extends AppCompatActivity implements OnMapReadyCallback
         LatLng location = new LatLng(lat, lon);
         mMap.addMarker(new MarkerOptions().position(location).title("kkkkk"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 15));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 18));
     }
 
     @Override
@@ -59,5 +61,10 @@ public class BusLocation extends AppCompatActivity implements OnMapReadyCallback
     public void onLowMemory() {
         super.onLowMemory();
         mapView.onLowMemory();
+    }
+
+    public void onBackPressed() {
+        finish();
+        Animatoo.INSTANCE.animateSwipeRight(BusLocation.this);
     }
 }
