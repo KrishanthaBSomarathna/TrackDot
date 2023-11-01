@@ -2,6 +2,8 @@ package com.example.slpt.SA22403292;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -21,6 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -33,10 +36,11 @@ public class PassengerTicketBook extends AppCompatActivity {
     private Map<Integer, String> bookedSeats = new HashMap<>();
 
     // Temporary hardcoded input parameters
-    private int seatNumber = -1;
+    private List<Integer> seatNumber = new ArrayList<>();
     private String dateString = "17-10-23";
     private String userId = "+94761231234";
     private String busNumber = "BA-4568";
+    private boolean isStartToEnd = false;
     private String tripNumber = "2";
     private int seatCount = 54;
 
@@ -48,18 +52,63 @@ public class PassengerTicketBook extends AppCompatActivity {
         // Initialize firebase realtime database
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
-        //Intent intent = getIntent();
-        //String busNumber = intent.getStringExtra("vehicalenumber");
-        //String route = intent.getStringExtra("route");
-        loadDataAndDrawSeats();
+        Intent intent = getIntent();
+        isStartToEnd = intent.getBooleanExtra("isStartToEnd", false);
+        if (isStartToEnd) {
+            tripNumber = "1";
+        } else {
+            tripNumber = "2";
+        }
+        busNumber = intent.getStringExtra("route");
+
+        ((TextView) findViewById(R.id.sourceName)).setText(intent.getStringExtra("start"));
+        ((TextView) findViewById(R.id.destinationName)).setText(intent.getStringExtra("end"));
+        ((TextView) findViewById(R.id.routeNumber)).setText("(" + busNumber + ")");
+
+        TextView dateView = findViewById(R.id.dateView);
+
+        Button calendarBtn = findViewById(R.id.changeDateBtn);
+        final Calendar c = Calendar.getInstance();
+        int year = c.get(Calendar.YEAR);
+        int month = c.get(Calendar.MONTH);
+        int day = c.get(Calendar.DAY_OF_MONTH);
+        dateString = (
+                String.format(Locale.getDefault(), "%02d", day) + "/" +
+                        String.format(Locale.getDefault(), "%02d", (month + 1)) + "/" + year
+        );
+        dateView.setText(dateString);
+
+        calendarBtn.setOnClickListener(view -> {
+            // Reference : https://www.geeksforgeeks.org/datepicker-in-android/
+            DatePickerDialog datePickerDialog = new DatePickerDialog(
+                    PassengerTicketBook.this,
+                    (view1, year1, monthOfYear, dayOfMonth) -> {
+                        dateString = (
+                                String.format(Locale.getDefault(), "%02d", dayOfMonth) + "/" +
+                                        String.format(Locale.getDefault(), "%02d", (monthOfYear + 1)) + "/" + year1
+                        );
+                        dateView.setText(dateString);
+                    },
+                    year,
+                    month,
+                    day
+            );
+            // Set min date to today
+            datePickerDialog.getDatePicker().setMinDate(c.getTimeInMillis());
+            Calendar maxDate = Calendar.getInstance();
+            // Set max date to one month from today
+            maxDate.add(Calendar.MONTH, 1);
+            datePickerDialog.getDatePicker().setMaxDate(maxDate.getTimeInMillis());
+            datePickerDialog.show();
+        });
 
         // Set book button action
-        Button btn = findViewById(R.id.bookBtn);
-        btn.setOnClickListener(view -> {
-            if (seatNumber != -1) {
-                btn.setEnabled(false);
+        Button bookBtn = findViewById(R.id.bookBtn);
+        bookBtn.setOnClickListener(view -> {
+            if (!seatNumber.isEmpty()) {
                 // If seat is already booked. Then reservation is removed.
                 // This can be called only by clicking available seats or seats booked by user
+                /* todo implement confirm page and move remove booking to 'my bookings'
                 if (bookedSeats.containsKey(seatNumber)) {
                     // Remove Booking
                     databaseReference.child("Bus-Reservation")
@@ -82,11 +131,13 @@ public class PassengerTicketBook extends AppCompatActivity {
                                 Toast.makeText(this, "Booking Placed Successfully.", Toast.LENGTH_SHORT).show();
                                 loadDataAndDrawSeats();
                             });
-                }
+                }*/
             } else {
                 Toast.makeText(this, "Please select a seat to place a booking.", Toast.LENGTH_SHORT).show();
             }
         });
+
+        loadDataAndDrawSeats();
     }
 
     // This method can be used to reload and re-render all data
@@ -100,7 +151,7 @@ public class PassengerTicketBook extends AppCompatActivity {
                 .child(dateString).get().addOnCompleteListener(result -> {
                     DataSnapshot snapshot = result.getResult();
                     // Collect booked seats
-                    for (DataSnapshot childSnap: snapshot.getChildren()) {
+                    for (DataSnapshot childSnap : snapshot.getChildren()) {
                         bookedSeats.put(Integer.valueOf(childSnap.getKey()), childSnap.getValue(String.class));
                     }
                     createBusSeats();
@@ -170,23 +221,16 @@ public class PassengerTicketBook extends AppCompatActivity {
                 int seatNumberTemp = addedSeatCount;
                 // Seat is booked, but by user
                 if (bookedSeats.containsKey(seatNumberTemp) && bookedSeats.get(seatNumberTemp).equals(userId)) {
-                    button.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(238, 153, 252)));
+                    button.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(1, 50, 32)));
+                    button.setTextColor(Color.WHITE);
                     button.setOnClickListener(view -> {
-                        bookBtn.setText("Remove BOOKING");
-                        bookBtn.setEnabled(true);
-                        seatNumber = seatNumberTemp;
-                        for (MaterialButton btn: buttonList) {
-                            if (!bookedSeats.containsKey(Integer.valueOf(String.valueOf(btn.getText())))) {
-                                btn.setBackgroundTintList(ColorStateList.valueOf(Color.TRANSPARENT));
-                            }
-                        }
-                        TextView bookNumber = findViewById(R.id.seatNumberBookView);
-                        bookNumber.setText("Seat Number : " + seatNumberTemp);
+                        Toast.makeText(this, "To remove your booking, visit my booking page.", Toast.LENGTH_SHORT).show();
                     });
 
                     // Seat is booked, not by user
                 } else if (bookedSeats.containsKey(seatNumberTemp)) {
                     button.setBackgroundTintList(ColorStateList.valueOf(Color.GRAY));
+                    button.setTextColor(Color.WHITE);
                     button.setOnClickListener(view -> {
                         Toast.makeText(this, "This seat is already booked.", Toast.LENGTH_SHORT).show();
                     });
@@ -194,17 +238,32 @@ public class PassengerTicketBook extends AppCompatActivity {
                     // Seat is available
                 } else {
                     button.setOnClickListener(view -> {
-                        bookBtn.setText("BOOK");
-                        bookBtn.setEnabled(true);
-                        seatNumber = seatNumberTemp;
-                        for (MaterialButton btn: buttonList) {
-                            if (!bookedSeats.containsKey(Integer.valueOf(String.valueOf(btn.getText())))) {
-                                btn.setBackgroundTintList(ColorStateList.valueOf(Color.TRANSPARENT));
+                        if (seatNumber.contains(seatNumberTemp)) {
+                            seatNumber.remove(seatNumber.indexOf(seatNumberTemp));
+                        } else {
+                            seatNumber.add(seatNumberTemp);
+                        }
+                        bookBtn.setEnabled(!seatNumber.isEmpty());
+                        TextView bookNumber = findViewById(R.id.seatNumberBookView);
+                        String seats = "";
+                        for (Integer seatNum : seatNumber) {
+                            if (seats.isEmpty()) {
+                                seats += seatNum;
+                            } else {
+                                seats += (", " + seatNum);
                             }
                         }
-                        TextView bookNumber = findViewById(R.id.seatNumberBookView);
-                        bookNumber.setText("Seat Number : " + seatNumberTemp);
-                        button.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(238, 153, 252)));
+                        bookNumber.setText("Seat Number : " + seats);
+
+                        for (MaterialButton btn : buttonList) {
+                            if (!bookedSeats.containsKey(Integer.valueOf(String.valueOf(btn.getText())))) {
+                                if (seatNumber.contains(Integer.valueOf(String.valueOf(btn.getText())))) {
+                                    btn.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(238, 153, 252)));
+                                } else {
+                                    btn.setBackgroundTintList(ColorStateList.valueOf(Color.TRANSPARENT));
+                                }
+                            }
+                        }
                     });
                 }
 

@@ -1,16 +1,18 @@
 package com.example.slpt.SA22403292;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.slpt.R;
-import com.example.slpt.SA22403810.BusDriver;
 
 import java.util.List;
+import java.util.Locale;
 
 public class BusRouteListAdapter extends ArrayAdapter<BusListItem> {
 
@@ -51,6 +53,18 @@ public class BusRouteListAdapter extends ArrayAdapter<BusListItem> {
         busRoute.setText(bus.getRouteNumber());
         TextView busRouteName = view.findViewById(R.id.bus_route_desc);
         busRouteName.setText(bus.getRouteDesc());
+        TextView pricePerSeat = view.findViewById(R.id.price_per_seat);
+        pricePerSeat.setText("Rs " + String.format(Locale.getDefault(), "%.1f", bus.getPricePerSeat()));
+        Button button = view.findViewById(R.id.go_to_book);
+        button.setOnClickListener(btn -> {
+            Intent intent = new Intent(context, PassengerTicketBook.class);
+            intent.putExtra("start", bus.getStartStation());
+            intent.putExtra("end", bus.getEndStation());
+            intent.putExtra("route", bus.getRouteNumber());
+            intent.putExtra("isStartToEnd", bus.isStartToEnd());
+            intent.putExtra("pricePerSeat", bus.getPricePerSeat());
+            context.startActivity(intent);
+        });
 
         return view;
     }

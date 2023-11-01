@@ -22,20 +22,23 @@
             android:theme="@style/Theme.SLPT"
             tools:targetApi="31">
         <activity
+                android:name=".SA22403292.ConfirmBooking"
+                android:exported="false" />
+        <activity
                 android:name=".SA22403292.TicketBookInitializer"
                 android:exported="false" />
         <activity
                 android:name=".SA22403810.MenuBar"
                 android:exported="false" />
         <activity
-            android:name=".SA22403810.AboutUs"
-            android:exported="false" />
+                android:name=".SA22403810.AboutUs"
+                android:exported="false" />
         <activity
-            android:name=".SA22403810.Route1TimeTable"
-            android:exported="false" />
+                android:name=".SA22403810.Route1TimeTable"
+                android:exported="false" />
         <activity
-            android:name=".SA22403810.Route2TimeTable"
-            android:exported="false" />
+                android:name=".SA22403810.Route2TimeTable"
+                android:exported="false" />
         <activity
                 android:name=".SA22404350.Confirmation_Dialog_Logout"
                 android:exported="false" />
@@ -49,8 +52,8 @@
                 android:name=".SA22404350.AdditionalSetting"
                 android:exported="false" />
         <activity
-            android:name=".SA22403810.BusLocation"
-            android:exported="false" />
+                android:name=".SA22403810.BusLocation"
+                android:exported="false" />
         <activity
                 android:name=".SA22403810.Saved"
                 android:exported="false" />
@@ -147,8 +150,8 @@
                 android:name=".SA22403292.PassengerTicketBook"
                 android:exported="false" />
         <activity
-            android:name=".SA22404350.BusDriverProfile"
-            android:exported="false" />
+                android:name=".SA22404350.BusDriverProfile"
+                android:exported="false" />
         <activity
                 android:name=".LoginHandalor"
                 android:exported="true">
@@ -168,4 +171,3 @@
     </application>
 
 </manifest>
-

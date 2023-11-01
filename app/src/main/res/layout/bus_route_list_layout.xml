@@ -15,25 +15,43 @@
                 android:id="@+id/bus_image"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/baseline_directions_bus_24"
-                />
+                android:src="@drawable/baseline_directions_bus_24" />
 
-        <TextView
-                android:id="@+id/bus_route"
-                android:orientation="vertical"
+        <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                android:text=""
-                android:textAlignment="center" />
+                android:gravity="center">
+
+            <TextView
+                    android:id="@+id/bus_route"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:text=""
+                    android:textAlignment="textEnd"
+                    android:paddingHorizontal="20dp" />
+
+            <TextView
+                    android:id="@+id/price_per_seat"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:text=""
+                    android:textAlignment="textStart"
+                    android:paddingLeft="5dp" />
+        </LinearLayout>
 
         <Button
                 android:text="BOOK"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/button2" />
+                android:id="@+id/go_to_book" />
     </LinearLayout>
 
     <TextView

@@ -26,6 +26,8 @@ public class TicketBookInitializer extends AppCompatActivity implements SelectLo
     private Map<String, List<String>> allBusses = new HashMap<>();
     private List<String> allStops = new ArrayList<>();
     private List<String> validDestinations = new ArrayList<>();
+    private final float firstStopPrice = 100;
+    private final float eachStopPrice = 20;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,7 +112,7 @@ public class TicketBookInitializer extends AppCompatActivity implements SelectLo
         } else {
             destinationText.setText(selectedValue);
             numbersListView.setAdapter(new BusRouteListAdapter(this, new ArrayList<>()));
-            Map<String, String> eligibleBusses = new HashMap<>();
+            Map<String, BusListItem> eligibleBusses = new HashMap<>();
             String start = (String) startText.getText();
             for (String key : allBusses.keySet()) {
                 boolean isStartToEnd = false;
@@ -119,6 +121,7 @@ public class TicketBookInitializer extends AppCompatActivity implements SelectLo
                 if (allBusses.get(key) == null) {
                     continue;
                 }
+                float stopCount = 0;
                 for (String valueStr : allBusses.get(key)) {
                     if (valueStr.equals(start)) {
                         flagStart = true;
@@ -132,17 +135,22 @@ public class TicketBookInitializer extends AppCompatActivity implements SelectLo
                             isStartToEnd = true;
                         }
                     }
+                    if (flagStart || flagDest) {
+                        stopCount += 1;
+                    }
                     if (flagStart && flagDest) {
                         break;
                     }
                 }
-                if (flagStart && flagDest) {
-                    if (!eligibleBusses.containsKey(key)) {
-                        if (isStartToEnd) {
-                            eligibleBusses.put(key, "1");
-                        } else {
-                            eligibleBusses.put(key, "2");
-                        }
+                if (flagStart && flagDest && !eligibleBusses.containsKey(key)) {
+                    float price = firstStopPrice;
+                    if (stopCount > 1) {
+                        price += ((stopCount - 1) * eachStopPrice);
+                    }
+                    if (isStartToEnd) {
+                        eligibleBusses.put(key, new BusListItem(true, price));
+                    } else {
+                        eligibleBusses.put(key, new BusListItem(false, price));
                     }
                 }
             }
@@ -151,14 +159,19 @@ public class TicketBookInitializer extends AppCompatActivity implements SelectLo
                 BusListItem bus = new BusListItem();
                 bus.setRouteNumber(key);
                 if (allBusses.get(key) != null) {
-                    if (eligibleBusses.get(key).equals("1")) {
+                    if (eligibleBusses.get(key).isStartToEnd()) {
                         bus.setRouteDesc(allBusses.get(key).get(0));
+                        bus.setStartToEnd(true);
                     } else {
                         bus.setRouteDesc(allBusses.get(key).get(0) + " (reverse)");
+                        bus.setStartToEnd(false);
                     }
                 } else {
                     bus.setRouteDesc("N/A");
                 }
+                bus.setStartStation(start);
+                bus.setEndStation(selectedValue);
+                bus.setPricePerSeat(eligibleBusses.get(key).getPricePerSeat());
                 busses.add(bus);
             }
             BusRouteListAdapter numbersArrayAdapter = new BusRouteListAdapter(this, busses);
