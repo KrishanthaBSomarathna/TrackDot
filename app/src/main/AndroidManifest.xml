@@ -22,6 +22,12 @@
         android:theme="@style/Theme.SLPT"
         tools:targetApi="31">
         <activity
+            android:name=".SA22403742.CargoDriverDetails"
+            android:exported="false" />
+        <activity
+            android:name=".SA22403742.DashBoard"
+            android:exported="false" />
+        <activity
             android:name=".SA22403742.OrderDetails"
             android:exported="false" />
         <activity
@@ -158,16 +164,15 @@
         <activity
             android:name=".PassengerTaxiBook"
             android:exported="false" />
-
         <activity
             android:name=".SA22403292.PassengerTicketBook"
             android:exported="false" />
         <activity
             android:name=".SA22404350.BusDriverProfile"
             android:exported="false" />
-        <activity android:name=".SA22403742.OrderLocation"
-            android:exported="false"/>
-
+        <activity
+            android:name=".SA22403742.OrderLocation"
+            android:exported="false" />
         <activity
             android:name=".LoginHandalor"
             android:exported="true">

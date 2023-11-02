@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.slpt.SA22403292.TicketBookInitializer;
 import com.example.slpt.SA22403742.CargoDriver;
+import com.example.slpt.SA22403742.CargoDriverDetails;
 import com.example.slpt.SA22403742.CargoUser;
 import com.example.slpt.SA22403742.OrderDetails;
 import com.example.slpt.SA22403742.OrderLocation;
@@ -75,7 +76,7 @@ public class LoginHandalor extends AppCompatActivity {
         hasheef.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(LoginHandalor.this, OrderLocation.class));
+                startActivity(new Intent(LoginHandalor.this, CargoDriverDetails.class));
             }
         });
         ashfak.setOnClickListener(new View.OnClickListener() {

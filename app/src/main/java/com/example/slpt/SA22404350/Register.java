@@ -197,7 +197,7 @@ public class Register extends AppCompatActivity {
 
                             startActivity(new Intent(Register.this, TaxiDriverDetails.class));
                         } else if (userType.equals("Cargo Driver")) {
-                            databaseReference.child("Cargo Driver").child(fullPhoneNumber).child("UserName").setValue(userName);
+                            databaseReference.child("Cargo Drivers").child(fullPhoneNumber).child("UserName").setValue(userName);
 
                             startActivity(new Intent(Register.this, CargoDriver.class));
                         }
