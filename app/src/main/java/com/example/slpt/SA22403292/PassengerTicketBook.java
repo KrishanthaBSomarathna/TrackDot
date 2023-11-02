@@ -132,33 +132,6 @@ public class PassengerTicketBook extends AppCompatActivity {
                 }
                 confirmPage.putExtra("seatNumbers", seatNumTem);
                 startActivity(confirmPage);
-
-                // If seat is already booked. Then reservation is removed.
-                // This can be called only by clicking available seats or seats booked by user
-                /* todo implement confirm page and move remove booking to 'my bookings'
-                if (bookedSeats.containsKey(seatNumber)) {
-                    // Remove Booking
-                    databaseReference.child("Bus-Reservation")
-                            .child(busNumber)
-                            .child(tripNumber)
-                            .child(dateString)
-                            .child(String.valueOf(seatNumber))
-                            .removeValue().addOnCompleteListener(value -> {
-                                Toast.makeText(this, "Booking Removed Successfully.", Toast.LENGTH_SHORT).show();
-                                loadDataAndDrawSeats();
-                            });
-                } else {
-                    // Place booking
-                    Map<String, Object> map = new HashMap<>();
-                    map.put(String.valueOf(seatNumber), userId);
-                    databaseReference.child("Bus-Reservation")
-                            .child(busNumber)
-                            .child(tripNumber)
-                            .child(dateString).updateChildren(map).addOnCompleteListener(value -> {
-                                Toast.makeText(this, "Booking Placed Successfully.", Toast.LENGTH_SHORT).show();
-                                loadDataAndDrawSeats();
-                            });
-                }*/
             } else {
                 Toast.makeText(this, "Please select a seat to place a booking.", Toast.LENGTH_SHORT).show();
             }

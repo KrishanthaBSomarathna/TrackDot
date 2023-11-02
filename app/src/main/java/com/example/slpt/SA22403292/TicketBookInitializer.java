@@ -2,6 +2,7 @@ package com.example.slpt.SA22403292;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
@@ -10,7 +11,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.slpt.LoginHandalor;
 import com.example.slpt.R;
+import com.example.slpt.SA22403810.SplashScreen;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -48,6 +51,10 @@ public class TicketBookInitializer extends AppCompatActivity implements SelectLo
         startText = findViewById(R.id.startText);
         destinationText = findViewById(R.id.endText);
         numbersListView = findViewById(R.id.busList);
+
+        findViewById(R.id.my_booking_btn).setOnClickListener(
+                view -> startActivity(new Intent(this, MyBookings.class))
+        );
 
         startText.setEnabled(false);
         startText.setAlpha(0.3F);

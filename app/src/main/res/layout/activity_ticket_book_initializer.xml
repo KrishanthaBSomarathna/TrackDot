@@ -3,8 +3,24 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp"
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="16dp"
         android:background="@android:color/white">
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:gravity="end">
+        <Button
+                android:id="@+id/my_booking_btn"
+                android:text="My Bookings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"/>
+    </LinearLayout>
 
     <LinearLayout
             android:orientation="vertical"
@@ -13,8 +29,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_weight="1"
-            android:layout_marginTop="16dp"
-            android:gravity="bottom|start">
+            android:gravity="center_vertical|start">
 
         <TextView
                 android:text="Starting Station"
