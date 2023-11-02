@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SA22403742.CargoDriver">
+    tools:context=".SA22403742.OrderDetails">
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
@@ -12,7 +12,7 @@
         android:background="@color/white"
         android:elevation="8dp"
         android:gravity="center"
-        android:text="Cargo Driver Details"
+        android:text="Order Details"
         android:textColor="@color/black"
 
         android:textSize="25dp"
@@ -33,13 +33,13 @@
 
 
         <EditText
-            android:id="@+id/vehicleNumber"
+            android:id="@+id/pacageName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:background="@drawable/editbg_black_border"
             android:ems="10"
-            android:hint="VehicleNumber"
+            android:hint="Packege Name"
             android:inputType="text"
             android:padding="10dp"
             android:textColor="@color/black"
@@ -47,28 +47,57 @@
             tools:layout_editor_absoluteY="49dp" />
 
         <EditText
-            android:id="@+id/vehicaltype"
+            android:id="@+id/Weight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:background="@drawable/editbg_black_border"
             android:ems="10"
             android:padding="10dp"
-            android:hint="Vehicle Type"
+            android:hint="Weight"
             android:inputType="text"
             android:textColor="@color/black"
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="49dp" />
-
-
-
-
-
-
-
-
-
-
+        <EditText
+            android:id="@+id/type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/editbg_black_border"
+            android:ems="10"
+            android:hint="Type"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:padding="10dp"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="49dp" />
+        <EditText
+            android:id="@+id/ordernumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/editbg_black_border"
+            android:ems="10"
+            android:hint="Order Number"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:padding="10dp"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="49dp" />
+        <EditText
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/editbg_black_border"
+            android:ems="10"
+            android:hint="Address"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="49dp" />
 
         <EditText
             android:id="@+id/phone"
@@ -77,12 +106,28 @@
             android:layout_margin="8dp"
             android:background="@drawable/editbg_black_border"
             android:ems="10"
-            android:hint="Phone Number"
+            android:padding="10dp"
+            android:hint="Phone"
+            android:inputType="text"
+            android:textColor="@color/black"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="49dp" />
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/editbg_black_border"
+            android:ems="10"
+            android:hint="Email"
             android:inputType="text"
             android:textColor="@color/black"
             android:padding="10dp"
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="49dp" />
+
+
+
 
 
 
@@ -105,6 +150,5 @@
 
 
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
