@@ -35,7 +35,7 @@ public class TicketBookInitializer extends AppCompatActivity implements SelectLo
     private List<String> allStops = new ArrayList<>();
     private List<String> validDestinations = new ArrayList<>();
     private final float firstStopPrice = 100;
-    private final float eachStopPrice = 20;
+    private final float eachStopPrice = 50;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

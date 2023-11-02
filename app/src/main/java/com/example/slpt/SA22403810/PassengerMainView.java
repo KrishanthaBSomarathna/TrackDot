@@ -14,6 +14,7 @@ import androidx.cardview.widget.CardView;
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.slpt.R;
 import com.example.slpt.SA22403292.PassengerTicketBook;
+import com.example.slpt.SA22403292.TicketBookInitializer;
 import com.example.slpt.SA22404350.PassengerProfile;
 import com.example.slpt.SA22410122.Entry2;
 
@@ -95,7 +96,7 @@ public class PassengerMainView extends AppCompatActivity {
         ticketbook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(PassengerMainView.this, PassengerTicketBook.class));
+                startActivity(new Intent(PassengerMainView.this, TicketBookInitializer.class));
             }
         });
         liveRadar.setOnClickListener(new View.OnClickListener() {

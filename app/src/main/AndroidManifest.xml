@@ -22,6 +22,9 @@
             android:theme="@style/Theme.SLPT"
             tools:targetApi="31">
         <activity
+                android:name=".SA22403292.MyBookings"
+                android:exported="false" />
+        <activity
                 android:name=".SA22403292.ConfirmBooking"
                 android:exported="false" />
         <activity

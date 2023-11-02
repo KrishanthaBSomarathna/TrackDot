@@ -7,12 +7,10 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.slpt.SA22403292.PassengerTicketBook;
+import com.example.slpt.SA22403292.TicketBookInitializer;
 import com.example.slpt.SA22403810.BusDriverDetails;
 import com.example.slpt.SA22403810.BusDriverView;
 import com.example.slpt.SA22403810.PassengerMainView;
-import com.example.slpt.SA22403810.Route1TimeTable;
-import com.example.slpt.SA22403810.Route2TimeTable;
 import com.example.slpt.SA22403810.SplashScreen;
 import com.example.slpt.SA22404350.Register;
 import com.example.slpt.SA22410122.Entry2;
@@ -66,7 +64,7 @@ public class LoginHandalor extends AppCompatActivity {
         manthi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(LoginHandalor.this, PassengerTicketBook.class));
+                startActivity(new Intent(LoginHandalor.this, TicketBookInitializer.class));
             }
         });
 
