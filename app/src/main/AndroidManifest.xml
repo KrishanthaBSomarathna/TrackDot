@@ -22,6 +22,9 @@
         android:theme="@style/Theme.SLPT"
         tools:targetApi="31">
         <activity
+            android:name=".SA22403810.ReportGenerate"
+            android:exported="false" />
+        <activity
             android:name=".SA22403742.CargoDriverDetails"
             android:exported="false" />
         <activity
