@@ -81,6 +81,7 @@ public class MyBookingListAdapter extends ArrayAdapter<BookingListItem> {
                             dialog.dismiss();
                         })
                         .setNegativeButton("Delete", (dialog, id) -> {
+                            // Delete from database
                             dbReference.child("Bus-Reservation")
                                     .child(bookingItem.getRouteCode())
                                     .child(bookingItem.getTripCode())

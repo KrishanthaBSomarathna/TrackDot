@@ -32,14 +32,16 @@ public class MyBookings extends AppCompatActivity implements MyBookingListAdapte
     private ListView prevBookingList;
     private ListView nextBookingList;
 
-    private String userId = "999";
+    private String userId = "+94761231234";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_bookings);
 
-        userId = FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber().trim();
+        try {
+            userId = FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber().trim();
+        } catch (Exception ignore) {}
 
         loadingView = new Dialog(this);
         loadingView.setContentView(R.layout.loading_model_layout);
@@ -57,15 +59,12 @@ public class MyBookings extends AppCompatActivity implements MyBookingListAdapte
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 int position = tab.getPosition();
-                switch (position) {
-                    case 0:
-                        prevBookingList.setVisibility(View.VISIBLE);
-                        nextBookingList.setVisibility(View.GONE);
-                        break;
-                    case 1:
-                        prevBookingList.setVisibility(View.GONE);
-                        nextBookingList.setVisibility(View.VISIBLE);
-                        break;
+                if (position == 0) {
+                    prevBookingList.setVisibility(View.VISIBLE);
+                    nextBookingList.setVisibility(View.GONE);
+                } else if (position == 1) {
+                    prevBookingList.setVisibility(View.GONE);
+                    nextBookingList.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -84,6 +83,7 @@ public class MyBookings extends AppCompatActivity implements MyBookingListAdapte
     private void loadData() {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
+        // Read all bookings
         databaseReference.child("Bus-Reservation").get().addOnCompleteListener(result -> {
             if (result.getException() != null) {
                 loadingView.dismiss();
@@ -96,6 +96,7 @@ public class MyBookings extends AppCompatActivity implements MyBookingListAdapte
                 dialog.show();
             } else {
                 Map<String,String> allBusses = new HashMap<>();
+                // Read all bus data
                 databaseReference.child("Route").get().addOnCompleteListener(busList -> {
                     for (DataSnapshot snapshot : busList.getResult().getChildren()) {
                         String indexOneStr = "";

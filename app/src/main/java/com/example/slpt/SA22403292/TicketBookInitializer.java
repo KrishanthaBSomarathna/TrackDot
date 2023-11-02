@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -13,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.slpt.LoginHandalor;
 import com.example.slpt.R;
+import com.example.slpt.SA22403810.BusDriverView;
 import com.example.slpt.SA22403810.SplashScreen;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
@@ -40,6 +42,7 @@ public class TicketBookInitializer extends AppCompatActivity implements SelectLo
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Set UI layout for activity
         setContentView(R.layout.activity_ticket_book_initializer);
 
         loadingView = new Dialog(this);
@@ -52,6 +55,7 @@ public class TicketBookInitializer extends AppCompatActivity implements SelectLo
         destinationText = findViewById(R.id.endText);
         numbersListView = findViewById(R.id.busList);
 
+        // Go to my bookings page. Used lambda expression to be more concise
         findViewById(R.id.my_booking_btn).setOnClickListener(
                 view -> startActivity(new Intent(this, MyBookings.class))
         );
@@ -64,8 +68,10 @@ public class TicketBookInitializer extends AppCompatActivity implements SelectLo
         allBusses = new HashMap<>();
         allStops = new ArrayList<>();
         validDestinations = new ArrayList<>();
+        // Access firebase to retrieve data
         databaseReference.child("Route").get().addOnCompleteListener(result -> {
             loadingView.dismiss();
+            // Check if an exception exist in firebase API call
             if (result.getException() != null) {
                 Log.e("ERROR", "Error: ", result.getException());
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -75,10 +81,12 @@ public class TicketBookInitializer extends AppCompatActivity implements SelectLo
                 AlertDialog dialog = builder.create();
                 dialog.show();
             } else {
+                // Read bus route details
                 for (DataSnapshot snapshot : result.getResult().getChildren()) {
                     List<String> busStops = new ArrayList<>();
                     String indexOneStr = "";
                     for (DataSnapshot childSnap : snapshot.getChildren()) {
+                        // Skip 0 to ignore the label
                         if (childSnap.getKey() != null && !childSnap.getKey().equals("0")) {
                             String busStop = childSnap.getValue(String.class);
                             busStops.add(busStop);
@@ -86,6 +94,7 @@ public class TicketBookInitializer extends AppCompatActivity implements SelectLo
                                 allStops.add(busStop);
                             }
                         } else if (childSnap.getKey() != null) {
+                            // Bus label
                             indexOneStr = childSnap.getValue(String.class);
                         }
                     }
@@ -97,6 +106,7 @@ public class TicketBookInitializer extends AppCompatActivity implements SelectLo
                 startText.setAlpha(1);
 
                 startText.setOnClickListener(v -> {
+                    // Open a filterable dialog
                     SelectLocationDialog dialogFragment = SelectLocationDialog.newInstance(allStops, "Select Start");
                     dialogFragment.show(getSupportFragmentManager(), "CustomSpinnerDialogFragmentStart");
                 });
@@ -108,6 +118,7 @@ public class TicketBookInitializer extends AppCompatActivity implements SelectLo
     public void onItemSelected(String selectedValue, boolean isStart) {
         if (isStart) {
             startText.setText(selectedValue);
+            // Clear destination and list
             destinationText.setText("");
             numbersListView.setAdapter(new BusRouteListAdapter(this, new ArrayList<>()));
             destinationText.setEnabled(true);
@@ -142,6 +153,7 @@ public class TicketBookInitializer extends AppCompatActivity implements SelectLo
             numbersListView.setAdapter(new BusRouteListAdapter(this, new ArrayList<>()));
             Map<String, BusListItem> eligibleBusses = new HashMap<>();
             String start = (String) startText.getText();
+            // loop every bus to get busses going through both start and destination
             for (String key : allBusses.keySet()) {
                 boolean isStartToEnd = false;
                 boolean flagStart = false;
@@ -170,6 +182,7 @@ public class TicketBookInitializer extends AppCompatActivity implements SelectLo
                         break;
                     }
                 }
+                // Add only eligible busses
                 if (flagStart && flagDest && !eligibleBusses.containsKey(key)) {
                     float price = firstStopPrice;
                     if (stopCount > 1) {
@@ -182,6 +195,7 @@ public class TicketBookInitializer extends AppCompatActivity implements SelectLo
                     }
                 }
             }
+            // Set data to a custom object for display and navigation
             List<BusListItem> busses = new ArrayList<>();
             for (String key : eligibleBusses.keySet()) {
                 BusListItem bus = new BusListItem();

@@ -34,10 +34,10 @@ public class SelectLocationDialog extends DialogFragment {
         void onItemSelected(String selectedValue, boolean isStart);
     }
 
-    public static SelectLocationDialog newInstance(List<String> lovValues, String label) {
+    public static SelectLocationDialog newInstance(List<String> listValues, String label) {
         SelectLocationDialog fragment = new SelectLocationDialog();
         Bundle args = new Bundle();
-        args.putStringArrayList("lovValues", new ArrayList<>(lovValues));
+        args.putStringArrayList("lovValues", new ArrayList<>(listValues));
         args.putString("label", label);
         fragment.setArguments(args);
         return fragment;
