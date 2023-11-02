@@ -1,9 +1,13 @@
 package com.example.slpt.SA22403292;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.slpt.R;
@@ -18,6 +22,7 @@ import java.util.Map;
 
 public class TicketBookInitializer extends AppCompatActivity implements SelectLocationDialog.OnItemSelectedListener {
 
+    Dialog loadingView;
     private TextView startText;
     private TextView destinationText;
 
@@ -34,6 +39,11 @@ public class TicketBookInitializer extends AppCompatActivity implements SelectLo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ticket_book_initializer);
 
+        loadingView = new Dialog(this);
+        loadingView.setContentView(R.layout.loading_model_layout);
+        loadingView.setCancelable(false);
+        loadingView.show();
+
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
         startText = findViewById(R.id.startText);
         destinationText = findViewById(R.id.endText);
@@ -48,31 +58,42 @@ public class TicketBookInitializer extends AppCompatActivity implements SelectLo
         allStops = new ArrayList<>();
         validDestinations = new ArrayList<>();
         databaseReference.child("Route").get().addOnCompleteListener(result -> {
-            for (DataSnapshot snapshot : result.getResult().getChildren()) {
-                List<String> busStops = new ArrayList<>();
-                String indexOneStr = "";
-                for (DataSnapshot childSnap : snapshot.getChildren()) {
-                    if (childSnap.getKey() != null && !childSnap.getKey().equals("0")) {
-                        String busStop = childSnap.getValue(String.class);
-                        busStops.add(busStop);
-                        if (!allStops.contains(busStop)) {
-                            allStops.add(busStop);
+            loadingView.dismiss();
+            if (result.getException() != null) {
+                Log.e("ERROR", "Error: ", result.getException());
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("Error");
+                builder.setMessage("An error occurred while retrieving data. Please try again.");
+                builder.setPositiveButton("OK", (dialog, which) -> dialog.dismiss());
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            } else {
+                for (DataSnapshot snapshot : result.getResult().getChildren()) {
+                    List<String> busStops = new ArrayList<>();
+                    String indexOneStr = "";
+                    for (DataSnapshot childSnap : snapshot.getChildren()) {
+                        if (childSnap.getKey() != null && !childSnap.getKey().equals("0")) {
+                            String busStop = childSnap.getValue(String.class);
+                            busStops.add(busStop);
+                            if (!allStops.contains(busStop)) {
+                                allStops.add(busStop);
+                            }
+                        } else if (childSnap.getKey() != null) {
+                            indexOneStr = childSnap.getValue(String.class);
                         }
-                    } else if (childSnap.getKey() != null) {
-                        indexOneStr = childSnap.getValue(String.class);
                     }
+                    busStops.add(0, indexOneStr);
+                    allBusses.put(snapshot.getKey(), busStops);
                 }
-                busStops.add(0, indexOneStr);
-                allBusses.put(snapshot.getKey(), busStops);
+
+                startText.setEnabled(true);
+                startText.setAlpha(1);
+
+                startText.setOnClickListener(v -> {
+                    SelectLocationDialog dialogFragment = SelectLocationDialog.newInstance(allStops, "Select Start");
+                    dialogFragment.show(getSupportFragmentManager(), "CustomSpinnerDialogFragmentStart");
+                });
             }
-
-            startText.setEnabled(true);
-            startText.setAlpha(1);
-
-            startText.setOnClickListener(v -> {
-                SelectLocationDialog dialogFragment = SelectLocationDialog.newInstance(allStops, "Select Start");
-                dialogFragment.show(getSupportFragmentManager(), "CustomSpinnerDialogFragmentStart");
-            });
         });
     }
 

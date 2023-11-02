@@ -1,12 +1,15 @@
 package com.example.slpt.SA22403292;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.ViewGroup;
@@ -31,12 +34,14 @@ import java.util.Map;
 
 public class PassengerTicketBook extends AppCompatActivity {
 
+    Dialog loadingView;
+
     private DatabaseReference databaseReference;
 
     private Map<Integer, String> bookedSeats = new HashMap<>();
 
     // Temporary hardcoded input parameters
-    private List<Integer> seatNumber = new ArrayList<>();
+    private List<Integer> seatNumbers = new ArrayList<>();
     private String dateString = "17-10-23";
     private String userId = "+94761231234";
     private String busNumber = "BA-4568";
@@ -48,6 +53,11 @@ public class PassengerTicketBook extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ticket_book);
+
+        loadingView = new Dialog(this);
+        loadingView.setContentView(R.layout.loading_model_layout);
+        loadingView.setCancelable(false);
+        loadingView.show();
 
         // Initialize firebase realtime database
         databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -73,10 +83,10 @@ public class PassengerTicketBook extends AppCompatActivity {
         int month = c.get(Calendar.MONTH);
         int day = c.get(Calendar.DAY_OF_MONTH);
         dateString = (
-                String.format(Locale.getDefault(), "%02d", day) + "/" +
-                        String.format(Locale.getDefault(), "%02d", (month + 1)) + "/" + year
+                String.format(Locale.getDefault(), "%02d", day) + "-" +
+                        String.format(Locale.getDefault(), "%02d", (month + 1)) + "-" + year
         );
-        dateView.setText(dateString);
+        dateView.setText(dateString.replaceAll("-", "/"));
 
         calendarBtn.setOnClickListener(view -> {
             // Reference : https://www.geeksforgeeks.org/datepicker-in-android/
@@ -84,10 +94,12 @@ public class PassengerTicketBook extends AppCompatActivity {
                     PassengerTicketBook.this,
                     (view1, year1, monthOfYear, dayOfMonth) -> {
                         dateString = (
-                                String.format(Locale.getDefault(), "%02d", dayOfMonth) + "/" +
-                                        String.format(Locale.getDefault(), "%02d", (monthOfYear + 1)) + "/" + year1
+                                String.format(Locale.getDefault(), "%02d", dayOfMonth) + "-" +
+                                        String.format(Locale.getDefault(), "%02d", (monthOfYear + 1)) + "-" + year1
                         );
-                        dateView.setText(dateString);
+                        dateView.setText(dateString.replaceAll("-", "/"));
+                        loadingView.show();
+                        loadDataAndDrawSeats();
                     },
                     year,
                     month,
@@ -105,7 +117,22 @@ public class PassengerTicketBook extends AppCompatActivity {
         // Set book button action
         Button bookBtn = findViewById(R.id.bookBtn);
         bookBtn.setOnClickListener(view -> {
-            if (!seatNumber.isEmpty()) {
+            if (!seatNumbers.isEmpty()) {
+                Intent confirmPage = new Intent(this, ConfirmBooking.class);
+                confirmPage.putExtra("start", intent.getStringExtra("start"));
+                confirmPage.putExtra("end", intent.getStringExtra("end"));
+                confirmPage.putExtra("trip", tripNumber);
+                confirmPage.putExtra("route", busNumber);
+                confirmPage.putExtra("dateString", dateString);
+                confirmPage.putExtra("pricePerSeat", intent.getFloatExtra("pricePerSeat", 0));
+
+                int[] seatNumTem = new int[seatNumbers.size()];
+                for (int i = 0; i < seatNumbers.size(); i++) {
+                    seatNumTem[i] = seatNumbers.get(i);
+                }
+                confirmPage.putExtra("seatNumbers", seatNumTem);
+                startActivity(confirmPage);
+
                 // If seat is already booked. Then reservation is removed.
                 // This can be called only by clicking available seats or seats booked by user
                 /* todo implement confirm page and move remove booking to 'my bookings'
@@ -149,12 +176,23 @@ public class PassengerTicketBook extends AppCompatActivity {
                 .child(busNumber)
                 .child(tripNumber)
                 .child(dateString).get().addOnCompleteListener(result -> {
-                    DataSnapshot snapshot = result.getResult();
-                    // Collect booked seats
-                    for (DataSnapshot childSnap : snapshot.getChildren()) {
-                        bookedSeats.put(Integer.valueOf(childSnap.getKey()), childSnap.getValue(String.class));
+                    loadingView.dismiss();
+                    if (result.getException() != null) {
+                        Log.e("ERROR", "Error: ", result.getException());
+                        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                        builder.setTitle("Error");
+                        builder.setMessage("An error occurred while retrieving data. Please try again.");
+                        builder.setPositiveButton("OK", (dialog, which) -> dialog.dismiss());
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
+                    } else {
+                        DataSnapshot snapshot = result.getResult();
+                        // Collect booked seats
+                        for (DataSnapshot childSnap : snapshot.getChildren()) {
+                            bookedSeats.put(Integer.valueOf(childSnap.getKey()), childSnap.getValue(String.class));
+                        }
+                        createBusSeats();
                     }
-                    createBusSeats();
                 });
     }
 
@@ -238,15 +276,15 @@ public class PassengerTicketBook extends AppCompatActivity {
                     // Seat is available
                 } else {
                     button.setOnClickListener(view -> {
-                        if (seatNumber.contains(seatNumberTemp)) {
-                            seatNumber.remove(seatNumber.indexOf(seatNumberTemp));
+                        if (seatNumbers.contains(seatNumberTemp)) {
+                            seatNumbers.remove(seatNumbers.indexOf(seatNumberTemp));
                         } else {
-                            seatNumber.add(seatNumberTemp);
+                            seatNumbers.add(seatNumberTemp);
                         }
-                        bookBtn.setEnabled(!seatNumber.isEmpty());
+                        bookBtn.setEnabled(!seatNumbers.isEmpty());
                         TextView bookNumber = findViewById(R.id.seatNumberBookView);
                         String seats = "";
-                        for (Integer seatNum : seatNumber) {
+                        for (Integer seatNum : seatNumbers) {
                             if (seats.isEmpty()) {
                                 seats += seatNum;
                             } else {
@@ -257,7 +295,7 @@ public class PassengerTicketBook extends AppCompatActivity {
 
                         for (MaterialButton btn : buttonList) {
                             if (!bookedSeats.containsKey(Integer.valueOf(String.valueOf(btn.getText())))) {
-                                if (seatNumber.contains(Integer.valueOf(String.valueOf(btn.getText())))) {
+                                if (seatNumbers.contains(Integer.valueOf(String.valueOf(btn.getText())))) {
                                     btn.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(238, 153, 252)));
                                 } else {
                                     btn.setBackgroundTintList(ColorStateList.valueOf(Color.TRANSPARENT));
