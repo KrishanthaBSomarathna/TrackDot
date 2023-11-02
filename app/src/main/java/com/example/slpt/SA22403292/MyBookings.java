@@ -11,6 +11,7 @@ import android.widget.ListView;
 
 import com.example.slpt.R;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -31,12 +32,14 @@ public class MyBookings extends AppCompatActivity implements MyBookingListAdapte
     private ListView prevBookingList;
     private ListView nextBookingList;
 
-    private String userId = "+94761231234";
+    private String userId = "999";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_bookings);
+
+        userId = FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber().trim();
 
         loadingView = new Dialog(this);
         loadingView.setContentView(R.layout.loading_model_layout);
