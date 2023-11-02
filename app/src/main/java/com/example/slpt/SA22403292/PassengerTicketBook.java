@@ -44,7 +44,7 @@ public class PassengerTicketBook extends AppCompatActivity {
     // Temporary hardcoded input parameters
     private List<Integer> seatNumbers = new ArrayList<>();
     private String dateString = "17-10-23";
-    private String userId = "999";
+    private String userId = "+94761231234";
     private String busNumber = "BA-4568";
     private boolean isStartToEnd = false;
     private String tripNumber = "2";
@@ -54,7 +54,10 @@ public class PassengerTicketBook extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ticket_book);
-        userId = FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber().trim();
+
+        try {
+            userId = FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber().trim();
+        } catch (Exception ignore) {}
 
         loadingView = new Dialog(this);
         loadingView.setContentView(R.layout.loading_model_layout);
@@ -84,6 +87,7 @@ public class PassengerTicketBook extends AppCompatActivity {
         int year = c.get(Calendar.YEAR);
         int month = c.get(Calendar.MONTH);
         int day = c.get(Calendar.DAY_OF_MONTH);
+        // Set default date string
         dateString = (
                 String.format(Locale.getDefault(), "%02d", day) + "-" +
                         String.format(Locale.getDefault(), "%02d", (month + 1)) + "-" + year
@@ -147,6 +151,7 @@ public class PassengerTicketBook extends AppCompatActivity {
         LinearLayout tempLinear = findViewById(R.id.scrollViewLinearLayout);
         tempLinear.removeAllViews();
         bookedSeats = new HashMap<>();
+        // get all bus reservations for bus number, trip and date
         databaseReference.child("Bus-Reservation")
                 .child(busNumber)
                 .child(tripNumber)
@@ -258,6 +263,8 @@ public class PassengerTicketBook extends AppCompatActivity {
                         }
                         bookBtn.setEnabled(!seatNumbers.isEmpty());
                         TextView bookNumber = findViewById(R.id.seatNumberBookView);
+
+                        // Create string for displaying selected seat numbers.
                         String seats = "";
                         for (Integer seatNum : seatNumbers) {
                             if (seats.isEmpty()) {

@@ -1,16 +1,14 @@
 package com.example.slpt.SA22403292;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.slpt.R;
 import com.example.slpt.SA22403810.PassengerMainView;
@@ -18,9 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -32,7 +28,7 @@ public class ConfirmBooking extends AppCompatActivity {
 
     private int[] seatNumbers = {};
     private String dateString = "17-10-23";
-    private String userId = "999";
+    private String userId = "+94761231234";
     private String busNumber = "BA-4568";
     private String tripNumber = "2";
     private float pricePerSeat = 0;
@@ -43,7 +39,9 @@ public class ConfirmBooking extends AppCompatActivity {
         setContentView(R.layout.activity_confirm_booking);
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
-        userId = FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber().trim();
+        try {
+            userId = FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber().trim();
+        } catch (Exception ignore) {}
 
         Intent intent = getIntent();
         tripNumber = intent.getStringExtra("trip");
@@ -87,12 +85,14 @@ public class ConfirmBooking extends AppCompatActivity {
         loadingView.setContentView(R.layout.loading_model_layout);
         loadingView.setCancelable(false);
         loadingView.show();
+        // Create method call for firebase
         databaseReference.child("Bus-Reservation")
                 .child(busNumber)
                 .child(tripNumber)
                 .child(dateString).updateChildren(map).addOnCompleteListener(value -> {
                     loadingView.dismiss();
                     if (value.getException() != null) {
+                        Log.e("ERROR", "Error: ", value.getException());
                         AlertDialog.Builder builder = new AlertDialog.Builder(this);
                         builder.setTitle("Error");
                         builder.setMessage("An error occurred while saving your data. Please try again.");
@@ -100,12 +100,12 @@ public class ConfirmBooking extends AppCompatActivity {
                         AlertDialog dialog = builder.create();
                         dialog.show();
                     } else {
-                        Log.e("ERROR", "Error: ", value.getException());
                         AlertDialog.Builder builder = new AlertDialog.Builder(this);
                         builder.setTitle("Success");
                         builder.setMessage("Your booking placed successfully!");
                         builder.setPositiveButton("OK", (dialog, which) -> {
                             dialog.dismiss();
+                            // Make the PassengerMainView as root of navigation. So that back is impossible
                             Intent intent = new Intent(this, PassengerMainView.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(intent);
