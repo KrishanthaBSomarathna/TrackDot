@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.slpt.R;
 import com.example.slpt.SA22403810.PassengerMainView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -31,7 +32,7 @@ public class ConfirmBooking extends AppCompatActivity {
 
     private int[] seatNumbers = {};
     private String dateString = "17-10-23";
-    private String userId = "+94761231234";
+    private String userId = "999";
     private String busNumber = "BA-4568";
     private String tripNumber = "2";
     private float pricePerSeat = 0;
@@ -42,6 +43,7 @@ public class ConfirmBooking extends AppCompatActivity {
         setContentView(R.layout.activity_confirm_booking);
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
+        userId = FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber().trim();
 
         Intent intent = getIntent();
         tripNumber = intent.getStringExtra("trip");

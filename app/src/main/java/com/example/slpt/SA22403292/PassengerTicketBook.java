@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.example.slpt.R;
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -43,7 +44,7 @@ public class PassengerTicketBook extends AppCompatActivity {
     // Temporary hardcoded input parameters
     private List<Integer> seatNumbers = new ArrayList<>();
     private String dateString = "17-10-23";
-    private String userId = "+94761231234";
+    private String userId = "999";
     private String busNumber = "BA-4568";
     private boolean isStartToEnd = false;
     private String tripNumber = "2";
@@ -53,6 +54,7 @@ public class PassengerTicketBook extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ticket_book);
+        userId = FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber().trim();
 
         loadingView = new Dialog(this);
         loadingView.setContentView(R.layout.loading_model_layout);
