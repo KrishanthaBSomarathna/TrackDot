@@ -59,7 +59,7 @@ public class CarSelection extends AppCompatActivity {
 
     private void startDriverDetailsActivity(String vehicleType) {
         // Create an Intent to start the driver details activity
-        Intent intent = new Intent(this, DriverClientLiveTrackingActivity.class);
+        Intent intent = new Intent(this, DriverconfirmationActivity.class);
         intent.putExtra("vehicle_type", vehicleType);
         startActivity(intent);
     }

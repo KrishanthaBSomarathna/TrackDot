@@ -1,4 +1,4 @@
-package com.example.slpt.SA22410122;
+package com.example.slpt.SA22410122; // Update the package name to match your project
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,7 +21,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class DriverClientLiveTrackingActivity extends FragmentActivity implements OnMapReadyCallback {
+public class DCliveTrack extends FragmentActivity implements OnMapReadyCallback {
     private GoogleMap mMap;
     private DatabaseReference driverLocationRef;
     private DatabaseReference passengerLocationRef;
@@ -29,23 +29,21 @@ public class DriverClientLiveTrackingActivity extends FragmentActivity implement
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_driver_client_live_track);
+        setContentView(R.layout.activity_dclive_track); // Update with your layout resource
 
         Button cancelTripButton = findViewById(R.id.cancelTripButton);
         cancelTripButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Handle cancel trip button click
-                Intent intent = new Intent(DriverClientLiveTrackingActivity.this, DriverCancelation.class);
+                Intent intent = new Intent(DCliveTrack.this, DriverCancellationActivity.class); // Update with your cancellation activity
                 startActivity(intent);
             }
-
-
         });
 
         // Initialize Firebase Realtime Database references.
-        driverLocationRef = FirebaseDatabase.getInstance().getReference().child("drivers").child("driver_id_1").child("location");
-        passengerLocationRef = FirebaseDatabase.getInstance().getReference().child("passengers").child("passenger_id_1").child("location");
+        driverLocationRef = FirebaseDatabase.getInstance().getReference().child("drivers").child("driver_id_1").child("location"); // Update with your Firebase references
+        passengerLocationRef = FirebaseDatabase.getInstance().getReference().child("passengers").child("passenger_id_1").child("location"); // Update with your Firebase references
 
         // Initialize the MapView and set up Google Maps.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -61,7 +59,7 @@ public class DriverClientLiveTrackingActivity extends FragmentActivity implement
         // For example, you can set the initial camera position and other map settings here.
 
         // Move the camera to a default location (e.g., a city center).
-        LatLng defaultLocation = new LatLng(0, 0); // Replace with your default location
+        LatLng defaultLocation = new LatLng(6.927079, 79.861244); // Replace with your default location
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(defaultLocation, 12);
         mMap.moveCamera(cameraUpdate);
 
@@ -116,9 +114,5 @@ public class DriverClientLiveTrackingActivity extends FragmentActivity implement
                 // Handle errors, if any, while retrieving passenger location.
             }
         });
-
-
-
-
     }
 }

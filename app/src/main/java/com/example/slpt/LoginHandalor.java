@@ -11,17 +11,15 @@ import com.example.slpt.SA22403292.PassengerTicketBook;
 import com.example.slpt.SA22403810.BusDriverDetails;
 import com.example.slpt.SA22403810.BusDriverView;
 import com.example.slpt.SA22403810.PassengerMainView;
-import com.example.slpt.SA22403810.Route1TimeTable;
-import com.example.slpt.SA22403810.Route2TimeTable;
-import com.example.slpt.SA22403810.SplashScreen;
 import com.example.slpt.SA22404350.Register;
 import com.example.slpt.SA22410122.Entry2;
+import com.example.slpt.SA22410122.SetLocation;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class LoginHandalor extends AppCompatActivity {
 
-    Button manthi,hasheef,ashfak,krishantha,reg,bus,busview,main;
+    Button manthi,hasheef,ashfak,krishantha,reg,bus,busview,drivertax;
     FirebaseAuth firebaseAuth;
     FirebaseUser firebaseUser;
     @Override
@@ -32,10 +30,10 @@ public class LoginHandalor extends AppCompatActivity {
         hasheef = findViewById(R.id.hasheef);
         ashfak = findViewById(R.id.ashfak);
         krishantha = findViewById(R.id.krishantha);
-        main = findViewById(R.id.main);
         reg = findViewById(R.id.reg);
         bus = findViewById(R.id.busd);
         busview = findViewById(R.id.busview);
+        drivertax=findViewById(R.id.button3);
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
@@ -48,6 +46,12 @@ public class LoginHandalor extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LoginHandalor.this, BusDriverView.class));
+            }
+        });
+        drivertax.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginHandalor.this, TaxiDriver.class));
             }
         });
         reg.setOnClickListener(new View.OnClickListener() {
@@ -86,12 +90,6 @@ public class LoginHandalor extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LoginHandalor.this, PassengerMainView.class));
-            }
-        });
-        main.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(LoginHandalor.this, SplashScreen.class));
             }
         });
     }

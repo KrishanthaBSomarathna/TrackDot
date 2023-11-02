@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class DriverconfirmationActivity extends AppCompatActivity {
     private DatabaseReference driversRef;
+    private TextView nameTextView, mobileTextView, vehicleNumberTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +26,12 @@ public class DriverconfirmationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_driverconfirmation);
 
         // Initialize Firebase Realtime Database reference.
-        driversRef = FirebaseDatabase.getInstance().getReference().child("https://fir-2-cdbd5-default-rtdb.firebaseio.com/Driver");
+        driversRef = FirebaseDatabase.getInstance().getReference().child("Driver");
+
+        // Initialize TextViews to display driver details.
+        nameTextView = findViewById(R.id.nameTextView);
+        mobileTextView = findViewById(R.id.mobileTextView);
+        vehicleNumberTextView = findViewById(R.id.vehicleNumberTextView);
 
         // Retrieve and display driver details (for example, driver_id_1).
         retrieveDriverDetails("driver_id_1");
@@ -35,7 +42,7 @@ public class DriverconfirmationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Handle driver selection and transition to DriverClientLiveTracking activity.
-                Intent intent = new Intent(DriverconfirmationActivity.this, DriverClientLiveTrackingActivity.class);
+                Intent intent = new Intent(DriverconfirmationActivity.this, DCliveTrack.class);
                 startActivity(intent);
             }
         });
@@ -51,7 +58,9 @@ public class DriverconfirmationActivity extends AppCompatActivity {
                     String vehicleNumber = dataSnapshot.child("vehicle_number").getValue(String.class);
 
                     // Display driver details in your UI.
-                    // (Code for displaying driver details in your UI goes here.)
+                    nameTextView.setText("Name: " + name);
+                    mobileTextView.setText("Mobile: " + mobile);
+                    vehicleNumberTextView.setText("Vehicle Number: " + vehicleNumber);
                 }
             }
 

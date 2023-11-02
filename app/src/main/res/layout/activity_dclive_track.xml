@@ -1,37 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-
-
-
+<!-- res/layout/activity_map.xml -->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".SA22410122.DriverClientLiveTrackingActivity">
+    android:orientation="vertical">
 
+    <!-- MapView to display Google Maps -->
     <fragment
         android:id="@+id/mapView"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_margin="8dp"
-        />
+        android:layout_margin="8dp" />
+
+    <!-- Cancel Trip Button -->
     <Button
         android:id="@+id/cancelTripButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cancel Trip"
-        android:layout_below="@+id/mapView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-    />
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp" />
 
-
-    <!-- Add any additional UI elements here (e.g., buttons, labels, etc.) -->
+    <!-- Add any additional UI elements here if needed -->
 
 </LinearLayout>
-
