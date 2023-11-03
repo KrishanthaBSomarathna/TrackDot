@@ -21,7 +21,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SLPT"
         tools:targetApi="31">
-
+        <activity
+            android:name=".PassengerRequest"
+            android:exported="false" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -48,8 +50,9 @@
             android:name=".SA22410122.LiveTrack"
             android:exported="false"
             android:label="@string/title_activity_live_track" />
+
         <activity
-            android:name=".SA22410122.RequestList1"
+            android:name=".SA22410122.PassengerRequest"
             android:exported="false" />
         <activity
             android:name=".SA22403810.AboutUs"

@@ -1,5 +1,6 @@
 package com.example.slpt.SA22410122;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +23,8 @@ public class LiveTrack extends AppCompatActivity implements OnMapReadyCallback {
     private GoogleMap googleMap;
     private Button reachPassengerButton;
     private Button passengerAlertButton;
+
+    private Button go;
     private DatabaseReference passengerStatusRef;
 
     @Override
@@ -34,6 +37,15 @@ public class LiveTrack extends AppCompatActivity implements OnMapReadyCallback {
 
         reachPassengerButton = findViewById(R.id.reachPassengerButton);
         passengerAlertButton = findViewById(R.id.passengerAlertButton);
+        go = findViewById(R.id.startTravel);
+
+        go.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LiveTrack.this, DestinationTrack.class);
+                startActivity(intent);
+            }
+        });
 
         // Initialize Firebase Realtime Database reference for passenger status
         passengerStatusRef = FirebaseDatabase.getInstance().getReference("PassengerStatus");

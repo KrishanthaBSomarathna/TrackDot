@@ -82,7 +82,7 @@ public class TaxiDriver extends AppCompatActivity {
     }
 
     private void startRequestListsActivity() {
-        Intent intent = new Intent(TaxiDriver.this, RequestList1.class);
+        Intent intent = new Intent(TaxiDriver.this, list.PassengerRequest.class);
         startActivity(intent);
     }
 
