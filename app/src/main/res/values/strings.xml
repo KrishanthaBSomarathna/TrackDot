@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Track Dot</string>
+    <string name="title_activity_destination_track">DestinationTrack</string>
+    <string name="title_activity_live_track">LiveTrack</string>
 </resources>

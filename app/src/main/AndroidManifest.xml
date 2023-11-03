@@ -21,6 +21,36 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SLPT"
         tools:targetApi="31">
+
+        <!--
+             TODO: Before you run your application, you need a Google Maps API key.
+
+             To get one, follow the directions here:
+
+                https://developers.google.com/maps/documentation/android-sdk/get-api-key
+
+             Once you have your API key (it starts with "AIza"), define a new property in your
+             project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
+             "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="YOUR_API_KEY" />
+
+        <activity
+            android:name=".SA22410122.DestinationTrack"
+            android:exported="false"
+            android:label="@string/title_activity_destination_track" />
+        <activity
+            android:name=".SA22410122.AmountDetail"
+            android:exported="false" />
+        <activity
+            android:name=".SA22410122.LiveTrack"
+            android:exported="false"
+            android:label="@string/title_activity_live_track" />
+        <activity
+            android:name=".SA22410122.RequestList1"
+            android:exported="false" />
         <activity
             android:name=".SA22403810.AboutUs"
             android:exported="false" />
@@ -99,11 +129,6 @@
         <activity
             android:name=".TaxiDriverDetails"
             android:exported="false" />
-
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyD_-WWgpw7jG6H9yfj3zR7mvJV9baKPVMQ" />
-
         <activity
             android:name=".SA22403810.PassengerDetails"
             android:exported="false" />
@@ -111,7 +136,7 @@
             android:name=".SA22403810.BusDriverDetails"
             android:exported="false" />
         <activity
-            android:name=".TaxiDriver"
+            android:name=".SA22410122.TaxiDriver"
             android:exported="false" />
         <activity
             android:name=".VehicleProfile"

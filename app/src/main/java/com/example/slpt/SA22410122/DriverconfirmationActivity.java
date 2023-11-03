@@ -24,7 +24,7 @@ public class DriverconfirmationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_driverconfirmation);
 
         // Initialize Firebase Realtime Database reference.
-        driversRef = FirebaseDatabase.getInstance().getReference().child("https://fir-2-cdbd5-default-rtdb.firebaseio.com/Driver");
+        driversRef = FirebaseDatabase.getInstance().getReference().child("Driver"); // Remove the URL
 
         // Retrieve and display driver details (for example, driver_id_1).
         retrieveDriverDetails("driver_id_1");
