@@ -22,37 +22,37 @@
         android:theme="@style/Theme.SLPT"
         tools:targetApi="31">
         <activity
-            android:name=".PassengerRequest"
-            android:exported="false" />
-        <!--
-             TODO: Before you run your application, you need a Google Maps API key.
-
-             To get one, follow the directions here:
-
-                https://developers.google.com/maps/documentation/android-sdk/get-api-key
-
-             Once you have your API key (it starts with "AIza"), define a new property in your
-             project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
-             "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
-        -->
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="YOUR_API_KEY" />
-
-        <activity
-            android:name=".SA22410122.DestinationTrack"
-            android:exported="false"
-            android:label="@string/title_activity_destination_track" />
-        <activity
-            android:name=".SA22410122.AmountDetail"
+            android:name=".SA22403810.ReportGenerate"
             android:exported="false" />
         <activity
-            android:name=".SA22410122.LiveTrack"
-            android:exported="false"
-            android:label="@string/title_activity_live_track" />
-
+            android:name=".SA22403742.CargoDriverDetails"
+            android:exported="false" />
         <activity
-            android:name=".SA22410122.PassengerRequest"
+            android:name=".SA22403742.DashBoard"
+            android:exported="false" />
+        <activity
+            android:name=".SA22403742.OrderDetails"
+            android:exported="false" />
+        <activity
+            android:name=".SA22403742.RecieverDetails"
+            android:exported="false" />
+        <activity
+            android:name=".SA22403742.CargoUser"
+            android:exported="false" />
+        <activity
+            android:name=".SA22403742.CargoDriver"
+            android:exported="false" />
+        <activity
+            android:name=".SA22403292.MyBookings"
+            android:exported="false" />
+        <activity
+            android:name=".SA22403292.ConfirmBooking"
+            android:exported="false" />
+        <activity
+            android:name=".SA22403292.TicketBookInitializer"
+            android:exported="false" />
+        <activity
+            android:name=".SA22403810.MenuBar"
             android:exported="false" />
         <activity
             android:name=".SA22403810.AboutUs"
@@ -62,9 +62,6 @@
             android:exported="false" />
         <activity
             android:name=".SA22403810.Route2TimeTable"
-            android:exported="false" />
-        <activity
-            android:name=".SA22403810.MenuBar"
             android:exported="false" />
         <activity
             android:name=".SA22404350.Confirmation_Dialog_Logout"
@@ -132,6 +129,11 @@
         <activity
             android:name=".TaxiDriverDetails"
             android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyD_-WWgpw7jG6H9yfj3zR7mvJV9baKPVMQ" />
+
         <activity
             android:name=".SA22403810.PassengerDetails"
             android:exported="false" />
@@ -139,7 +141,7 @@
             android:name=".SA22403810.BusDriverDetails"
             android:exported="false" />
         <activity
-            android:name=".SA22410122.TaxiDriver"
+            android:name=".TaxiDriver"
             android:exported="false" />
         <activity
             android:name=".VehicleProfile"
@@ -166,13 +168,13 @@
             android:name=".PassengerTaxiBook"
             android:exported="false" />
         <activity
-            android:name=".CargoDriver"
-            android:exported="false" />
-        <activity
             android:name=".SA22403292.PassengerTicketBook"
             android:exported="false" />
         <activity
             android:name=".SA22404350.BusDriverProfile"
+            android:exported="false" />
+        <activity
+            android:name=".SA22403742.OrderLocation"
             android:exported="false" />
         <activity
             android:name=".LoginHandalor"

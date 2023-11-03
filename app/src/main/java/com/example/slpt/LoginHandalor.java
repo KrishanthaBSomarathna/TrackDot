@@ -7,7 +7,12 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.slpt.SA22403292.PassengerTicketBook;
+import com.example.slpt.SA22403292.TicketBookInitializer;
+import com.example.slpt.SA22403742.CargoDriver;
+import com.example.slpt.SA22403742.CargoDriverDetails;
+import com.example.slpt.SA22403742.CargoUser;
+import com.example.slpt.SA22403742.OrderDetails;
+import com.example.slpt.SA22403742.OrderLocation;
 import com.example.slpt.SA22403810.BusDriverDetails;
 import com.example.slpt.SA22403810.BusDriverView;
 import com.example.slpt.SA22403810.PassengerMainView;
@@ -72,14 +77,14 @@ public class LoginHandalor extends AppCompatActivity {
         manthi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(LoginHandalor.this, PassengerTicketBook.class));
+                startActivity(new Intent(LoginHandalor.this, TicketBookInitializer.class));
             }
         });
 
         hasheef.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(LoginHandalor.this, CargoDriver.class));
+                startActivity(new Intent(LoginHandalor.this, CargoDriverDetails.class));
             }
         });
         ashfak.setOnClickListener(new View.OnClickListener() {

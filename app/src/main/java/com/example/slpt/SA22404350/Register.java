@@ -14,7 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.slpt.CargoDriver;
+import com.example.slpt.SA22403742.CargoDriver;
 import com.example.slpt.R;
 import com.example.slpt.SA22403810.BusDriverDetails;
 import com.example.slpt.SA22403810.PassengerMainView;
@@ -197,7 +197,7 @@ public class Register extends AppCompatActivity {
 
                             startActivity(new Intent(Register.this, TaxiDriverDetails.class));
                         } else if (userType.equals("Cargo Driver")) {
-                            databaseReference.child("Cargo Driver").child(fullPhoneNumber).child("UserName").setValue(userName);
+                            databaseReference.child("Cargo Drivers").child(fullPhoneNumber).child("UserName").setValue(userName);
 
                             startActivity(new Intent(Register.this, CargoDriver.class));
                         }

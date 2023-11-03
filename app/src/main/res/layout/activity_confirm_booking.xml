@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".SA22403292.ConfirmBooking">
+
+    <TextView
+            android:text="Confirm Booking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:fontFamily="@font/baloo_bhai"
+            android:textColor="@color/black"
+            android:textSize="25sp" />
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:gravity="center">
+
+        <TextView
+                android:text="101"
+                android:id="@+id/routeNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:fontFamily="@font/baloo_bhai"
+                android:textColor="@color/black"
+                android:textSize="30sp" />
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="15dp"
+                android:gravity="center">
+
+            <TextView
+                    android:text="Colombo"
+                    android:fontFamily="@font/baloo_bhai"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center_vertical"
+                    android:id="@+id/sourceName"
+                    android:textAllCaps="true"
+                    android:layout_weight="0" />
+
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="0"
+                    app:srcCompat="@drawable/baseline_arrow_right_alt_24"
+                    android:contentDescription="simple arrow" />
+
+            <TextView
+                    android:text="Galle"
+                    android:fontFamily="@font/baloo_bhai"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center_vertical"
+                    android:id="@+id/destinationName"
+                    android:textAllCaps="true"
+                    android:layout_weight="0" />
+        </LinearLayout>
+
+        <TextView
+                android:text="10/20/2023"
+                android:id="@+id/dateView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:fontFamily="@font/baloo_bhai"
+                android:textColor="@color/black"
+                android:layout_marginBottom="20dp"
+                android:textSize="20sp" />
+
+        <TextView
+                android:text="Selected Seats"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:fontFamily="@font/baloo_bhai"
+                android:textColor="@color/black"
+                android:paddingBottom="5dp"
+                android:textSize="20sp" />
+
+        <TextView
+                android:text=""
+                android:id="@+id/selected_seats"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="20dp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:fontFamily="@font/baloo_bhai"
+                android:textColor="@color/black"
+                android:textSize="28sp" />
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp">
+
+            <TextView
+                    android:text="Seat Count"
+                    android:layout_width="0dp"
+                    android:paddingHorizontal="5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd"
+                    android:fontFamily="@font/baloo_bhai"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+            <TextView
+                    android:text=":"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textStart"
+                    android:fontFamily="@font/baloo_bhai"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+            <TextView
+                    android:text=""
+                    android:id="@+id/seat_count"
+                    android:layout_width="0dp"
+                    android:paddingHorizontal="5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="textStart"
+                    android:fontFamily="@font/baloo_bhai"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:text="Price Per Seat"
+                    android:layout_width="0dp"
+                    android:paddingHorizontal="5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd"
+                    android:fontFamily="@font/baloo_bhai"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+            <TextView
+                    android:text=":"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textStart"
+                    android:fontFamily="@font/baloo_bhai"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+            <TextView
+                    android:text=""
+                    android:id="@+id/price_per_seat"
+                    android:layout_width="0dp"
+                    android:paddingHorizontal="5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="textStart"
+                    android:fontFamily="@font/baloo_bhai"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="20sp" />
+        </LinearLayout>
+
+        <TextView
+                android:text="Total Price"
+                android:layout_width="match_parent"
+                android:paddingHorizontal="5dp"
+                android:paddingTop="30dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:fontFamily="@font/baloo_bhai"
+                android:textColor="@color/black"
+                android:textSize="22sp" />
+        <TextView
+                android:text=""
+                android:id="@+id/total_price"
+                android:layout_width="match_parent"
+                android:paddingHorizontal="5dp"
+                android:paddingTop="5dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:fontFamily="@font/baloo_bhai"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="35sp" />
+    </LinearLayout>
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center">
+        <Button
+                android:text="Confirm Booking"
+                android:textSize="20sp"
+                android:paddingHorizontal="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/confirm_booking" />
+    </LinearLayout>
+</LinearLayout>
