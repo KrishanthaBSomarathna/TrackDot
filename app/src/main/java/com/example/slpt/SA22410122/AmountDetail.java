@@ -1,14 +1,16 @@
-package com.example.slpt;
+package com.example.slpt.SA22410122;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class TaxiDriver extends AppCompatActivity {
+import com.example.slpt.R;
+
+public class AmountDetail extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_taxi_driver);
+        setContentView(R.layout.activity_amount_detail);
     }
 }

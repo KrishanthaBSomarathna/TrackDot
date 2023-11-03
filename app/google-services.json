@@ -8,6 +8,7 @@
   "client": [
     {
       "client_info": {
+<<<<<<< HEAD
         "mobilesdk_app_id": "1:393597073770:android:944718589812b09e750d13",
         "android_client_info": {
           "package_name": "com.example.ddddd"
@@ -27,6 +28,8 @@
     },
     {
       "client_info": {
+=======
+>>>>>>> origin/master
         "mobilesdk_app_id": "1:393597073770:android:4b0c860b9e2fbbc2750d13",
         "android_client_info": {
           "package_name": "com.example.myapplication"
