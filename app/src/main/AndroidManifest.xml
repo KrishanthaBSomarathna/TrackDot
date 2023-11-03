@@ -177,6 +177,12 @@
             android:name=".SA22403742.OrderLocation"
             android:exported="false" />
         <activity
+            android:name=".SA22403742.Homepage"
+            android:exported="false" />
+        <activity
+            android:name=".SA22403742.Driver_dash"
+            android:exported="false" />
+        <activity
             android:name=".LoginHandalor"
             android:exported="true">
             <intent-filter>

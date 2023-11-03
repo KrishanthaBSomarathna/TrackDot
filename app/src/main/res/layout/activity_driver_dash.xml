@@ -5,14 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bge"
-    tools:context=".SA22403742.DashBoard">
-
+    tools:context=".SA22403742.Driver_dash">
 
     <LinearLayout
         android:id="@+id/linearLayout6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="184dp"
+        android:layout_marginTop="208dp"
         android:gravity="center_horizontal"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,7 +27,7 @@
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/orderlocation"
+                android:id="@+id/driver"
                 android:layout_width="180dp"
                 android:layout_height="130dp"
                 android:layout_gravity="center"
@@ -38,41 +37,31 @@
                 app:cardElevation="4dp">
 
                 <ImageView
-                    android:id="@+id/im1"
-                    android:layout_width="200dp"
+                    android:layout_width="90dp"
                     android:layout_height="150dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/img_1" />
+                    android:background="@drawable/baseline_drive_eta_24" />
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="23dp"
                     android:layout_gravity="bottom"
-                    android:alpha="0.9"/>
+                    android:alpha="0.9"
+                    android:background="@color/orange" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center"
                     android:fontFamily="@font/aclonica"
-                    android:text="Order Location"
+                    android:text="Add Driver"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" />
             </androidx.cardview.widget.CardView>
 
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal">
-
             <androidx.cardview.widget.CardView
-                android:id="@+id/userdetails"
+                android:id="@+id/user"
                 android:layout_width="180dp"
                 android:layout_height="130dp"
                 android:layout_gravity="center"
@@ -81,17 +70,19 @@
                 app:cardElevation="4dp">
 
                 <ImageView
-                    android:id="@+id/im3"
-                    android:layout_width="150dp"
+                    android:layout_width="90dp"
                     android:layout_height="110dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/img_3" />
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/baseline_person_24" />
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="23dp"
                     android:layout_gravity="bottom"
-                    android:alpha="0.9" />
+
+                    android:alpha="0.9"
+                    android:background="@color/orange" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -105,40 +96,14 @@
             </androidx.cardview.widget.CardView>
 
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/driverinfo"
-                android:layout_width="180dp"
-                android:layout_height="130dp"
-                android:layout_gravity="center"
-                android:layout_margin="5dp"
-                app:cardCornerRadius="15dp"
-                app:cardElevation="4dp">
-
-                <ImageView
-                    android:id="@+id/im4"
-                    android:layout_width="170dp"
-                    android:layout_height="105dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/img_4" />
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="23dp"
-                    android:layout_gravity="bottom"
-                    android:alpha="0.9" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center"
-                    android:fontFamily="@font/aclonica"
-                    android:text="Driver info"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-            </androidx.cardview.widget.CardView>
-
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" />
 
 
     </LinearLayout>
@@ -147,12 +112,14 @@
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="User Dashboard"
+        android:layout_marginTop="58dp"
+        android:text="Driver Dashboard"
         android:textSize="34sp"
         android:textStyle="normal|bold|italic"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="87dp"
-        tools:layout_editor_absoluteY="54dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
