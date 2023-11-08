@@ -14,7 +14,6 @@ import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.slpt.LoginHandalor;
 import com.example.slpt.R;
 import com.example.slpt.SA22404350.Register;
-import com.example.slpt.SA22410122.Entry2;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -129,7 +128,6 @@ public class SplashScreen extends AppCompatActivity {
                                                 new Handler().postDelayed(new Runnable() {
                                                     @Override
                                                     public void run() {
-                                                        startActivity(new Intent(getApplicationContext(), Entry2.class));
                                                         Animatoo.INSTANCE.animateFade(SplashScreen.this);
                                                     }
                                                 }, 1500);

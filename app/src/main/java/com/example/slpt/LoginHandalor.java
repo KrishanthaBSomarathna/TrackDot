@@ -8,20 +8,12 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.slpt.SA22403292.TicketBookInitializer;
-import com.example.slpt.SA22403742.CargoDriver;
-import com.example.slpt.SA22403742.CargoDriverDetails;
-import com.example.slpt.SA22403742.CargoUser;
-import com.example.slpt.SA22403742.DashBoard;
-import com.example.slpt.SA22403742.Homepage;
-import com.example.slpt.SA22403742.OrderDetails;
-import com.example.slpt.SA22403742.OrderLocation;
+
 import com.example.slpt.SA22403810.BusDriverDetails;
 import com.example.slpt.SA22403810.BusDriverView;
 import com.example.slpt.SA22403810.PassengerMainView;
 import com.example.slpt.SA22403810.SplashScreen;
 import com.example.slpt.SA22404350.Register;
-import com.example.slpt.SA22410122.Entry2;
-import com.example.slpt.SA22410122.TaxiDriver;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -57,12 +49,7 @@ public class LoginHandalor extends AppCompatActivity {
             }
         });
 
-        drivertax.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(LoginHandalor.this, TaxiDriver.class));
-            }
-        });
+
         reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,18 +70,8 @@ public class LoginHandalor extends AppCompatActivity {
             }
         });
 
-        hasheef.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(LoginHandalor.this, Homepage.class));
-            }
-        });
-        ashfak.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(LoginHandalor.this, Entry2.class));
-            }
-        });
+
+
         krishantha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

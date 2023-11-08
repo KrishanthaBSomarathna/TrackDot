@@ -13,7 +13,6 @@ import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.slpt.R;
 import com.example.slpt.SA22403292.TicketBookInitializer;
 import com.example.slpt.SA22404350.PassengerProfile;
-import com.example.slpt.SA22410122.Entry2;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -76,14 +75,7 @@ public class PassengerMainView extends AppCompatActivity {
                 Animatoo.INSTANCE.animateSwipeLeft(PassengerMainView.this);
             }
         });
-        taxibook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), Entry2.class));
 
-                Animatoo.INSTANCE.animateSwipeLeft(PassengerMainView.this);
-            }
-        });
         ticketbook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -98,12 +90,7 @@ public class PassengerMainView extends AppCompatActivity {
 
             }
         });
-        taxi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), Entry2.class));
-            }
-        });
+
 
 
 

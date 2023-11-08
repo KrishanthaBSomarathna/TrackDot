@@ -183,7 +183,7 @@
             android:name=".SA22403742.Driver_dash"
             android:exported="false" />
         <activity
-            android:name=".LoginHandalor"
+            android:name=".SA22403810.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -192,7 +192,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SA22403810.SplashScreen"
+            android:name=".LoginHandalor"
             android:exported="false" />
 
         <meta-data

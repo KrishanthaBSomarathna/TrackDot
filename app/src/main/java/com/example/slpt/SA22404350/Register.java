@@ -13,12 +13,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.slpt.SA22403742.CargoDriver;
 import com.example.slpt.R;
 import com.example.slpt.SA22403810.BusDriverDetails;
 import com.example.slpt.SA22403810.PassengerMainView;
-import com.example.slpt.TaxiDriverDetails;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
@@ -195,11 +192,11 @@ public class Register extends AppCompatActivity {
                         } else if (userType.equals("Taxi Driver")) {
                             databaseReference.child("Taxi Driver").child(fullPhoneNumber).child("UserName").setValue(userName);
 
-                            startActivity(new Intent(Register.this, TaxiDriverDetails.class));
+
                         } else if (userType.equals("Cargo Driver")) {
                             databaseReference.child("Cargo Drivers").child(fullPhoneNumber).child("UserName").setValue(userName);
 
-                            startActivity(new Intent(Register.this, CargoDriver.class));
+
                         }
 
 
