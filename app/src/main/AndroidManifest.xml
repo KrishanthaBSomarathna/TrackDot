@@ -132,7 +132,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyD_-WWgpw7jG6H9yfj3zR7mvJV9baKPVMQ" />
+            android:value="" />
 
         <activity
             android:name=".SA22403810.PassengerDetails"
