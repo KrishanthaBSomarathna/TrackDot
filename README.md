@@ -1,4 +1,4 @@
-# Sri Lanka Public Transport SLPT
+# Track DOt
 
 A Public Transport Tracking System used to Track bus live ,Booking Ticket
 
