@@ -16,7 +16,7 @@ A Public Transport Tracking System used to Track bus live ,Booking Ticket
 
 ## Screenshots
 
-![App Screenshot](https://drive.google.com/file/d/1mpZrko8qR7KLwY6v9ftefy9jQZnIKkQW/view?usp=sharing)
+[App Screenshot](https://drive.google.com/file/d/1mpZrko8qR7KLwY6v9ftefy9jQZnIKkQW/view?usp=sharing)
 
 
 ## Authors
