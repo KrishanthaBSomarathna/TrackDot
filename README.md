@@ -1,7 +1,7 @@
-# Track DOt
+# Sri Lanka Public Transport (Track Dot)
 
 A Public Transport Tracking System used to Track bus live ,Booking Ticket
-
+o
 
 ## Tech Stack
 
