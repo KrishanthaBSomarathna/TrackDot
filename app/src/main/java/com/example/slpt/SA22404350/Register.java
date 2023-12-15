@@ -72,18 +72,16 @@ public class Register extends AppCompatActivity {
         buttonSendOTP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String UserType = ((Spinner) findViewById(R.id.spinnerUserType)).getSelectedItem().toString();
+
                 String phoneNumber = editTextPhoneNumber.getText().toString().trim();
                 authfail.setVisibility(View.GONE);
 
                 if (phoneNumber.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Enter Phone Number", Toast.LENGTH_LONG).show();
                 } else {
-                    if (UserType.equals("User Types")) {
-                        Toast.makeText(getApplicationContext(), "Please Select User Type", Toast.LENGTH_LONG).show();
-                    } else {
+
                         sendVerificationCode(); // Call the function to send the OTP
-                    }
+
                 }
             }
         });
@@ -178,27 +176,10 @@ public class Register extends AppCompatActivity {
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
                         // Phone authentication successful
-                        String userType = ((Spinner) findViewById(R.id.spinnerUserType)).getSelectedItem().toString();
                         String userName = username.getText().toString();
-                        if (userType.equals("Passenger")){
-                            databaseReference.child("Passenger").child(fullPhoneNumber).child("UserName").setValue(userName);
+                        databaseReference.child("Passenger").child(fullPhoneNumber).child("UserName").setValue(userName);
 
-                            startActivity(new Intent(Register.this, PassengerMainView.class));
-
-                        } else if (userType.equals("Bus Driver")) {
-                            databaseReference.child("Bus Drivers").child(fullPhoneNumber).child("UserName").setValue(userName);
-
-                            startActivity(new Intent(Register.this, BusDriverDetails.class));
-                        } else if (userType.equals("Taxi Driver")) {
-                            databaseReference.child("Taxi Driver").child(fullPhoneNumber).child("UserName").setValue(userName);
-
-
-                        } else if (userType.equals("Cargo Driver")) {
-                            databaseReference.child("Cargo Drivers").child(fullPhoneNumber).child("UserName").setValue(userName);
-
-
-                        }
-
+                        startActivity(new Intent(Register.this, PassengerMainView.class));
 
                     } else {
                         if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {

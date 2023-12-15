@@ -83,16 +83,7 @@
                 android:padding="10dp" />
         </LinearLayout>
 
-        <Spinner
-            android:id="@+id/spinnerUserType"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
 
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:background="@drawable/editbg_black_border"
-            android:entries="@array/user_type"
-            android:spinnerMode="dialog" />
 
         <Button
             android:id="@+id/buttonSendOTP"

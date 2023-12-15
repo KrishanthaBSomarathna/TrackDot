@@ -60,7 +60,6 @@
             android:background="@drawable/editbg_black_border"
             android:hint="Origin"
             android:inputType="text"
-            android:text="Moratuwa"
             android:padding="10dp"
             android:textColor="@color/black"
             android:completionThreshold="1"
@@ -82,7 +81,7 @@
             android:layout_margin="8dp"
             android:background="@drawable/editbg_black_border"
             android:hint="Destination"
-            android:text="Colombo"
+
 
             android:inputType="text"
             android:padding="10dp"

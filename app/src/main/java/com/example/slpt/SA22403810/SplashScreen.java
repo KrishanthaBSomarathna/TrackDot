@@ -33,6 +33,7 @@ public class SplashScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
         if (!NetworkUtil.isNetworkAvailable(this)) {
             // No internet connection, show a dialog to inform the user
@@ -46,7 +47,19 @@ public class SplashScreen extends AppCompatActivity {
                             // Check for internet again or take appropriate action
                             if (NetworkUtil.isNetworkAvailable(SplashScreen.this)) {
                                 // Internet is available, continue the app
-                                handleUserType();
+                                if(firebaseUser != null){
+                                    new Handler().postDelayed(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            startActivity(new Intent(getApplicationContext(), PassengerMainView.class));
+                                            Animatoo.INSTANCE.animateFade(SplashScreen.this);
+                                        }
+                                    }, 1500);
+                                }
+                                else {
+                                    startActivity(new Intent(getApplicationContext(), Register.class));
+                                    Animatoo.INSTANCE.animateFade(SplashScreen.this);
+                                }
                             } else {
                                 recreate();
                             }
@@ -63,101 +76,23 @@ public class SplashScreen extends AppCompatActivity {
                     .show();
         } else {
             // Internet is available, proceed with handling user type
-            handleUserType();
+           if(firebaseUser != null){
+               new Handler().postDelayed(new Runnable() {
+                   @Override
+                   public void run() {
+                       startActivity(new Intent(getApplicationContext(), PassengerMainView.class));
+                       Animatoo.INSTANCE.animateFade(SplashScreen.this);
+                   }
+               }, 1500);
+           }
+           else {
+               startActivity(new Intent(getApplicationContext(), Register.class));
+               Animatoo.INSTANCE.animateFade(SplashScreen.this);
+
+           }
+
         }
     }
 
-    private void handleUserType() {
-        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        if (firebaseUser == null) {
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    startActivity(new Intent(getApplicationContext(), Register.class));
-                    Animatoo.INSTANCE.animateFade(SplashScreen.this);
-                }
-            }, 1500);
-        } else {
-            mobile = FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber().trim();
-            databaseReference = FirebaseDatabase.getInstance().getReference();
 
-            DatabaseReference driversReference = databaseReference.child("Bus Drivers").child(mobile);
-            DatabaseReference passengersReference = databaseReference.child("Passenger").child(mobile);
-            DatabaseReference taxiDriversReference = databaseReference.child("Taxi Driver").child(mobile);
-            DatabaseReference cargoDriversReference = databaseReference.child("Cargo Driver").child("mobile");
-
-            driversReference.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    if (dataSnapshot.exists()) {
-                        // The mobile number corresponds to a Bus Driver.
-                        // Display this information to the user.
-                        Toast.makeText(getApplicationContext(), "Bus Driver", Toast.LENGTH_SHORT).show();
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                startActivity(new Intent(getApplicationContext(), BusDriverView.class));
-                                Animatoo.INSTANCE.animateFade(SplashScreen.this);
-                            }
-                        }, 1500);
-                    } else {
-                        // If not a Bus Driver, check for Passenger.
-                        passengersReference.addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(DataSnapshot dataSnapshot) {
-                                if (dataSnapshot.exists()) {
-                                    // The mobile number corresponds to a Passenger.
-                                    // Display this information to the user.
-                                    Toast.makeText(getApplicationContext(), "Passenger", Toast.LENGTH_SHORT).show();
-                                    new Handler().postDelayed(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            startActivity(new Intent(getApplicationContext(), PassengerMainView.class));
-                                            Animatoo.INSTANCE.animateFade(SplashScreen.this);
-                                        }
-                                    }, 1500);
-                                } else {
-                                    // If not a Passenger, check for Taxi Driver.
-                                    taxiDriversReference.addListenerForSingleValueEvent(new ValueEventListener() {
-                                        @Override
-                                        public void onDataChange(DataSnapshot dataSnapshot) {
-                                            if (dataSnapshot.exists()) {
-                                                // The mobile number corresponds to a Taxi Driver.
-                                                // Display this information to the user.
-                                                Toast.makeText(getApplicationContext(), "Taxi", Toast.LENGTH_SHORT).show();
-                                                new Handler().postDelayed(new Runnable() {
-                                                    @Override
-                                                    public void run() {
-                                                        Animatoo.INSTANCE.animateFade(SplashScreen.this);
-                                                    }
-                                                }, 1500);
-                                            } else {
-                                                // The mobile number doesn't match any of the categories.
-                                                // Display a message to the user indicating that.
-                                            }
-                                        }
-
-                                        @Override
-                                        public void onCancelled(DatabaseError databaseError) {
-                                            // Handle database errors if necessary.
-                                        }
-                                    });
-                                }
-                            }
-
-                            @Override
-                            public void onCancelled(DatabaseError databaseError) {
-                                // Handle database errors if necessary.
-                            }
-                        });
-                    }
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-                    // Handle database errors if necessary.
-                }
-            });
-        }
-    }
 }
