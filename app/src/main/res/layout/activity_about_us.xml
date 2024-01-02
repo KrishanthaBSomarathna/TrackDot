@@ -95,7 +95,7 @@ features to you! Track Dot assures Convenience, Reliability and Safety."
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="support@trackdot.lk"
+        android:text="krishanthab2001@gmail.com"
         android:textColor="#0C66FF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14" />
