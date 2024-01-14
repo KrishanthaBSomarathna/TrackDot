@@ -2,6 +2,7 @@ package com.example.slpt.SA22403810;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -23,12 +24,20 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.maps.DirectionsApi;
+import com.google.maps.DirectionsApiRequest;
+import com.google.maps.GeoApiContext;
+import com.google.maps.model.DirectionsResult;
+import com.google.maps.model.TravelMode;
+import com.google.maps.android.PolyUtil;
 
+import java.util.List;
 import java.util.Map;
 
 public class BusLocation extends AppCompatActivity implements OnMapReadyCallback, LocationListener {
@@ -41,6 +50,9 @@ public class BusLocation extends AppCompatActivity implements OnMapReadyCallback
     private final Handler handler = new Handler();
     private final int delayMillis = 5000; // 5 seconds
     private LocationManager locationManager;
+
+    private LatLng userLocation;
+    private LatLng busLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,14 +120,20 @@ public class BusLocation extends AppCompatActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+        // Initialize locations
+        userLocation = new LatLng(0, 0);  // Default to (0, 0)
+        busLocation = new LatLng(busLat, busLon);
+
         // Add a marker for the bus location
-        LatLng busLocation = new LatLng(busLat, busLon);
         mMap.addMarker(new MarkerOptions().position(busLocation).title("Bus"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(busLocation));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(busLocation, 16));
 
         // Add user's location to the map
         showUserLocation();
+
+        // Show direction
+        showDirection();
     }
 
     private void startLocationUpdates() {
@@ -128,23 +146,47 @@ public class BusLocation extends AppCompatActivity implements OnMapReadyCallback
     @Override
     public void onLocationChanged(Location location) {
         // Update user's location on the map
+        userLocation = new LatLng(location.getLatitude(), location.getLongitude());
         showUserLocation();
     }
 
     private void showUserLocation() {
         // Check if the map is ready and the location is available
-        if (mMap != null && locationManager != null) {
-            // Get the user's last known location
-            Location lastKnownLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        if (mMap != null && locationManager != null && userLocation != null) {
+            // Add a marker at the user's location
+            mMap.addMarker(new MarkerOptions().position(userLocation).title("Your Location"));
 
-            if (lastKnownLocation != null) {
-                // Add a marker at the user's location
-                LatLng userLocation = new LatLng(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude());
-                mMap.addMarker(new MarkerOptions().position(userLocation).title("Your Location"));
+            // Move camera to user's location
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(userLocation));
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(userLocation, 16));
+        }
+    }
 
-                // Move camera to user's location
-//                mMap.moveCamera(CameraUpdateFactory.newLatLng(userLocation));
-//                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(userLocation, 16));
+    private void showDirection() {
+        // Check if both user and bus locations are available
+        if (userLocation != null && busLocation != null) {
+            // Use Google Maps Directions API to get directions
+            GeoApiContext context = new GeoApiContext.Builder()
+                    .apiKey("AIzaSyD_-WWgpw7jG6H9yfj3zR7mvJV9baKPVMQ")  // Replace with your API key
+                    .build();
+
+            DirectionsApiRequest directionsApiRequest = DirectionsApi.getDirections(context,
+                            userLocation.latitude + "," + userLocation.longitude,
+                            busLocation.latitude + "," + busLocation.longitude)
+                    .mode(TravelMode.DRIVING);
+
+            try {
+                DirectionsResult result = directionsApiRequest.await();
+                // Decode polyline and add it to the map
+                if (result.routes != null && result.routes.length > 0) {
+                    String encodedPolyline = result.routes[0].overviewPolyline.getEncodedPath();
+                    List<LatLng> decodedPolyline = PolyUtil.decode(encodedPolyline);
+                    mMap.addPolyline(new PolylineOptions().addAll(decodedPolyline)
+                            .width(10)
+                            .color(Color.BLUE));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -180,6 +222,8 @@ public class BusLocation extends AppCompatActivity implements OnMapReadyCallback
                 }
             }
 
+
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 // Handle the error, if any
@@ -189,20 +233,23 @@ public class BusLocation extends AppCompatActivity implements OnMapReadyCallback
 
     private void updateMap(Double latitude, Double longitude) {
         if (mMap != null) {
-            // Clear existing markers
+            // Clear existing markers and polylines
             mMap.clear();
 
+            // Update user and bus locations
+            userLocation = new LatLng(userLocation.latitude, userLocation.longitude);
+            busLocation = new LatLng(latitude, longitude);
+
             // Add a marker for the bus location
-            LatLng busLocation = new LatLng(busLat, busLon);
             mMap.addMarker(new MarkerOptions().position(busLocation).title("Bus"));
 //            mMap.moveCamera(CameraUpdateFactory.newLatLng(busLocation));
 //            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(busLocation, 16));
 
-            // Add a marker at the new location using latitude and longitude
-            LatLng location = new LatLng(latitude, longitude);
-            mMap.addMarker(new MarkerOptions().position(location).title("Your Location"));
-//            mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
-//            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 16));
+            // Add a marker at the new user location
+            mMap.addMarker(new MarkerOptions().position(userLocation).title("Your Location"));
+
+            // Show direction
+            showDirection();
         }
     }
 

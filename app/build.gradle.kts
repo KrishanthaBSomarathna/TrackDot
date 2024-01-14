@@ -100,6 +100,12 @@ dependencies {
 
     implementation("androidx.recyclerview:recyclerview-selection:1.1.0")
     testImplementation("junit:junit:4.+")
+    implementation ("com.google.maps:google-maps-services:0.15.0")
+    implementation ("com.google.android.gms:play-services-maps:17.0.1")
+    implementation ("com.squareup.okhttp3:okhttp:4.9.1")
+
+    implementation ("com.google.maps.android:android-maps-utils:2.2.0")
+
 
 
 
