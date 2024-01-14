@@ -9,6 +9,8 @@ import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -65,6 +67,10 @@ public class BusLocation extends AppCompatActivity implements OnMapReadyCallback
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
 
+        ImageButton btnMoveToUserLocation = findViewById(R.id.btnMoveToUserLocation);
+        ImageButton btnMoveToBusLocation = findViewById(R.id.btnMoveToBusLocation);
+
+
         // Initialize LocationManager
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
@@ -85,7 +91,33 @@ public class BusLocation extends AppCompatActivity implements OnMapReadyCallback
 
         // Initial database read
         getLatLngByVehicleNum(vehiclanumber);
+
+        btnMoveToUserLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Move the camera to the user's location
+                if (userLocation != null) {
+                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(userLocation, 16));
+                } else {
+                    showToast("User location not available");
+                }
+            }
+        });
+
+        btnMoveToBusLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Move the camera to the bus location
+                if (busLocation != null) {
+                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(busLocation, 16));
+                } else {
+                    showToast("Bus location not available");
+                }
+            }
+        });
     }
+
+
 
     private final Runnable databaseReadRunnable = new Runnable() {
         @Override
