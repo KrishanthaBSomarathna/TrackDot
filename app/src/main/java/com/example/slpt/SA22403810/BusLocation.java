@@ -95,7 +95,7 @@ public class BusLocation extends AppCompatActivity implements OnMapReadyCallback
         LatLng location = new LatLng(lat, lon);
         mMap.addMarker(new MarkerOptions().position(location).title("Bus"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 15));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 16));
     }
 
 
@@ -121,7 +121,7 @@ public class BusLocation extends AppCompatActivity implements OnMapReadyCallback
                                 @Override
                                 public void run() {
                                     updateMap(latitude, longitude);
-                                    showToast("Latitude: " + latitude + ", Longitude: " + longitude);
+//                                    showToast("Latitude: " + latitude + ", Longitude: " + longitude);
                                 }
                             });
 
@@ -147,7 +147,7 @@ public class BusLocation extends AppCompatActivity implements OnMapReadyCallback
             LatLng location = new LatLng(latitude, longitude);
             mMap.addMarker(new MarkerOptions().position(location).title("Bus"));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
-            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 15));
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(location, 16));
         }
     }
 
