@@ -1,5 +1,6 @@
 package com.example.slpt.SA22403810;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -48,7 +49,7 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.MyViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
         BusDriver busDriver = list.get(position);
         holder.LocationName.setText(busDriver.getLocationName());
         holder.bustype.setText(busDriver.getBustype());
@@ -200,6 +201,7 @@ public class BusAdapter extends RecyclerView.Adapter<BusAdapter.MyViewHolder> {
                     Intent intent = new Intent(context, BusLocation.class);
                     intent.putExtra("lat", latitude);
                     intent.putExtra("lon", longitude);
+                    intent.putExtra("vehiclenumber", vehiclenumber);
                     context.startActivity(intent);
                 }
 
