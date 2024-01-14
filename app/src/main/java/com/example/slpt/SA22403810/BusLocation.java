@@ -22,6 +22,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
@@ -240,18 +241,23 @@ public class BusLocation extends AppCompatActivity implements OnMapReadyCallback
             userLocation = new LatLng(userLocation.latitude, userLocation.longitude);
             busLocation = new LatLng(latitude, longitude);
 
-            // Add a marker for the bus location
-            mMap.addMarker(new MarkerOptions().position(busLocation).title("Bus"));
-//            mMap.moveCamera(CameraUpdateFactory.newLatLng(busLocation));
-//            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(busLocation, 16));
+            // Add a marker for the bus location with the custom icon
+            mMap.addMarker(new MarkerOptions()
+                    .position(busLocation)
+                    .title("Bus")
+                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.bus)));
 
-            // Add a marker at the new user location
-            mMap.addMarker(new MarkerOptions().position(userLocation).title("Your Location"));
+            // Add a marker at the new user location with the custom icon
+            mMap.addMarker(new MarkerOptions()
+                    .position(userLocation)
+                    .title("Your Location")
+                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.person)));
 
             // Show direction
             showDirection();
         }
     }
+
 
     private void showToast(String message) {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
