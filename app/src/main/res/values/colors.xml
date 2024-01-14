@@ -3,5 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="orange">#FFA500</color>
+    <color name="colorPrimary">#3F51B5</color>
+        <!-- Add other color resources if needed -->
 
 </resources>
