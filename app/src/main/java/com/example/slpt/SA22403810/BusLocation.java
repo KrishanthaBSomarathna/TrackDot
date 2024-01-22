@@ -1,5 +1,6 @@
 package com.example.slpt.SA22403810;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -58,6 +59,7 @@ public class BusLocation extends AppCompatActivity implements OnMapReadyCallback
     private LatLng userLocation;
     private LatLng busLocation;
     private ProgressBar progressBar;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

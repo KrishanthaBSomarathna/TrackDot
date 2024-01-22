@@ -3,9 +3,11 @@ package com.example.slpt.SA22403810;
 public class BusDriver {
 
     private boolean isSaved;
-    private String status,seatcount,LocationName, bustype, roadnumber,vehicleNum,r1start,r1stop,r2start,r2stop,startdestination,stopdestination;
+    private String status, currentroute,seatcount,LocationName, bustype, roadnumber,vehicleNum,r1start,r1stop,r2start,r2stop,startdestination,stopdestination;
 
     private Double  Latitude,Longitude;
+
+
     public BusDriver() {
     }
 
@@ -79,5 +81,13 @@ public class BusDriver {
 
     public String getStatus() {
         return status;
+    }
+
+    public String getCurrentroute() {
+        return currentroute;
+    }
+
+    public void setCurrentroute(String currentroute) {
+        this.currentroute = currentroute;
     }
 }

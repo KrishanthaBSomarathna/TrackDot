@@ -17,7 +17,7 @@
 
 
         <ImageView
-            android:layout_width="50dp"
+            android:layout_width="72dp"
             android:layout_height="match_parent"
             android:background="@drawable/baseline_directions_bus_24" />
         <LinearLayout
@@ -78,6 +78,23 @@
                  android:text="57"
                  android:textSize="15sp"/>
          </LinearLayout>
+         <LinearLayout
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:orientation="horizontal">
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="Distance : "
+                 android:textSize="15sp"
+                 android:textStyle="bold"/>
+             <TextView
+                 android:id="@+id/distanceTextView"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="00km"
+                 android:textSize="15sp"/>
+         </LinearLayout>
 
 
 
@@ -103,118 +120,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_gravity="center">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Route 01"
-            android:textStyle="bold"/>
-
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+        android:layout_gravity="center"
             android:gravity="center">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <TextView
-                    android:id="@+id/r1starttime"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="10.50 AM"/>
-                <TextView
-                    android:id="@+id/r1startpoint"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Kurunegala"/>
-            </LinearLayout>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" - - - - - - - - - - - - - - - - - - - - - - -> "/>
-
-            <LinearLayout
+                android:text="---- Current Route ----"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/currentroute"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <TextView
-                    android:id="@+id/r1stopttime"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="10.50 AM"/>
-                <TextView
-                    android:id="@+id/r1stoppoint"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Kurunegala"/>
-            </LinearLayout>
+                android:text="" />
 
 
-        </LinearLayout>
     </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="center">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Route 02"
-                android:layout_marginTop="10dp"
-                android:textStyle="bold"/>
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:gravity="center">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:id="@+id/r2starttime"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="10.50 AM"/>
-                    <TextView
-                        android:id="@+id/r2startpoint"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Kurunegala"/>
-                </LinearLayout>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=" - - - - - - - - - - - - - - - - - - - - - - -> "/>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:id="@+id/r2stopttime"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="10.50 AM"/>
-                    <TextView
-                        android:id="@+id/r2stoppoint"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Kurunegala"/>
-                </LinearLayout>
-
-
-            </LinearLayout>
-        </LinearLayout>
-
 
 
         <LinearLayout
@@ -232,6 +154,7 @@
                 android:gravity="center|start"
                 android:textColor="@color/white"
                 />
+
             <TextView
                 android:id="@+id/location"
                 android:layout_width="wrap_content"
@@ -240,6 +163,9 @@
                 android:gravity="center|start"
                 android:textColor="@color/white"
                 />
+
+
+
         </LinearLayout>
 
 
