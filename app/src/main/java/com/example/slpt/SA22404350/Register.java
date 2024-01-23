@@ -2,6 +2,7 @@ package com.example.slpt.SA22404350;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,8 +14,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.slpt.R;
-import com.example.slpt.SA22403810.BusDriverDetails;
 import com.example.slpt.SA22403810.PassengerMainView;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,21 +29,18 @@ import java.util.concurrent.TimeUnit;
 
 public class Register extends AppCompatActivity {
 
-    FirebaseAuth mAuth;
-    FirebaseDatabase firebaseDatabase;
-    DatabaseReference databaseReference;
+    private FirebaseAuth mAuth;
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference databaseReference;
     private String verificationId;
-    EditText editTextPhoneNumber, editTextVerificationCode,username;
+    private EditText editTextPhoneNumber, editTextVerificationCode, username;
     private Button buttonSendOTP, buttonVerifyOTP;
-
-    LinearLayout otp,sendotp;
+    private TextView resent,phonenumber;
+    private LinearLayout otp, sendotp;
     private ProgressBar progressBar;
-
     private TextView authfail;
-    String fullPhoneNumber;
-
-
-
+    private String fullPhoneNumber;
+    private CountDownTimer resendTimer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +49,9 @@ public class Register extends AppCompatActivity {
 
         otp = findViewById(R.id.otplayout);
         sendotp = findViewById(R.id.phonelayout);
-
+        resent = findViewById(R.id.resent);
         otp.setVisibility(View.GONE);
+        phonenumber = findViewById(R.id.phoneNumber);
 
         mAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
@@ -69,42 +68,66 @@ public class Register extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
 
 
+
+
+        resendTimer = new CountDownTimer(30000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                // Update UI to show the countdown
+                resent.setText("Resend OTP in " + millisUntilFinished / 1000 + " seconds");
+            }
+
+            @Override
+            public void onFinish() {
+                // Enable the resend button
+                resent.setText("Resend OTP");
+                resent.setEnabled(true);
+            }
+        };
+
+
         buttonSendOTP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 String phoneNumber = editTextPhoneNumber.getText().toString().trim();
                 authfail.setVisibility(View.GONE);
+                phonenumber.setText(editTextPhoneNumber.getText());
 
                 if (phoneNumber.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Enter Phone Number", Toast.LENGTH_LONG).show();
                 } else {
-
-                        sendVerificationCode(); // Call the function to send the OTP
-
+                    sendVerificationCode();
+                    startResendTimer();
                 }
             }
         });
 
+        resent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String phoneNumber = editTextPhoneNumber.getText().toString().trim();
+                authfail.setVisibility(View.GONE);
 
 
+                    sendVerificationCode();
+                    startResendTimer();
+
+            }
+        });
 
         buttonVerifyOTP.setOnClickListener(v -> {
             String otp = editTextVerificationCode.getText().toString().trim();
 
-            if (!otp.isEmpty())
-            {
+            if (!otp.isEmpty()) {
                 progressBar.setVisibility(View.VISIBLE);
                 String code = editTextVerificationCode.getText().toString().trim();
                 verifyVerificationCode(code);
-            }
-            else {
+            } else {
                 Toast.makeText(getApplicationContext(), "Enter OTP CODE", Toast.LENGTH_LONG).show();
             }
-
-
         });
     }
+
     public void onBackPressed() {
         // Handle back button press, navigate to home screen
         Intent intent = new Intent(Intent.ACTION_MAIN);
@@ -131,8 +154,8 @@ public class Register extends AppCompatActivity {
         // Initiate phone number verification
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
                 fullPhoneNumber,   // The combined phone number with country code
-                60,                // Timeout duration
-                TimeUnit.SECONDS,  // Timeout unit
+                30,                // Timeout duration
+                TimeUnit.MILLISECONDS,  // Timeout unit
                 this,              // Activity
                 new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
                     @Override
@@ -140,7 +163,6 @@ public class Register extends AppCompatActivity {
                         signInWithPhoneAuthCredential(phoneAuthCredential);
                         progressBar.setVisibility(View.GONE);
                     }
-
 
                     @Override
                     public void onVerificationFailed(@NonNull FirebaseException e) {
@@ -153,7 +175,6 @@ public class Register extends AppCompatActivity {
                         }
                     }
 
-
                     @Override
                     public void onCodeSent(@NonNull String verificationId, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
                         Register.this.verificationId = verificationId;
@@ -163,7 +184,6 @@ public class Register extends AppCompatActivity {
                     }
                 });
     }
-
 
     private void verifyVerificationCode(String code) {
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, code);
@@ -178,9 +198,7 @@ public class Register extends AppCompatActivity {
                         // Phone authentication successful
                         String userName = username.getText().toString();
                         databaseReference.child("Passenger").child(fullPhoneNumber).child("UserName").setValue(userName);
-
                         startActivity(new Intent(Register.this, PassengerMainView.class));
-
                     } else {
                         if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                             Toast.makeText(getApplicationContext(), "OTP Code Not Matched", Toast.LENGTH_SHORT).show();// The verification code entered was invalid
@@ -189,4 +207,8 @@ public class Register extends AppCompatActivity {
                 });
     }
 
+    private void startResendTimer() {
+        resent.setEnabled(false);  // Disable the button to prevent multiple requests
+        resendTimer.start();
+    }
 }

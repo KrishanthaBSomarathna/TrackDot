@@ -21,6 +21,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/authfail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="72dp"
+        android:text="Try Another Phone Number or Try Later!"
+        android:textColor="#FF0000"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView3" />
 
     <LinearLayout
         android:id="@+id/phonelayout"
@@ -31,7 +43,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center">
+
 
         <ProgressBar
             android:id="@+id/progressBar"
@@ -40,14 +54,12 @@
             android:layout_gravity="center"
             android:visibility="gone" />
 
-        <TextView
-            android:id="@+id/authfail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Try Another Phone Number or Try Later!"
-            android:textColor="#FF0000"
-            android:textSize="20dp" />
+
+        <ImageView
+            android:layout_width="308dp"
+            android:layout_height="260dp"
+            android:background="@drawable/regis"/>
+
 
         <EditText
             android:id="@+id/username"
@@ -104,6 +116,7 @@
         android:layout_marginTop="180dp"
         android:layout_marginRight="20dp"
         android:orientation="vertical"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -113,10 +126,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="10dp"
-            android:text="OTP Code Successfully Sent!!!"
-            android:textColor="#00A624"
+            android:text="OTP Code Successfully Sent to"
             android:textSize="20dp" />
+        <TextView
+            android:id="@+id/phoneNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:text="078 7175 969"
+            android:textStyle="bold"
+            android:textSize="20dp" />
+        <ImageView
+            android:layout_width="308dp"
+            android:layout_height="260dp"
+            android:background="@drawable/otpp"/>
 
         <EditText
             android:id="@+id/editTextVerificationCode"
@@ -137,6 +161,15 @@
             android:layout_marginTop="24dp"
             android:foreground="@drawable/verifyotp"
             android:text="Verify OTP" />
+
+        <TextView
+
+            android:id="@+id/resent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="Resend otp?" />
 
     </LinearLayout>
 

@@ -25,7 +25,7 @@ public class PassengerMainView extends AppCompatActivity {
     LinearLayout profile,home,taxi,report;
 
 
-    private CardView routeFinder,liveRadar,ticketbook,taxibook,aboutus;
+    private CardView routeFinder,liveRadar,ticketbook,setting,aboutus;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,32 +35,34 @@ public class PassengerMainView extends AppCompatActivity {
         routeFinder = findViewById(R.id.busshedules);
         liveRadar = findViewById(R.id.liveradar);
         ticketbook = findViewById(R.id.ticketbook);
-        taxibook = findViewById(R.id.taxibook);
-        profile = findViewById(R.id.profile);
+//        taxibook = findViewById(R.id.taxibook);
+//        profile = findViewById(R.id.profile);
         aboutus = findViewById(R.id.aboutus);
-        report = findViewById(R.id.report);
-        taxi = findViewById(R.id.taxi);
-        home = findViewById(R.id.home);
+        setting = findViewById(R.id.setting);
+//        report = findViewById(R.id.report);
+//        taxi = findViewById(R.id.taxi);
+//        home = findViewById(R.id.home);
         updateClockAndDate();
 
-        report.setOnClickListener(new View.OnClickListener() {
+//        report.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(getApplicationContext(),ReportGenerate.class));
+//                Animatoo.INSTANCE.animateSlideUp(PassengerMainView.this);
+//            }
+//        });
+
+
+        setting.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),ReportGenerate.class));
-                Animatoo.INSTANCE.animateSlideUp(PassengerMainView.this);
-            }
-        });
-
-
-
-
-        profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), PassengerProfile.class));
                 Animatoo.INSTANCE.animateSwipeLeft(PassengerMainView.this);
             }
         });
+
+
+
         aboutus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

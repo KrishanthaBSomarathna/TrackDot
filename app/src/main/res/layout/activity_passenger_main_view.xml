@@ -73,7 +73,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:scrollbars="none"
-        app:layout_constraintBottom_toTopOf="@+id/cardView2"
         app:layout_constraintTop_toBottomOf="@+id/imageView">
 
         <LinearLayout
@@ -85,14 +84,15 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="10dp"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/liveradar"
                     android:layout_width="180dp"
-                    android:layout_height="130dp"
+                    android:layout_height="150dp"
                     android:layout_gravity="center"
 
                     android:layout_margin="5dp"
@@ -125,7 +125,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/busshedules"
                     android:layout_width="180dp"
-                    android:layout_height="130dp"
+                    android:layout_height="150dp"
                     android:layout_gravity="center"
                     android:layout_margin="5dp"
                     app:cardCornerRadius="15dp"
@@ -162,14 +162,14 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_marginBottom="20dp"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/ticketbook"
                     android:layout_width="180dp"
-                    android:layout_height="130dp"
+                    android:layout_height="150dp"
                     android:layout_gravity="center"
                     android:layout_margin="5dp"
                     app:cardCornerRadius="15dp"
@@ -197,85 +197,10 @@
                         android:textColor="@color/white"
                         android:textSize="16sp" />
                 </androidx.cardview.widget.CardView>
-
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/taxibook"
-                    android:layout_width="180dp"
-                    android:layout_height="130dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="5dp"
-                    app:cardCornerRadius="15dp"
-                    app:cardElevation="4dp">
-
-                    <ImageView
-                        android:layout_width="170dp"
-                        android:layout_height="105dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/img_4" />
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="23dp"
-                        android:layout_gravity="bottom"
-                        android:alpha="0.9"
-                        android:background="@color/black" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom|center"
-                        android:fontFamily="@font/aclonica"
-                        android:text="Taxi Booking"
-                        android:textColor="@color/white"
-                        android:textSize="16sp" />
-                </androidx.cardview.widget.CardView>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal">
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cargobook"
-                    android:layout_width="180dp"
-                    android:layout_height="130dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="5dp"
-                    app:cardCornerRadius="15dp"
-                    app:cardElevation="4dp">
-
-                    <ImageView
-                        android:layout_width="200dp"
-                        android:layout_height="110dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/img_5" />
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="23dp"
-                        android:layout_gravity="bottom"
-                        android:alpha="0.9"
-                        android:background="@color/black" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom|center"
-                        android:fontFamily="@font/aclonica"
-                        android:text="Cargo Drivers"
-                        android:textColor="@color/white"
-                        android:textSize="16sp" />
-                </androidx.cardview.widget.CardView>
-
                 <androidx.cardview.widget.CardView
                     android:id="@+id/emargency"
                     android:layout_width="180dp"
-                    android:layout_height="130dp"
+                    android:layout_height="150dp"
                     android:layout_gravity="center"
                     android:layout_margin="5dp"
                     app:cardCornerRadius="15dp"
@@ -306,19 +231,128 @@
                 </androidx.cardview.widget.CardView>
 
 
+
+<!--                <androidx.cardview.widget.CardView-->
+<!--                    android:id="@+id/taxibook"-->
+<!--                    android:layout_width="180dp"-->
+<!--                    android:layout_height="130dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_margin="5dp"-->
+<!--                    app:cardCornerRadius="15dp"-->
+<!--                    app:cardElevation="4dp">-->
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="170dp"-->
+<!--                        android:layout_height="105dp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:background="@drawable/img_4" />-->
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="23dp"-->
+<!--                        android:layout_gravity="bottom"-->
+<!--                        android:alpha="0.9"-->
+<!--                        android:background="@color/black" />-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_gravity="bottom|center"-->
+<!--                        android:fontFamily="@font/aclonica"-->
+<!--                        android:text="Taxi Booking"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="16sp" />-->
+<!--                </androidx.cardview.widget.CardView>-->
+
             </LinearLayout>
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="5dp"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <androidx.cardview.widget.CardView-->
+<!--                    android:id="@+id/cargobook"-->
+<!--                    android:layout_width="180dp"-->
+<!--                    android:layout_height="130dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_margin="5dp"-->
+<!--                    app:cardCornerRadius="15dp"-->
+<!--                    app:cardElevation="4dp">-->
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="200dp"-->
+<!--                        android:layout_height="110dp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:background="@drawable/img_5" />-->
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="23dp"-->
+<!--                        android:layout_gravity="bottom"-->
+<!--                        android:alpha="0.9"-->
+<!--                        android:background="@color/black" />-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_gravity="bottom|center"-->
+<!--                        android:fontFamily="@font/aclonica"-->
+<!--                        android:text="Cargo Drivers"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="16sp" />-->
+<!--                </androidx.cardview.widget.CardView>-->
+
+<!--                <androidx.cardview.widget.CardView-->
+<!--                    android:id="@+id/emargency"-->
+<!--                    android:layout_width="180dp"-->
+<!--                    android:layout_height="130dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_margin="5dp"-->
+<!--                    app:cardCornerRadius="15dp"-->
+<!--                    app:cardElevation="4dp">-->
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="200dp"-->
+<!--                        android:layout_height="120dp"-->
+<!--                        android:layout_marginTop="-10dp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:background="@drawable/img_6" />-->
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="23dp"-->
+<!--                        android:layout_gravity="bottom"-->
+<!--                        android:alpha="0.9"-->
+<!--                        android:background="@color/black" />-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_gravity="bottom|center"-->
+<!--                        android:fontFamily="@font/aclonica"-->
+<!--                        android:text="User Guide"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="16sp" />-->
+<!--                </androidx.cardview.widget.CardView>-->
+
+
+<!--            </LinearLayout>-->
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_marginBottom="20dp"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal">
 
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/setting"
                     android:layout_width="180dp"
-                    android:layout_height="130dp"
+                    android:layout_height="150dp"
                     android:layout_gravity="center"
                     android:layout_margin="5dp"
                     app:cardCornerRadius="15dp"
@@ -350,7 +384,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/aboutus"
                     android:layout_width="180dp"
-                    android:layout_height="130dp"
+                    android:layout_height="150dp"
                     android:layout_gravity="center"
                     android:layout_margin="5dp"
                     app:cardCornerRadius="15dp"
@@ -388,105 +422,105 @@
     </ScrollView>
 
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:id="@+id/cardView2"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:background="@color/white"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent">-->
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center">
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center">-->
 
-            <LinearLayout
-                android:id="@+id/home"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginRight="70dp"
+<!--            <LinearLayout-->
+<!--                android:id="@+id/home"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginRight="70dp"-->
 
-                android:orientation="vertical">
+<!--                android:orientation="vertical">-->
 
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/home" />
+<!--                <ImageView-->
+<!--                    android:layout_width="30dp"-->
+<!--                    android:layout_height="30dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:background="@drawable/home" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Home" />
-            </LinearLayout>
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Home" />-->
+<!--            </LinearLayout>-->
 
-            <LinearLayout
-                android:id="@+id/taxi"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginRight="70dp"
+<!--            <LinearLayout-->
+<!--                android:id="@+id/taxi"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginRight="70dp"-->
 
-                android:orientation="vertical">
+<!--                android:orientation="vertical">-->
 
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/taxi_icon" />
+<!--                <ImageView-->
+<!--                    android:layout_width="30dp"-->
+<!--                    android:layout_height="30dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:background="@drawable/taxi_icon" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Taxi" />
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/report"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="center"
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Taxi" />-->
+<!--            </LinearLayout>-->
+<!--            <LinearLayout-->
+<!--                android:id="@+id/report"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                android:layout_gravity="center"-->
 
-                >
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:background="@drawable/report"
-                    android:layout_gravity="center"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Report"/>
-            </LinearLayout>
+<!--                >-->
+<!--                <ImageView-->
+<!--                    android:layout_width="30dp"-->
+<!--                    android:layout_height="30dp"-->
+<!--                    android:background="@drawable/report"-->
+<!--                    android:layout_gravity="center"/>-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Report"/>-->
+<!--            </LinearLayout>-->
 
-            <LinearLayout
-                android:id="@+id/profile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="center"
-                android:layout_marginLeft="70dp"
+<!--            <LinearLayout-->
+<!--                android:id="@+id/profile"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginLeft="70dp"-->
 
-                >
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:background="@drawable/profile"
-                    android:layout_gravity="center"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Profile"/>
-            </LinearLayout>
+<!--                >-->
+<!--                <ImageView-->
+<!--                    android:layout_width="30dp"-->
+<!--                    android:layout_height="30dp"-->
+<!--                    android:background="@drawable/profile"-->
+<!--                    android:layout_gravity="center"/>-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Profile"/>-->
+<!--            </LinearLayout>-->
 
 
 
-        </LinearLayout>
+<!--        </LinearLayout>-->
 
-    </androidx.cardview.widget.CardView>
+<!--    </androidx.cardview.widget.CardView>-->
 
 
 
