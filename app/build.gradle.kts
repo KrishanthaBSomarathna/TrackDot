@@ -106,15 +106,17 @@ dependencies {
 
     implementation ("com.google.maps.android:android-maps-utils:2.2.0")
 
-
-
-
-
-
-
-
-
-
-
+    // ViewModel and LiveData dependencies
+    implementation("androidx.lifecycle:lifecycle-viewmodel:2.6.1")
+    implementation("androidx.lifecycle:lifecycle-livedata:2.6.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
+    
+    // Fragment dependencies
+    implementation("androidx.fragment:fragment:1.6.0")
+    implementation("androidx.fragment:fragment-ktx:1.6.0")
+    
+    // RecyclerView dependency (already exists but ensuring it's there)
+    implementation("androidx.recyclerview:recyclerview:1.3.0")
 
 }
